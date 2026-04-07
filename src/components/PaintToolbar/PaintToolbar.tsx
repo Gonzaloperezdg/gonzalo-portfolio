@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { usePaint } from '../../context/PaintContext';
-import { BRUSH_SIZES, SIZE_TOOLS, type RectFill } from '../../context/paintConstants';
+import { BRUSH_SIZES, SIZE_TOOLS, type RectFill, type Tool } from '../../context/paintConstants';
 import {
   MousePointer2, Pencil, Paintbrush, PaintBucket, Eraser,
   Minus, Square, Pipette, SprayCan, Type, Trash2, Zap,
@@ -97,7 +97,7 @@ export function PaintToolbar() {
   const isColorTool = activeTool === 'pencil' || activeTool === 'brush';
 
   // Toggle palette on tool click for mobile
-  const handleToolClick = (id: string) => {
+  const handleToolClick = (id: Tool) => {
     if (id === activeTool && (id === 'pencil' || id === 'brush')) {
       setShowMobilePalette(prev => !prev);
     } else {
