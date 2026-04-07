@@ -1,0 +1,485 @@
+/* ═══════════════════════════════════════════════════════════
+   Paint Toolbar — Retro Cálido, íconos grandes y claros
+   ═══════════════════════════════════════════════════════════ */
+
+
+.toolbar {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: var(--z-toolbar);
+
+  width: 102px; /* (34px * 2) + 8px gap + 12px padding * 2 */
+  background: var(--color-surface-low);
+  opacity: 0.98;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-3);
+  gap: 8px;
+
+  /* Look moderno: borde simple + sombra suave */
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+
+  font-family: var(--font-mono);
+}
+
+.toolGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Botones modernos — 34×34px */
+.toolBtn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  padding: 0;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.toolBtn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.toolBtn:hover {
+  background: var(--color-surface-high);
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Activo — Alto contraste Cobalt Blanco */
+.toolBtn.active {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-brand);
+}
+
+/* Separador — Mínimo */
+.sep {
+  width: 100%;
+  height: 1px;
+  margin: 4px 0;
+  background: var(--color-outline-variant);
+}
+
+/* ─── Selector de tamaño ─── */
+.sizeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  width: 100%;
+}
+
+.sizeBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sizeBtn:hover {
+  border-color: var(--color-brand);
+}
+
+.sizeBtnActive {
+  background: var(--color-surface-high);
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.sizeDot {
+  display: block;
+  background: currentColor;
+  border-radius: 50%; /* Puntos redondeados para look moderno */
+}
+
+/* ─── Rect options ─── */
+.rectOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.rectBtn {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.rectBtnActive {
+  background: var(--color-surface-high);
+  border-color: var(--color-brand);
+}
+
+/* ─── Personalizador de Color Pro (Floating Panel) ─── */
+.customizer {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  background: var(--color-surface);
+  opacity: 0.98;
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-40%) translateX(-8px); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+.spectrumArea {
+  width: 100%;
+  height: 120px;
+  cursor: crosshair;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.hueSlider {
+  width: 100%;
+  height: 10px;
+  appearance: none;
+  background: linear-gradient(
+    to right, 
+    #ff0000 0%, #ffff00 17%, #00ff00 33%, 
+    #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%
+  );
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.customizerLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  letter-spacing: 0.05em;
+  margin-bottom: -4px;
+}
+
+.customizerFooter {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.customizerBtn {
+  flex: 1;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-high);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* Zap Button — Motor de Vibración */
+.zapBtn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.zapBtn:hover {
+  color: var(--color-brand);
+  border-color: var(--color-brand);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.zapBtnActive {
+  background: var(--color-brand);
+  color: #FFFFFF;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 15px rgba(26, 71, 232, 0.3);
+}
+
+/* El Motor de Vibración (Squigglevision / Jitter) — SOLO PARA EL CANVAS ── */
+:global(.is-vibrating) canvas {
+  filter: url(#jitter-filter);
+  transition: none;
+}
+
+/* ─── Swatches — Más grandes y centrados — Ocupan el ancho ─── */
+.swatchZone {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 12px 0;
+}
+
+.swatch {
+  position: absolute;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  border: 2px solid var(--color-surface-high);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.swatch:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+}
+
+.swatchPrimary {
+  width: 42px;
+  height: 42px;
+  left: 12px;
+  top: 4px;
+  z-index: 2;
+}
+
+.swatchSecondary {
+  width: 38px;
+  height: 38px;
+  right: 12px;
+  bottom: 4px;
+  z-index: 1;
+}
+
+/* Input HEX — Moderno */
+.hexInput {
+  width: 100%;
+  height: 30px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  background: var(--color-surface-low);
+  color: var(--color-on-surface);
+  border: 1.5px solid var(--color-outline-variant);
+  border-radius: var(--radius-sm);
+  padding: 0 4px;
+  outline: none;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.hexInput:focus {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 2px rgba(26, 71, 232, 0.1);
+}
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  width: 100%;
+}
+
+.colorBtn {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.colorBtn:hover {
+  transform: scale(1.1);
+  z-index: 1;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.colorBtn.colorActive {
+  border: 2px solid var(--color-brand);
+  transform: scale(1.1);
+}
+
+/* Clear button — Moderno */
+.clearBtn {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--color-surface-high);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-on-surface);
+  transition: all 0.2s ease;
+}
+
+.clearBtn span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-on-surface-variant);
+}
+
+.clearBtn:hover {
+  background: var(--color-error);
+  border-color: var(--color-error);
+  color: #FFFFFF;
+}
+
+.clearBtn:hover span {
+  color: #FFFFFF;
+}
+
+.clearBtn:active {
+  transform: scale(0.95);
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 600px) {
+  .toolbar {
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: 12px;
+    width: auto;
+    transform: none;
+    flex-direction: row;
+    padding: 12px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .toolGrid {
+    display: flex;
+    width: auto;
+  }
+
+  .toolBtn {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Fix 1: Customizer abre hacia ARRIBA en mobile (evita salir del viewport) */
+  .customizer {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: calc(100% + 12px);
+    transform: none;
+    width: auto;
+    max-width: 280px;
+    animation: fadeInUp 0.15s ease-out;
+  }
+
+  /* Fix 2: Zap Button con área táctil correcta (44px) */
+  .zapBtn {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .hexInput, .palette, .sep, .swatchZone, .clearBtn span {
+    display: none;
+  }
+
+  .clearBtn {
+    width: 44px;
+    height: 44px;
+    min-height: unset;
+    margin-top: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 10px;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.tooltipHidden {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.tooltipArrow {
+  position: absolute;
+  top: 12px;
+  left: -5px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-outline-variant);
+  border-bottom: 1px solid var(--color-outline-variant);
+  transform: rotate(45deg);
+}

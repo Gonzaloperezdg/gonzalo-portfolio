@@ -1,0 +1,107 @@
+/* === Reset === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Temas - Colores Cálidos Tenues === */
+
+/* Light Theme - Crema y Marrón Claro */
+[data-theme='light'] {
+  --color-bg: #faf7f3;
+  --color-text: #4a3f39;
+  --color-text-secondary: #7a6f69;
+  --color-text-muted: #a09691;
+  --color-border: #e8dfd5;
+  --color-accent: #c97e5c;
+  --color-accent-dark: #b86a4a;
+}
+
+/* Dark Theme - Marrón Oscuro y Crema Suave */
+[data-theme='dark'] {
+  --color-bg: #3e3530;
+  --color-text: #ede6df;
+  --color-text-secondary: #d4cdc5;
+  --color-text-muted: #b8aea5;
+  --color-border: #5a4f4a;
+  --color-accent: #e8956d;
+  --color-accent-dark: #f5a87d;
+}
+
+/* Default (fallback) */
+:root {
+  --color-bg: #faf7f3;
+  --color-text: #4a3f39;
+  --color-text-secondary: #7a6f69;
+  --color-text-muted: #a09691;
+  --color-border: #e8ddf5;
+  --color-accent: #c97e5c;
+  --color-accent-dark: #b86a4a;
+
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  color-scheme: light dark;
+}
+
+/* === Base === */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* === Win98 Paint System === */
+:root {
+  --toolbar-width: 56px;
+  --win98-gray: #c0c0c0;
+  --win98-dark: #808080;
+  --win98-white: #ffffff;
+  --win98-black: #000000;
+}
+
+/* === App Layout === */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  /* Sit above canvas (z:1) so strokes never visually cover content */
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 640px) {
+  .app-main {
+    padding: 0 1.25rem;
+  }
+}

@@ -1,0 +1,328 @@
+/* ═══════════════════════════════════════════════════════════
+   Reset
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Design System — Brutalista Digital
+   Referencia: Stitch Minimalismo Brutalista + Paint Portfolio
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  /* ─── LIGHT THEME (default) ─────────────────────────── */
+
+  --color-surface:              #FFFFFF;
+  --color-surface-low:          #F5F5F5;
+  --color-surface-high:         #E0E0E0;
+  --color-surface-dim:          #CCCCCC;
+  --color-surface-variant:      #F0F0F0;
+  --color-on-surface:           #1A1A1A;
+  --color-on-surface-variant:   #444444;
+
+  --color-primary:              #1A1A1A;
+  --color-primary-container:    #2A2A2A;
+  --color-on-primary:           #FFFFFF;
+  --color-on-primary-container: #999999;
+
+  /* Accent — Cobalt (1 color) */
+  --color-brand:                #1A47E8;
+  --color-brand-hover:          #1238C5;
+  --color-on-brand:             #FFFFFF;
+
+  --color-secondary:            #444444;
+  --color-secondary-container:  #F5F5F5;
+  --color-on-secondary:         #FFFFFF;
+
+  --color-outline:              #999999;
+  --color-outline-variant:      #E0E0E0;
+
+  /* Semantic */
+  --color-error:                #D32F2F;
+  --color-success:              #2E7D32;
+  --color-accent-badge:         #1A47E8;
+  --color-accent-badge-text:    #FFFFFF;
+  --color-focus-ring:           #1A47E8;
+
+  /* Win98 chrome — usado por PaintToolbar, Timeline, bevel utilities */
+  --color-bevel-white:          #FFFFFF;
+  --color-bevel-mid-light:      #E0E0E0;
+  --color-bevel-shadow:         #E0E0E0;
+  --color-bevel-black:          #1A1A1A;
+  --color-button-face:          #F5F5F5;
+  --color-text-secondary:       #444444;
+
+
+  /* ─── TIPOGRAFÍA ──────────────────────────────────────── */
+
+  /* Display: Bebas Neue — condensado, poster, ultra bold, para títulos de sección grandes */
+  --font-display:   'Bebas Neue', sans-serif;
+  /* Headline: Space Grotesk — masivo, condensado, brutalista */
+  --font-headline:  'Space Grotesk', system-ui, sans-serif;
+  /* Body: Inter — legible, neutro */
+  --font-body:      'Inter', system-ui, sans-serif;
+  /* Mono: JetBrains Mono — metadata técnica, labels, status */
+  --font-mono:      'JetBrains Mono', 'Courier New', monospace;
+  /* Pixel: VT323 — loading screen, Art Layer */
+  --font-pixel:     'VT323', 'Courier New', monospace;
+
+  /* Escala tipográfica */
+  --text-xs:        10px;
+  --text-sm:        12px;
+  --text-caption:   13px;
+  --text-ui:        14px;
+  --text-base:      16px;
+  --text-md:        20px;
+  --text-lg:        24px;
+  --text-xl:        32px;
+  --text-2xl:       48px;
+  --text-hero:      clamp(56px, 10vw, 120px);
+
+  /* ─── ESPACIADO ───────────────────────────────────────── */
+
+  --space-1:        4px;
+  --space-2:        8px;
+  --space-3:        12px;
+  --space-4:        16px;
+  --space-6:        24px;
+  --space-8:        32px;
+  --space-12:       48px;
+  --space-16:       64px;
+  --space-24:       96px;
+
+  /* ─── ESTRUCTURAL ─────────────────────────────────────── */
+
+  --toolbar-w:      52px;
+  --statusbar-h:    28px;
+  --content-max:    1200px;
+  --reading-max:    680px;
+
+  /* ─── BORDES Y RADIO ─────────────────────────────────── */
+
+  --radius-none:    0px;
+  --radius-sm:      4px;
+  --radius-md:      6px;
+  --radius-lg:      12px;
+  --radius-xl:      20px;
+  --radius-pill:    100px;
+  --border-1:       1px;
+  --border-2:       2px;
+
+  /* Shadows — sutiles, con blur */
+  --shadow-sm:      0 1px 3px rgba(15,15,15,0.08), 0 1px 2px rgba(15,15,15,0.06);
+  --shadow-md:      0 4px 12px rgba(15,15,15,0.10), 0 2px 4px rgba(15,15,15,0.06);
+  --shadow-lg:      0 8px 24px rgba(15,15,15,0.12), 0 4px 8px rgba(15,15,15,0.06);
+  --shadow-brand:   0 4px 16px rgba(26,71,232,0.25);
+
+  /* ─── Z-INDEX ─────────────────────────────────────────── */
+
+  --z-canvas:           1;
+  --z-content:          2;
+  --z-drawing-overlay:  10;
+  --z-header:           100;
+  --z-toolbar:          200;
+  --z-scanlines:        50;
+  --z-modal:            400;
+  --z-toast:            500;
+  --z-loading:          999;
+
+  /* ─── TIMING ──────────────────────────────────────────── */
+
+  --duration-fast:      150ms;
+  --duration-normal:    300ms;
+
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Dark Theme
+   ═══════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  --color-surface:              #0A0A0A;
+  --color-surface-low:          #141414;
+  --color-surface-high:         #2A2A2A;
+  --color-surface-dim:          #404040;
+  --color-surface-variant:      #1E1E1E;
+  --color-on-surface:           #FFFFFF;
+  --color-on-surface-variant:   #AAAAAA;
+
+  --color-primary:              #FFFFFF;
+  --color-primary-container:    #E0E0E0;
+  --color-on-primary:           #0A0A0A;
+  --color-on-primary-container: #666666;
+
+  --color-brand:                #4F72F0;
+  --color-brand-hover:          #6B8AF5;
+  --color-on-brand:             #FFFFFF;
+
+  --color-secondary:            #AAAAAA;
+  --color-secondary-container:  #1E1E1E;
+  --color-on-secondary:         #0A0A0A;
+
+  --color-outline:              #555555;
+  --color-outline-variant:      #2A2A2A;
+
+  --color-error:                #EF5350;
+  --color-success:              #66BB6A;
+  --color-accent-badge:         #4F72F0;
+  --color-accent-badge-text:    #FFFFFF;
+
+  --color-focus-ring:           #4F72F0;
+
+  /* Win98 chrome — dark overrides */
+  --color-bevel-white:          #1E1E1E;
+  --color-bevel-mid-light:      #2A2A2A;
+  --color-bevel-shadow:         #2A2A2A;
+  --color-bevel-black:          #FFFFFF;
+  --color-button-face:          #1E1E1E;
+  --color-text-secondary:       #AAAAAA;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Base
+   ═══════════════════════════════════════════════════════════ */
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-on-surface);
+  background: var(--color-surface);
+  line-height: 1.6;
+}
+
+/* Base de layout */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Sin blur global — el efecto CRT lo dan las scanlines, no el blur */
+}
+
+/* Scanlines desactivadas — nueva dirección visual */
+/* body::before { ... } */
+
+/* ═══════════════════════════════════════════════════════════
+   Bevel Utility Classes — Win98 4-tone authentic system
+   ═══════════════════════════════════════════════════════════ */
+
+/* Outset: elemento elevado — sombra cálida sin línea negra */
+.bevel-outset {
+  border-style: solid;
+  border-width: 2px;
+  border-color:
+    var(--color-bevel-white)    /* top */
+    var(--color-bevel-shadow)   /* right */
+    var(--color-bevel-shadow)   /* bottom */
+    var(--color-bevel-white);   /* left */
+  /* sin outline negro — usa sombra interior suave */
+  box-shadow: inset 0 0 0 1px rgba(61, 31, 10, 0.12);
+}
+
+/* Inset: elemento hundido */
+.bevel-inset {
+  border-style: solid;
+  border-width: 2px;
+  border-color:
+    var(--color-bevel-shadow)   /* top */
+    var(--color-bevel-white)    /* right */
+    var(--color-bevel-white)    /* bottom */
+    var(--color-bevel-shadow);  /* left */
+  box-shadow: inset 1px 1px 3px rgba(61, 31, 10, 0.1);
+}
+
+/* Groove: separador */
+.bevel-groove {
+  border: 0;
+  border-top: 1px solid var(--color-bevel-shadow);
+  border-bottom: 1px solid var(--color-bevel-white);
+}
+
+/* Focus visible accesible */
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+
+/* Pixel font */
+.pixel-font, [data-pixel-font] {
+  font-family: var(--font-pixel);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+}
+
+/* Mono labels */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-outline);
+}
+
+a {
+  color: inherit;
+}
+
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   App Layout
+   ═══════════════════════════════════════════════════════════ */
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: var(--z-content);
+}
+
+@media (max-width: 640px) {
+  .app-main {
+    padding: 0 1.25rem;
+    /* Reserve space for the fixed mobile toolbar at the bottom */
+    padding-bottom: 80px;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   Prefers Reduced Motion — respeta configuración del SO
+   ═══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  body::before {
+    display: none; /* oculta scanlines si el usuario prefiere menos movimiento */
+  }
+}

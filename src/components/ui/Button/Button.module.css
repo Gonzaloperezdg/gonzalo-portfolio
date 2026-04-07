@@ -1,0 +1,84 @@
+/* ═══════════════════════════════════════════════════════════
+   Button — Primitivo de acción reutilizable
+   ═══════════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 11px var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-ui);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Variantes ───────────────────────────────────────────── */
+
+.primary {
+  color: var(--color-on-brand);
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-brand-hover);
+  border-color: var(--color-brand-hover);
+}
+
+.secondary {
+  color: var(--color-primary);
+  background: transparent;
+  border-color: var(--color-outline-variant);
+}
+
+.secondary:hover:not(:disabled) {
+  border-color: var(--color-outline);
+  background: var(--color-surface-low);
+}
+
+.ghost {
+  color: var(--color-outline);
+  background: transparent;
+  border-color: var(--color-outline-variant);
+}
+
+.ghost:hover:not(:disabled) {
+  border-color: var(--color-outline);
+  color: var(--color-primary);
+}
+
+/* ── Tamaños ─────────────────────────────────────────────── */
+
+.sm {
+  padding: 6px var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.md {
+  padding: 11px var(--space-6);
+  font-size: var(--text-ui);
+}
+
+.lg {
+  padding: 14px var(--space-8);
+  font-size: var(--text-base);
+}
+
+/* ── Full width ──────────────────────────────────────────── */
+
+.fullWidth {
+  width: 100%;
+}

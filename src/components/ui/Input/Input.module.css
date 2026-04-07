@@ -1,0 +1,115 @@
+/* ═══════════════════════════════════════════════════════════
+   Input — Floating label, underline style
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Variante underline (floating label) ─────────────────── */
+
+.fieldUnderline {
+  position: relative;
+  padding-top: 18px; /* espacio para el label flotante */
+}
+
+.labelFloating {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--color-outline);
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+
+/* Sube el label cuando el input tiene foco o contenido */
+.inputUnderline:focus ~ .labelFloating,
+.inputUnderline:not(:placeholder-shown) ~ .labelFloating,
+.textareaUnderline:focus ~ .labelFloating,
+.textareaUnderline:not(:placeholder-shown) ~ .labelFloating {
+  transform: translateY(-20px) scale(0.75);
+  color: var(--color-brand);
+}
+
+.inputUnderline,
+.textareaUnderline {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--color-outline-variant);
+  border-radius: 0;
+  padding: 6px 0;
+  color: var(--color-primary);
+  outline: none;
+  transition: border-color 0.18s ease;
+  display: block;
+}
+
+.inputUnderline:focus,
+.textareaUnderline:focus {
+  border-bottom-color: var(--color-brand);
+}
+
+.inputUnderline::placeholder,
+.textareaUnderline::placeholder {
+  color: transparent; /* oculto: el label hace de placeholder */
+}
+
+.textareaUnderline {
+  min-height: 100px;
+  resize: vertical;
+  border-bottom: 1.5px solid var(--color-outline-variant);
+}
+
+/* ── Variante default (caja completa) ─────────────────────── */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-outline);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input,
+.textarea {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  padding: var(--space-3);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-brand);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ── Error ───────────────────────────────────────────────── */
+
+.error {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  margin-top: var(--space-1);
+}

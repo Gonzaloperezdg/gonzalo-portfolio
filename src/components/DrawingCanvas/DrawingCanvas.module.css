@@ -1,0 +1,52 @@
+/* ═══════════════════════════════════════════════════════
+   Drawing Canvas — strict background layer
+
+   z-index system:
+     z:1   canvas   → drawing surface, visible above body bg
+     z:2   content  → app-main / footer sit here (above canvas)
+     z:10  overlay  → event capture when tool active
+     z:100 header   → always clickable (above overlay)
+     z:200 toolbar  → always above everything
+
+   Result: strokes are always BEHIND text/images/buttons.
+   Only header + toolbar remain interactive while drawing.
+   ═══════════════════════════════════════════════════════ */
+
+.canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges; /* Firefox */
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  cursor: crosshair;
+}
+
+.overlay.active {
+  pointer-events: all;
+  touch-action: none; /* prevents browser scroll/pan when drawing with tablet or touch */
+}
+
+/* Input flotante para herramienta texto */
+.textInput {
+  position: fixed;
+  z-index: 11;
+  background: transparent;
+  border: 1px dashed rgba(0,0,0,0.4);
+  outline: none;
+  padding: 0 2px;
+  font-family: "Courier New", monospace;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  min-width: 80px;
+  pointer-events: all;
+}

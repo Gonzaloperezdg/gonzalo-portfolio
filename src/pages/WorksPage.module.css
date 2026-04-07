@@ -1,0 +1,25 @@
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 9vw, 112px);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 8px;
+  line-height: 0.9;
+}
+
+.intro {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-on-surface-variant);
+  line-height: 1.6;
+  margin: 16px 0 48px;
+  max-width: var(--reading-max);
+}
