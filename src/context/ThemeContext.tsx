@@ -1,15 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-import { translations, type Language, type TranslationKey } from '../i18n/translations';
-
-type Theme = 'light' | 'dark';
-
-interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
-  language: Language;
-  toggleLanguage: () => void;
-  t: (key: TranslationKey) => string;
-}
+import { type Theme, type ThemeContextType, type Language, type TranslationKey, translations } from './themeConstants';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
@@ -45,8 +35,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) throw new Error('useTheme debe ser usado dentro de ThemeProvider');
   return context;
 }
+
+// Re-export types for backward compatibility
+export type { Theme, ThemeContextType, Language, TranslationKey } from './themeConstants';

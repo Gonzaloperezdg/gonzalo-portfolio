@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import { usePaint, BRUSH_SIZES, SIZE_TOOLS, type RectFill } from '../../context/PaintContext';
+import { usePaint } from '../../context/PaintContext';
+import { BRUSH_SIZES, SIZE_TOOLS, type RectFill } from '../../context/paintConstants';
 import {
   MousePointer2, Pencil, Paintbrush, PaintBucket, Eraser,
   Minus, Square, Pipette, SprayCan, Type, Trash2, Zap
@@ -92,7 +93,7 @@ export function PaintToolbar() {
     return () => { clearTimeout(timer); window.removeEventListener('scroll', handleScroll); };
   }, []);
 
-  const showSizes = activeTool !== null && SIZE_TOOLS.includes(activeTool as any);
+  const showSizes = activeTool !== null && SIZE_TOOLS.includes(activeTool as NonNullable<typeof activeTool>);
   const showRect  = activeTool === 'rectangle';
   const sizes     = (activeTool && BRUSH_SIZES[activeTool]) ?? [1, 2, 3, 4];
 
@@ -153,7 +154,7 @@ export function PaintToolbar() {
           <button
             key={id}
             className={`${styles.toolBtn} ${activeTool === id ? styles.active : ''}`}
-            onClick={() => setActiveTool(id as any)}
+            onClick={() => setActiveTool(id)}
             title={label}
             aria-label={label}
             aria-pressed={activeTool === id}

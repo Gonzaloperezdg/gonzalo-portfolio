@@ -2,18 +2,17 @@ import React from 'react';
 import styles from './Input.module.css';
 
 interface FieldProps {
-  id: string;
   label: string;
   error?: string;
   className?: string;
   variant?: 'default' | 'underline';
 }
 
-interface InputProps extends FieldProps, React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>, FieldProps {
   as?: 'input';
 }
 
-interface TextareaProps extends FieldProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement>, FieldProps {
   as: 'textarea';
 }
 
