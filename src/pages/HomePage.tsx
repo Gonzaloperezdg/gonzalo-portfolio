@@ -24,6 +24,21 @@ export function HomePage() {
   const contactFormRef = useRef<HTMLFormElement>(null);
   const containerRef  = useRef<HTMLDivElement>(null);
 
+  // Cache theme colors to avoid repeated getComputedStyle calls on every mousemove
+  const themeColorsRef = useRef({
+    surface: '#FFFFFF',
+    onSurface: '#1A1A1A',
+  });
+
+  // Update cached colors when theme changes
+  useEffect(() => {
+    const root = document.documentElement;
+    themeColorsRef.current = {
+      surface: getComputedStyle(root).getPropertyValue('--color-surface').trim() || '#FFFFFF',
+      onSurface: getComputedStyle(root).getPropertyValue('--color-on-surface').trim() || '#1A1A1A',
+    };
+  }, [language]);
+
   // Inicializar canvas de contacto cuando cambia de modo
   useEffect(() => {
     if (contactMode === 'draw' && contactCanvasRef.current) {
@@ -31,10 +46,7 @@ export function HomePage() {
       const ctx = canvas.getContext('2d');
       if (ctx) {
         ctx.imageSmoothingEnabled = false;
-        // Fix 10: Usar color del tema en lugar de blanco fijo
-        const surface = getComputedStyle(document.documentElement)
-          .getPropertyValue('--color-surface').trim() || '#FFFFFF';
-        ctx.fillStyle = surface;
+        ctx.fillStyle = themeColorsRef.current.surface;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
     }
@@ -64,12 +76,8 @@ export function HomePage() {
     const ctx = contactCanvasRef.current.getContext('2d');
     if (!ctx) return;
 
-    // Fix 10: Usar color del tema para el trazo
-    const onSurface = getComputedStyle(document.documentElement)
-      .getPropertyValue('--color-on-surface').trim() || '#1A1A1A';
-
     ctx.imageSmoothingEnabled = false;
-    ctx.strokeStyle = onSurface;
+    ctx.strokeStyle = themeColorsRef.current.onSurface;
     ctx.lineWidth = 2;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
@@ -123,10 +131,7 @@ export function HomePage() {
     if (!contactCanvasRef.current) return;
     const ctx = contactCanvasRef.current.getContext('2d');
     if (!ctx) return;
-    // Fix 10: Tema-aware clear
-    const surface = getComputedStyle(document.documentElement)
-      .getPropertyValue('--color-surface').trim() || '#FFFFFF';
-    ctx.fillStyle = surface;
+    ctx.fillStyle = themeColorsRef.current.surface;
     ctx.fillRect(0, 0, contactCanvasRef.current.width, contactCanvasRef.current.height);
   };
 
