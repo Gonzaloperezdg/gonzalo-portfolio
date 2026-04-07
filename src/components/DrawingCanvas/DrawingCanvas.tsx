@@ -1,8 +1,9 @@
 import { useRef, useEffect, useCallback, useState } from 'react';
+import { usePaint } from '../../context/PaintContext';
 import {
-  usePaint, BRUSH_SIZES, PIXEL_MODES,
-  type Tool, type RectFill, type PixelMode,
-} from '../../context/PaintContext';
+  BRUSH_SIZES, PIXEL_MODES,
+  type Tool, type PixelMode,
+} from '../../context/paintConstants';
 import styles from './DrawingCanvas.module.css';
 
 const MAX_HISTORY = 40;
@@ -36,7 +37,7 @@ function floodFill(
   const data = imageData.data;
   const idx = (x: number, y: number) => (y * width + x) * 4;
   const si = idx(startX, startY);
-  const target = [data[si], data[si+1], data[si+2], data[si+3]];
+  const target = [data[si], data[si + 1], data[si + 2], data[si + 3]];
   if (target.every((v, i) => v === fillColor[i])) return;
 
   const stack: [number, number][] = [[startX, startY]];
@@ -46,10 +47,10 @@ function floodFill(
     if (x < 0 || x >= width || y < 0 || y >= height) continue;
     const i = idx(x, y); const vi = y * width + x;
     if (visited[vi]) continue;
-    if (data[i]!==target[0]||data[i+1]!==target[1]||data[i+2]!==target[2]||data[i+3]!==target[3]) continue;
+    if (data[i] !== target[0] || data[i + 1] !== target[1] || data[i + 2] !== target[2] || data[i + 3] !== target[3]) continue;
     visited[vi] = 1;
-    data[i]=fillColor[0]; data[i+1]=fillColor[1]; data[i+2]=fillColor[2]; data[i+3]=fillColor[3];
-    stack.push([x+1,y],[x-1,y],[x,y+1],[x,y-1]);
+    data[i] = fillColor[0]; data[i + 1] = fillColor[1]; data[i + 2] = fillColor[2]; data[i + 3] = fillColor[3];
+    stack.push([x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]);
   }
   ctx.putImageData(imageData, 0, 0);
 }
@@ -60,59 +61,59 @@ function bresenham(
   x0: number, y0: number, x1: number, y1: number,
   color: string, size: number, erase = false
 ) {
-  x0=Math.round(x0); y0=Math.round(y0);
-  x1=Math.round(x1); y1=Math.round(y1);
-  const dx=Math.abs(x1-x0), dy=Math.abs(y1-y0);
-  const sx=x0<x1?1:-1, sy=y0<y1?1:-1;
-  let err=dx-dy;
-  if (erase) { ctx.globalCompositeOperation='destination-out'; ctx.fillStyle='rgba(0,0,0,1)'; }
-  else       { ctx.globalCompositeOperation='source-over';     ctx.fillStyle=color; }
-  const h=Math.floor(size/2);
-  while(true) {
-    ctx.fillRect(x0-h, y0-h, size, size);
-    if(x0===x1&&y0===y1) break;
-    const e2=2*err;
-    if(e2>-dy){err-=dy; x0+=sx;}
-    if(e2<dx) {err+=dx; y0+=sy;}
+  x0 = Math.round(x0); y0 = Math.round(y0);
+  x1 = Math.round(x1); y1 = Math.round(y1);
+  const dx = Math.abs(x1 - x0), dy = Math.abs(y1 - y0);
+  const sx = x0 < x1 ? 1 : -1, sy = y0 < y1 ? 1 : -1;
+  let err = dx - dy;
+  if (erase) { ctx.globalCompositeOperation = 'destination-out'; ctx.fillStyle = 'rgba(0,0,0,1)'; }
+  else { ctx.globalCompositeOperation = 'source-over'; ctx.fillStyle = color; }
+  const h = Math.floor(size / 2);
+  while (true) {
+    ctx.fillRect(x0 - h, y0 - h, size, size);
+    if (x0 === x1 && y0 === y1) break;
+    const e2 = 2 * err;
+    if (e2 > -dy) { err -= dy; x0 += sx; }
+    if (e2 < dx) { err += dx; y0 += sy; }
   }
 }
 
 /** Brush suave — trazos con lineCap round */
 function brushStroke(
   ctx: CanvasRenderingContext2D,
-  from: {x:number;y:number}, to: {x:number;y:number},
+  from: { x: number; y: number }, to: { x: number; y: number },
   color: string, size: number, erase = false
 ) {
   ctx.imageSmoothingEnabled = false;
   ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  if (erase) { ctx.globalCompositeOperation='destination-out'; ctx.strokeStyle='rgba(0,0,0,1)'; }
-  else       { ctx.globalCompositeOperation='source-over';     ctx.strokeStyle=color; }
+  if (erase) { ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,1)'; }
+  else { ctx.globalCompositeOperation = 'source-over'; ctx.strokeStyle = color; }
   ctx.lineWidth = size;
-  ctx.beginPath(); ctx.moveTo(from.x,from.y); ctx.lineTo(to.x,to.y); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(to.x, to.y); ctx.stroke();
 }
 
 /** Línea recta — square cap para pixel art */
 function drawStraightLine(
   ctx: CanvasRenderingContext2D,
-  x0:number,y0:number,x1:number,y1:number,
-  color:string,size:number,erase=false
+  x0: number, y0: number, x1: number, y1: number,
+  color: string, size: number, erase = false
 ) {
-  ctx.imageSmoothingEnabled=false;
-  ctx.lineCap='square'; ctx.lineJoin='miter';
-  if(erase){ctx.globalCompositeOperation='destination-out';ctx.strokeStyle='rgba(0,0,0,1)';}
-  else     {ctx.globalCompositeOperation='source-over';    ctx.strokeStyle=color;}
-  ctx.lineWidth=size;
-  ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x1,y1); ctx.stroke();
+  ctx.imageSmoothingEnabled = false;
+  ctx.lineCap = 'square'; ctx.lineJoin = 'miter';
+  if (erase) { ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,1)'; }
+  else { ctx.globalCompositeOperation = 'source-over'; ctx.strokeStyle = color; }
+  ctx.lineWidth = size;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
 }
 
 function drawSpray(
   ctx: CanvasRenderingContext2D,
-  x:number,y:number,color:string,radius:number,density=30
+  x: number, y: number, color: string, radius: number, density = 30
 ) {
-  ctx.globalCompositeOperation='source-over'; ctx.fillStyle=color;
-  for(let i=0;i<density;i++){
-    const a=Math.random()*Math.PI*2, r=Math.random()*radius;
-    ctx.fillRect(Math.round(x+Math.cos(a)*r),Math.round(y+Math.sin(a)*r),1,1);
+  ctx.globalCompositeOperation = 'source-over'; ctx.fillStyle = color;
+  for (let i = 0; i < density; i++) {
+    const a = Math.random() * Math.PI * 2, r = Math.random() * radius;
+    ctx.fillRect(Math.round(x + Math.cos(a) * r), Math.round(y + Math.sin(a) * r), 1, 1);
   }
 }
 
@@ -139,13 +140,13 @@ export function DrawingCanvas() {
     clearTrigger,
   } = usePaint();
 
-  const drawing     = useRef(false);
-  const lastPos     = useRef<{x:number;y:number}|null>(null);
-  const startPos    = useRef<{x:number;y:number}|null>(null);
-  const snapshotRef = useRef<ImageData|null>(null);
-  const sprayTimer  = useRef<number|null>(null);
-  const historyRef  = useRef<ImageData[]>([]);
-  const shiftHeld   = useRef(false);
+  const drawing = useRef(false);
+  const lastPos = useRef<{ x: number; y: number } | null>(null);
+  const startPos = useRef<{ x: number; y: number } | null>(null);
+  const snapshotRef = useRef<ImageData | null>(null);
+  const sprayTimer = useRef<number | null>(null);
+  const historyRef = useRef<ImageData[]>([]);
+  const shiftHeld = useRef(false);
 
   const [textState, setTextState] = useState<TextState>({
     visible: false, x: 0, y: 0, cssX: 0, cssY: 0, value: '',
@@ -173,7 +174,7 @@ export function DrawingCanvas() {
       tmp.getContext('2d')!.putImageData(ctx.getImageData(0, 0, prevW, prevH), 0, 0);
     }
 
-    canvas.width  = newW;
+    canvas.width = newW;
     canvas.height = newH;
     const ctx2 = canvas.getContext('2d')!;
     ctx2.imageSmoothingEnabled = false;
@@ -195,7 +196,7 @@ export function DrawingCanvas() {
     };
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pixelMode]);
 
   // ─── Clear ───────────────────────────────────────────────────
@@ -206,7 +207,7 @@ export function DrawingCanvas() {
     if (!ctx || !canvas) return;
     pushHistory();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clearTrigger]);
 
   // ─── Keyboard: Ctrl+Z · Shift ────────────────────────────────
@@ -224,10 +225,10 @@ export function DrawingCanvas() {
     };
     const onKeyUp = (e: KeyboardEvent) => { if (e.key === 'Shift') shiftHeld.current = false; };
     window.addEventListener('keydown', onKeyDown);
-    window.addEventListener('keyup',   onKeyUp);
+    window.addEventListener('keyup', onKeyUp);
     return () => {
       window.removeEventListener('keydown', onKeyDown);
-      window.removeEventListener('keyup',   onKeyUp);
+      window.removeEventListener('keyup', onKeyUp);
     };
   }, []);
 
@@ -265,7 +266,7 @@ export function DrawingCanvas() {
     const canvas = canvasRef.current;
     if (!canvas) return { x: e.clientX, y: e.clientY };
     return {
-      x: e.clientX * (canvas.width  / window.innerWidth),
+      x: e.clientX * (canvas.width / window.innerWidth),
       y: e.clientY * (canvas.height / window.innerHeight),
     };
   };
@@ -291,8 +292,8 @@ export function DrawingCanvas() {
     const isRightClick = e.button === 2;
     const color = isRightClick ? secondaryColor : drawColor;
 
-    drawing.current  = true;
-    lastPos.current  = pos;
+    drawing.current = true;
+    lastPos.current = pos;
     startPos.current = pos;
 
     if (activeTool === 'eyedrop') {
@@ -336,7 +337,6 @@ export function DrawingCanvas() {
     } else if (activeTool === 'eraser') {
       if (!shiftHeld.current) bresenham(ctx, pos.x, pos.y, pos.x, pos.y, color, sz, true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTool, brushSizeIndex, drawColor, secondaryColor, textState.visible, commitText, pushHistory, setDrawColor]);
 
   // ─── Pointer MOVE ─────────────────────────────────────────────
@@ -361,33 +361,33 @@ export function DrawingCanvas() {
         color, sz, activeTool === 'eraser');
     } else if (isStroke && !shiftHeld.current && lastPos.current) {
       if (activeTool === 'pencil') bresenham(ctx, lastPos.current.x, lastPos.current.y, pos.x, pos.y, color, sz);
-      else if (activeTool === 'brush')  brushStroke(ctx, lastPos.current, pos, color, sz);
+      else if (activeTool === 'brush') brushStroke(ctx, lastPos.current, pos, color, sz);
       else if (activeTool === 'eraser') bresenham(ctx, lastPos.current.x, lastPos.current.y, pos.x, pos.y, color, sz, true);
     }
 
     if (activeTool === 'spray' && lastPos.current) {
-      const dx=pos.x-lastPos.current.x, dy=pos.y-lastPos.current.y;
-      const dist=Math.sqrt(dx*dx+dy*dy), steps=Math.max(1,Math.floor(dist/5));
-      for(let i=1;i<=steps;i++)
-        drawSpray(ctx, lastPos.current.x+(dx*i)/steps, lastPos.current.y+(dy*i)/steps, color, sz);
+      const dx = pos.x - lastPos.current.x, dy = pos.y - lastPos.current.y;
+      const dist = Math.sqrt(dx * dx + dy * dy), steps = Math.max(1, Math.floor(dist / 5));
+      for (let i = 1; i <= steps; i++)
+        drawSpray(ctx, lastPos.current.x + (dx * i) / steps, lastPos.current.y + (dy * i) / steps, color, sz);
     }
 
-    if ((activeTool==='line'||activeTool==='rectangle') && snapshotRef.current && startPos.current) {
+    if ((activeTool === 'line' || activeTool === 'rectangle') && snapshotRef.current && startPos.current) {
       ctx.putImageData(snapshotRef.current, 0, 0);
-      ctx.globalCompositeOperation='source-over';
-      ctx.strokeStyle=color; ctx.lineWidth=sz;
-      ctx.lineCap='square'; ctx.lineJoin='miter';
-      if (activeTool==='line') {
-        ctx.beginPath(); ctx.moveTo(startPos.current.x,startPos.current.y); ctx.lineTo(pos.x,pos.y); ctx.stroke();
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.strokeStyle = color; ctx.lineWidth = sz;
+      ctx.lineCap = 'square'; ctx.lineJoin = 'miter';
+      if (activeTool === 'line') {
+        ctx.beginPath(); ctx.moveTo(startPos.current.x, startPos.current.y); ctx.lineTo(pos.x, pos.y); ctx.stroke();
       } else {
-        const w=pos.x-startPos.current.x, h=pos.y-startPos.current.y;
-        if (rectFill==='filled'||rectFill==='both') {
-          ctx.globalAlpha=0.4; ctx.fillStyle=color;
-          ctx.fillRect(startPos.current.x,startPos.current.y,w,h);
-          ctx.globalAlpha=1;
+        const w = pos.x - startPos.current.x, h = pos.y - startPos.current.y;
+        if (rectFill === 'filled' || rectFill === 'both') {
+          ctx.globalAlpha = 0.4; ctx.fillStyle = color;
+          ctx.fillRect(startPos.current.x, startPos.current.y, w, h);
+          ctx.globalAlpha = 1;
         }
-        if (rectFill==='outline'||rectFill==='both')
-          ctx.strokeRect(startPos.current.x,startPos.current.y,w,h);
+        if (rectFill === 'outline' || rectFill === 'both')
+          ctx.strokeRect(startPos.current.x, startPos.current.y, w, h);
       }
     }
 
@@ -403,13 +403,13 @@ export function DrawingCanvas() {
     const isRightClick = e.button === 2;
     const color = isRightClick ? secondaryColor : drawColor;
     const sz = getSize(activeTool, brushSizeIndex);
-    const isStroke = activeTool==='pencil'||activeTool==='brush'||activeTool==='eraser';
+    const isStroke = activeTool === 'pencil' || activeTool === 'brush' || activeTool === 'eraser';
 
     if (ctx && canvas && isStroke && shiftHeld.current && snapshotRef.current && startPos.current) {
       ctx.imageSmoothingEnabled = false;
       ctx.putImageData(snapshotRef.current, 0, 0);
       drawStraightLine(ctx, startPos.current.x, startPos.current.y, pos.x, pos.y,
-        color, sz, activeTool==='eraser');
+        color, sz, activeTool === 'eraser');
     }
 
     drawing.current = false;
@@ -426,11 +426,11 @@ export function DrawingCanvas() {
   const getCursor = () => {
     switch (activeTool) {
       case 'eyedrop': return 'crosshair';
-      case 'fill':    return 'cell';
-      case 'eraser':  return 'cell';
-      case 'text':    return 'text';
-      case 'select':  return 'default';
-      default:        return 'crosshair';
+      case 'fill': return 'cell';
+      case 'eraser': return 'cell';
+      case 'text': return 'text';
+      case 'select': return 'default';
+      default: return 'crosshair';
     }
   };
 
@@ -452,15 +452,15 @@ export function DrawingCanvas() {
           autoFocus
           className={styles.textInput}
           style={{
-            left:     textState.cssX,
-            top:      textState.cssY,
+            left: textState.cssX,
+            top: textState.cssY,
             fontSize: getSize('text', brushSizeIndex),
-            color:    drawColor,
+            color: drawColor,
           }}
           value={textState.value}
           onChange={e => setTextState(s => ({ ...s, value: e.target.value }))}
           onKeyDown={e => {
-            if (e.key === 'Enter')  commitText();
+            if (e.key === 'Enter') commitText();
             if (e.key === 'Escape') setTextState(s => ({ ...s, visible: false, value: '' }));
           }}
           onBlur={commitText}

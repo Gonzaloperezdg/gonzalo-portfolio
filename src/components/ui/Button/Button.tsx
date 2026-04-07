@@ -61,15 +61,18 @@ export function Button({
   ].filter(Boolean).join(' ');
 
   if (rest.as === 'a') {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { as: _as, ...linkRest } = rest as ButtonAsLink & { as: 'a' };
     return <a className={cls} {...linkRest}>{children}</a>;
   }
 
   if (rest.as === 'link') {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { as: _as, to } = rest as ButtonAsRouterLink & { as: 'link' };
     return <Link to={to} className={cls}>{children}</Link>;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { as: _as, type = 'button', onClick, disabled } = rest as ButtonAsButton;
   return (
     <button className={cls} type={type} onClick={onClick} disabled={disabled}>
