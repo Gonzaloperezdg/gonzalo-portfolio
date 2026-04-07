@@ -1,0 +1,172 @@
+/* ═══════════════════════════════════════════════════════════
+   Header — Terminal brutalista
+   ═══════════════════════════════════════════════════════════ */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 60px;
+  background: transparent;
+  border-bottom: none;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+}
+
+.logo {
+  font-family: var(--font-headline);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s;
+}
+
+.logo:hover { color: var(--color-brand); }
+
+.nav {
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar { display: none; }
+
+/* Fix 8: Indicador visual de scroll horizontal en mobile */
+.nav {
+  -webkit-overflow-scrolling: touch; /* scroll inercial en iOS */
+  position: relative;
+}
+
+.nav a {
+  font-family: var(--font-headline);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.2px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  color: var(--color-secondary);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav a:hover {
+  background: var(--color-surface-low);
+  color: var(--color-on-surface);
+}
+
+.nav a.active {
+  background: transparent;
+  color: var(--color-on-surface);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.contactNav {
+  font-family: var(--font-headline);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.2px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  color: var(--color-secondary);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.contactNav:hover {
+  background: var(--color-surface-low);
+  color: var(--color-on-surface);
+}
+
+/* Action buttons */
+.actionGroup {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  gap: 6px;
+}
+
+.actionBtn {
+  font-family: var(--font-headline);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-outline-variant);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.actionBtn:hover {
+  background: var(--color-surface-low);
+  border-color: var(--color-outline);
+}
+
+.actionBtn:active, .actionBtn.active {
+  background: var(--color-surface-high);
+  border-color: var(--color-outline);
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 0 12px;
+    height: 48px;
+    gap: var(--space-2);
+  }
+
+  .logo {
+    font-size: var(--text-xs);
+  }
+
+  .nav a,
+  .contactNav {
+    font-size: var(--text-xs);
+    padding: 4px 10px;
+  }
+
+  /* Fix 7: Área táctil mínima de 44px para botones de acción */
+  .actionBtn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 10px;
+  }
+
+  /* Fix 8: Fade indicator al borde derecho del nav scrolleable */
+  .nav::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--color-surface));
+    pointer-events: none;
+  }
+}

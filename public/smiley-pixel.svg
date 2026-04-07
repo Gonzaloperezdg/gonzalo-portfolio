@@ -1,0 +1,17 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Yellow face -->
+  <rect x="4" y="4" width="24" height="24" rx="2" fill="#ffff00"/>
+
+  <!-- Left eye -->
+  <rect x="10" y="10" width="3" height="3" fill="#000000"/>
+
+  <!-- Right eye -->
+  <rect x="19" y="10" width="3" height="3" fill="#000000"/>
+
+  <!-- Smile (curved mouth) -->
+  <rect x="10" y="18" width="2" height="2" fill="#000000"/>
+  <rect x="12" y="19" width="2" height="2" fill="#000000"/>
+  <rect x="14" y="20" width="4" height="2" fill="#000000"/>
+  <rect x="18" y="19" width="2" height="2" fill="#000000"/>
+  <rect x="20" y="18" width="2" height="2" fill="#000000"/>
+</svg>

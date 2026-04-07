@@ -1,0 +1,284 @@
+/* ═══════════════════════════════════════════════════════════
+   GanttTimeline — labels izq + barras alineadas
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --gantt-label-w: 150px;
+}
+
+.wrapper {
+  width: 100%;
+  margin-top: var(--space-8);
+  overflow: hidden;
+}
+
+/* ─── Fila del eje: hueco izq + eje de años ───────────────── */
+
+.axisRow {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: var(--space-1);
+}
+
+/* Espacio en blanco que "reserva" el mismo ancho que .labelsCol */
+.axisLabels {
+  width: var(--gantt-label-w);
+  flex-shrink: 0;
+}
+
+/* Eje de años — ocupa el mismo espacio que los tracks */
+.axis {
+  flex: 1;
+  position: relative;
+  height: 24px;
+}
+
+.yearLabel {
+  position: absolute;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-outline);
+  letter-spacing: 0.06em;
+  user-select: none;
+  white-space: nowrap;
+  display: none;
+}
+
+/* ─── Chart: columna labels + área de tracks ──────────────── */
+
+.chart {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Área de tracks superpuesta para grid lines y "now" line */
+.labelsCol {
+  /* solo usado para separar el espacio en el fila axis */
+  display: none;
+}
+
+.trackArea {
+  position: absolute;
+  left: var(--gantt-label-w);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.gridLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-outline-variant);
+  opacity: 0.5;
+  display: none;
+}
+
+.nowLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-brand);
+  z-index: 2;
+  display: none;
+}
+
+.nowLabel {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-brand);
+  white-space: nowrap;
+  display: none;
+}
+
+/* ─── Fila de datos ───────────────────────────────────────── */
+
+.row {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.rowPrimary {
+  min-height: 56px;
+}
+
+/* Etiqueta izquierda */
+.rowMeta {
+  width: var(--gantt-label-w);
+  flex-shrink: 0;
+  padding-right: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rowTitle {
+  font-family: var(--font-headline);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-on-surface);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rowTitle.primary {
+  color: var(--color-primary);
+  font-size: 17px;
+}
+
+.rowSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-outline);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Track */
+.track {
+  flex: 1;
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+}
+
+.rowPrimary .track {
+  height: 68px;
+}
+
+/* ─── Barras ──────────────────────────────────────────────── */
+
+.bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 52px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  color: #fff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  overflow: hidden;
+  text-align: left;
+}
+
+.rowPrimary .bar {
+  height: 60px;
+}
+
+.bar:hover,
+.barHovered {
+  transform: translateY(calc(-50% - 2px));
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  filter: brightness(1.1);
+}
+
+.barContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.barLabel {
+  font-family: var(--font-headline);
+  font-size: var(--text-base);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barPeriod {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  opacity: 0.75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.03em;
+}
+
+.activeDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.9;
+  flex-shrink: 0;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.6); }
+}
+
+/* ─── Responsive mobile ───────────────────────────────────── */
+
+@media (max-width: 640px) {
+  :root { --gantt-label-w: 0px; }
+
+  .axisRow   { display: none; }
+  .trackArea { display: none; }
+
+  .rowMeta {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: var(--space-1);
+  }
+
+  .row,
+  .rowPrimary {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: unset;
+    gap: var(--space-1);
+    padding-bottom: var(--space-4);
+  }
+
+  .track,
+  .rowPrimary .track {
+    width: 100%;
+    height: 60px;
+  }
+
+  .bar,
+  .rowPrimary .bar {
+    position: relative;
+    top: unset;
+    left: unset !important;
+    width: 100% !important;
+    min-width: auto;
+    transform: none;
+    height: 56px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding: 0 var(--space-2);
+    gap: var(--space-1);
+  }
+
+  .bar:hover { transform: none; }
+}
