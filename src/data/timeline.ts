@@ -1,6 +1,7 @@
 import type { TimelineEntry } from '../types';
+import type { Language } from '../i18n/translations';
 
-export const TIMELINE: TimelineEntry[] = [
+const TIMELINE_ES: TimelineEntry[] = [
   {
     slug: 'insurtech-global',
     title: 'InsurTech Global',
@@ -38,3 +39,48 @@ export const TIMELINE: TimelineEntry[] = [
     parallel: true,
   },
 ];
+
+const TIMELINE_EN: TimelineEntry[] = [
+  {
+    slug: 'insurtech-global',
+    title: 'InsurTech Global',
+    subtitle: 'UX/UI Designer → UX/UI Lead',
+    period: 'August 2021 – Present',
+    status: 'active',
+    description: 'Ongoing work at a tech company building software solutions for insurance companies. Over time I led design projects, built systems, and adopted AI into the workflow.',
+    note: 'The following projects were developed in parallel with InsurTech Global.',
+  },
+  {
+    slug: 'coderhouse',
+    title: 'Coderhouse',
+    subtitle: 'UX/UI Design Instructor',
+    period: 'May 2023 – October 2023',
+    status: 'completed',
+    description: '70+ students with very different backgrounds. Average rating 4.92/5.',
+    parallel: true,
+  },
+  {
+    slug: 'ratt',
+    title: 'RATT',
+    subtitle: 'Narrative as a design decision',
+    period: 'September 2024 – February 2025',
+    status: 'completed',
+    description: 'UX/UI redesign as volunteer work. Emotional narrative as the central design decision.',
+    parallel: true,
+  },
+  {
+    slug: 'ai-experiments',
+    title: 'AI Experiments',
+    subtitle: '3 generations of AI-native methodology',
+    period: 'October 2025 – Present',
+    status: 'active',
+    description: 'Personal projects that evolved from isolated tools to a reproducible methodology.',
+    parallel: true,
+  },
+];
+
+export const TIMELINE = TIMELINE_ES;
+
+export function getTimeline(lang: Language): TimelineEntry[] {
+  return lang === 'en' ? TIMELINE_EN : TIMELINE_ES;
+}

@@ -1,13 +1,16 @@
 import { useEffect, useRef } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { CASE_STUDIES } from '../data/caseStudies';
+import { getCaseStudies } from '../data/caseStudies';
+import { useTheme } from '../context/ThemeContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import styles from './CaseStudyPage.module.css';
 
 export function CaseStudyPage() {
   const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
+  const { language, t } = useTheme();
+  const CASE_STUDIES = getCaseStudies(language);
   const study = CASE_STUDIES.find((s) => s.slug === slug);
   const containerRef = useRef<HTMLElement>(null);
 
@@ -20,8 +23,8 @@ export function CaseStudyPage() {
   if (!study) {
     return (
       <div className={styles.notFound}>
-        <p>Caso de estudio no encontrado.</p>
-        <Link to="/works">← Ver trabajos</Link>
+        <p>{t('cs_not_found')}</p>
+        <Link to="/works">{t('cs_back_works')}</Link>
       </div>
     );
   }
@@ -38,7 +41,7 @@ export function CaseStudyPage() {
       </Helmet>
 
       <article ref={containerRef} className={styles.page}>
-        <Link to="/works" className={styles.backLink}>← Trabajos</Link>
+        <Link to="/works" className={styles.backLink}>{t('cs_back_works')}</Link>
 
         <header className={styles.header}>
           <span className={styles.badge} data-reveal="meta">{study.type}</span>
@@ -66,7 +69,7 @@ export function CaseStudyPage() {
             </div>
           )}
           {study.status === 'active' && (
-            <span className={styles.activeBadge} data-reveal="meta">En desarrollo</span>
+            <span className={styles.activeBadge} data-reveal="meta">{t('cs_active_badge')}</span>
           )}
         </header>
 
@@ -86,7 +89,7 @@ export function CaseStudyPage() {
 
         {study.subProjects && study.subProjects.length > 0 && (
           <section className={styles.subProjects}>
-            <h2 className={styles.sectionTitle} data-reveal="heading">Proyectos</h2>
+            <h2 className={styles.sectionTitle} data-reveal="heading">{t('cs_subprojects_title')}</h2>
             <div className={styles.subGrid} data-reveal="cards">
               {study.subProjects.map((sp) => (
                 <Link
@@ -108,13 +111,13 @@ export function CaseStudyPage() {
         <nav className={styles.navFooter}>
           {prev ? (
             <Link to={`/works/${prev.slug}`} className={styles.navLink}>
-              <span className={styles.navDir}>← Anterior</span>
+              <span className={styles.navDir}>{t('cs_nav_prev')}</span>
               <span className={styles.navTitle}>{prev.title}</span>
             </Link>
           ) : <div />}
           {next ? (
             <Link to={`/works/${next.slug}`} className={styles.navLink} data-align="right">
-              <span className={styles.navDir}>Siguiente →</span>
+              <span className={styles.navDir}>{t('cs_nav_next')}</span>
               <span className={styles.navTitle}>{next.title}</span>
             </Link>
           ) : <div />}
