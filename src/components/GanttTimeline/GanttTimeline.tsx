@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 import styles from './GanttTimeline.module.css';
 
 interface GanttItem {
@@ -19,10 +20,62 @@ interface GanttItem {
   fixedWidth?: number; // 0-100 %
 }
 
-const GANTT_ITEMS: GanttItem[] = [
+const GANTT_ITEMS_EN: GanttItem[] = [
   {
     slug: 'jbknowledge',
-    title: 'JBKnowledge',
+    title: 'InsurTech Global',
+    subtitle: 'UX/UI Designer → Lead',
+    period: 'Aug 2021 – Present',
+    startYear: 2021, startMonth: 8,
+    endYear: null, endMonth: null,
+    status: 'active',
+    isPrimary: true,
+    color: '#1A47E8',
+    fixedLeft: 0,
+    fixedWidth: 100,
+  },
+  {
+    slug: 'coderhouse',
+    title: 'Coderhouse',
+    subtitle: 'UX/UI Instructor',
+    period: 'May – Oct 2023',
+    startYear: 2023, startMonth: 5,
+    endYear: 2023, endMonth: 10,
+    status: 'completed',
+    color: '#7BA7BC',
+    fixedLeft: 29.17,
+    fixedWidth: 25.00,
+  },
+  {
+    slug: 'ratt',
+    title: 'RATT',
+    subtitle: 'Narrative as design',
+    period: 'Sep 2024 – Feb 2025',
+    startYear: 2024, startMonth: 9,
+    endYear: 2025, endMonth: 2,
+    status: 'completed',
+    color: '#A89BC2',
+    fixedLeft: 54.17,
+    fixedWidth: 25.00,
+  },
+  {
+    slug: 'ai-experiments',
+    title: 'AI Experiments',
+    subtitle: 'AI-native methodology',
+    period: 'Oct 2025 – Present',
+    startYear: 2025, startMonth: 10,
+    endYear: null, endMonth: null,
+    status: 'active',
+    color: '#0D7377',
+    fixedLeft: 79.17,
+    fixedWidth: 20.83,
+  },
+];
+
+const GANTT_ITEMS_ES: GanttItem[] = [
+  {
+    slug: 'jbknowledge',
+    title: 'InsurTech Global',
     subtitle: 'UX/UI Designer → Lead',
     period: 'Ago 2021 – Presente',
     startYear: 2021, startMonth: 8,
@@ -89,8 +142,10 @@ function nowPercent(): number {
 
 export function GanttTimeline() {
   const navigate = useNavigate();
+  const { language, t } = useTheme();
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
   const now = nowPercent();
+  const GANTT_ITEMS = language === 'en' ? GANTT_ITEMS_EN : GANTT_ITEMS_ES;
 
   return (
     <div className={styles.wrapper}>
@@ -126,7 +181,7 @@ export function GanttTimeline() {
             />
           ))}
           <div className={styles.nowLine} style={{ left: `${now}%` }} aria-hidden="true">
-            <span className={styles.nowLabel}>Hoy</span>
+            <span className={styles.nowLabel}>{t('gantt_today')}</span>
           </div>
         </div>
 

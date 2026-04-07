@@ -35,6 +35,21 @@
   width: 100%;
 }
 
+/* Mobile tool row — hidden on desktop */
+.mobileToolRow {
+  display: none;
+}
+
+/* Mobile palette — hidden on desktop */
+.mobilePalette {
+  display: none;
+}
+
+/* Mobile expanded panel — hidden on desktop */
+.mobileExpanded {
+  display: none;
+}
+
 /* Botones modernos — 34×34px */
 .toolBtn {
   width: 34px;
@@ -116,7 +131,7 @@
 .sizeDot {
   display: block;
   background: currentColor;
-  border-radius: 50%; /* Puntos redondeados para look moderno */
+  border-radius: 50%;
 }
 
 /* ─── Rect options ─── */
@@ -183,8 +198,8 @@
   height: 10px;
   appearance: none;
   background: linear-gradient(
-    to right, 
-    #ff0000 0%, #ffff00 17%, #00ff00 33%, 
+    to right,
+    #ff0000 0%, #ffff00 17%, #00ff00 33%,
     #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%
   );
   border-radius: 5px;
@@ -388,6 +403,11 @@
   transform: scale(0.95);
 }
 
+/* Mobile-only clear button */
+.clearBtnMobile {
+  display: none;
+}
+
 /* ─── MOBILE ─── */
 @media (max-width: 600px) {
   .toolbar {
@@ -397,23 +417,123 @@
     bottom: 12px;
     width: auto;
     transform: none;
-    flex-direction: row;
-    padding: 12px;
+    flex-direction: column;
+    padding: 8px 12px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
+    gap: 0;
   }
 
-  .toolGrid {
+  /* Hide desktop-only elements */
+  .toolGrid,
+  .hexInput,
+  .palette,
+  .sep,
+  .swatchZone,
+  .clearBtn,
+  .tooltip,
+  .sizeGrid,
+  .rectOptions {
+    display: none !important;
+  }
+
+  /* Zap button inline */
+  .zapBtn {
+    display: none;
+  }
+
+  /* Mobile tool row — visible */
+  .mobileToolRow {
     display: flex;
-    width: auto;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    justify-content: center;
   }
 
-  .toolBtn {
+  .mobileToolRow .toolBtn {
     width: 44px;
     height: 44px;
+    flex-shrink: 0;
   }
 
-  /* Fix 1: Customizer abre hacia ARRIBA en mobile (evita salir del viewport) */
+  .clearBtnMobile {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--color-on-surface-variant);
+    padding: 0;
+    flex-shrink: 0;
+    transition: all 0.15s ease;
+  }
+
+  .clearBtnMobile:hover {
+    background: var(--color-error);
+    border-color: var(--color-error);
+    color: #FFFFFF;
+  }
+
+  /* Mobile expanded panel */
+  .mobileExpanded {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-outline-variant);
+    margin-bottom: 8px;
+    animation: fadeInUp 0.2s ease-out;
+  }
+
+  .mobileExpanded .toolBtn {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  /* Mobile palette — floating circles above toolbar */
+  .mobilePalette {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-outline-variant);
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.2s ease-out;
+  }
+
+  .mobilePaletteBtn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .mobilePaletteBtn:hover {
+    transform: scale(1.15);
+  }
+
+  .mobilePaletteBtnActive {
+    border-color: var(--color-brand);
+    transform: scale(1.15);
+    box-shadow: 0 0 0 2px var(--color-brand);
+  }
+
+  /* Customizer opens upward on mobile */
   .customizer {
     left: 0;
     right: 0;
@@ -423,24 +543,6 @@
     width: auto;
     max-width: 280px;
     animation: fadeInUp 0.15s ease-out;
-  }
-
-  /* Fix 2: Zap Button con área táctil correcta (44px) */
-  .zapBtn {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-  }
-
-  .hexInput, .palette, .sep, .swatchZone, .clearBtn span {
-    display: none;
-  }
-
-  .clearBtn {
-    width: 44px;
-    height: 44px;
-    min-height: unset;
-    margin-top: 0;
   }
 }
 

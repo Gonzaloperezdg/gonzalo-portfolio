@@ -7,22 +7,59 @@ export const translations = {
     nav_contact: 'Contacto',
     language_toggle_title: 'Cambiar idioma',
     reading_mode_title: 'Modo Lectura (Protector Ocular)',
-    
-    // Home Page
-    hero_hello: 'HOLA! SOY',
-    hero_name: 'GONZALO',
-    hero_surname: 'PÉREZ',
-    hero_role: 'UX UI',
-    hero_designer: 'DESIGNER',
-    status_drafting: 'STATUS: DRAFTING',
-    portfolio_metadata: 'PORTFOLIO_ID: GDP_2026\nSTATUS: OPERATIONAL // LOCATION: CORRIENTES, AR\nSPECIALTY: UX/UI // METHOD: AI_NATIVE',
-    intro_desc: 'Una intersección técnica entre la estética analógica y la precisión digital. La estructura precede al contenido.',
-    btn_works: 'VER PROYECTOS →',
-    btn_cv: 'DESCARGAR CV ↓',
+
+    // Home Page — Hero
+    hero_title_1: 'UX CON AI',
+    hero_title_2: 'APLICADA',
+
+    // Home Page — About section
+    home_about_s1: 'UN',
+    home_about_s2: 'POCO',
+    home_about_s3: 'DE MI',
+    home_about_text: 'Hola, soy Gonzalo Pérez — UX/UI Lead. Trabajé con Design Systems, enseñé UX/UI a 70+ estudiantes, y ahora trabajo con metodología AI-native manteniendo el criterio humano en cada decisión. La claridad en el proceso importa tanto como el resultado.',
+    home_about_link: 'Ver más →',
+
+    // Home Page — Projects section
+    home_projects_s1: 'PRO',
+    home_projects_s2: 'YEC',
+    home_projects_s3: 'TOS',
+
+    // Home Page — Contact section
+    home_contact_s1: 'CON',
+    home_contact_s2: 'TAC',
+    home_contact_s3: 'TO',
+    home_contact_mode_text: '📝 Texto',
+    home_contact_mode_draw: '🎨 Dibujo',
+    home_contact_send: 'Enviar',
+    home_contact_sending: 'Enviando...',
+    home_contact_clear: 'Limpiar',
+    home_contact_success: '✓ Tu mensaje llegó correctamente.',
+    home_contact_success_sub: 'Nos pondremos en contacto pronto.',
+    home_contact_draw_too_big: 'El dibujo es muy grande. Intenta con un dibujo más simple.',
+    home_contact_fill_all: 'Completa todos los campos',
+    home_contact_fill_name_email: 'Completa nombre y email',
+    home_contact_error: 'No se pudo enviar. Intenta de nuevo.',
 
     // Works Page
     works_title: 'Proyectos',
     works_intro: 'Mi recorrido profesional en orden cronológico. Cada nodo es un proyecto con su propio caso de estudio.',
+
+    // Case Study & SubProject UI
+    cs_not_found: 'Caso de estudio no encontrado.',
+    cs_back_works: '← Trabajos',
+    cs_active_badge: 'En desarrollo',
+    cs_nav_prev: '← Anterior',
+    cs_nav_next: 'Siguiente →',
+    cs_subprojects_title: 'Proyectos',
+    sp_not_found: 'Proyecto no encontrado.',
+    sp_section_description: 'Descripción',
+    sp_section_motivation: 'Motivación',
+    sp_section_stack: 'Stack',
+    sp_section_workflow: 'Workflow',
+    sp_section_insights: 'Insights',
+
+    // GanttTimeline
+    gantt_today: 'Hoy',
 
     // About Page
     about_title: 'Sobre Mí',
@@ -32,7 +69,7 @@ export const translations = {
     about_path_p1: 'Estudié Diseño Gráfico en la universidad. Al terminar, la curiosidad me llevó a especializarme en UX/UI — primero como estudiante, con la misma recomendación de mi tío como punto de partida.',
     about_path_p2: 'Lo que empezó como una exploración se convirtió en una forma de pensar. UX/UI no es solo hacer pantallas bonitas. Es entender por qué las personas hacen lo que hacen y diseñar para que ese "por qué" funcione a su favor.',
     about_discovery_title: 'El Descubrimiento',
-    about_discovery_p1: 'En 2023, mientras trabajaba full-time en JBKnowledge, tomé un rol como instructor de UX/UI en Coderhouse.',
+    about_discovery_p1: 'En 2023, mientras trabajaba full-time en InsurTech Global, tomé un rol como instructor de UX/UI en Coderhouse.',
     about_discovery_p2: 'Fue el momento de mayor plenitud profesional de mi vida.',
     about_discovery_p3: 'No por el título. Por lo que pasaba: investigaba un tema en profundidad para poder enseñarlo, diseñaba durante el día, enseñaba de noche. Tres roles simultáneos que se retroalimentaban. Descubrí que explicar algo bien es una forma diferente de entenderlo — y que la claridad que exige la pedagogía mejora el diseño.',
     about_discovery_p4: 'Enseñé a 70+ estudiantes con backgrounds completamente distintos. Sin base previa de diseño, sin requerimientos. El criterio que usaba: si mi hermano de 9 años entiende el concepto y me lo puede explicar de vuelta, la clase fue un éxito.',
@@ -62,50 +99,87 @@ export const translations = {
     // Contact Page
     contact_title: 'Contacto',
     contact_availability: 'Disponible para proyectos full-time y freelance.',
-    
+
     // Timeline inside WorksPage
     timeline_present: 'AGOSTO 2021 - PRESENTE',
     timeline_past: 'FEBRERO 2023 - ABRIL 2024',
-    
+
     // Loading Screen
     load_boot: '> portfolio.exe está listo para ejecutarse.',
     load_cta_enter: 'Presiona ENTER para inicializar portfolio.exe',
-    load_cta_m: 'Presiona M para iniciar en modo silencioso.'
+    load_cta_m: 'Presiona M para iniciar en modo silencioso.',
   },
   en: {
     // Header
-    nav_home: 'Start',
+    nav_home: 'Home',
     nav_works: 'Projects',
     nav_about: 'About Me',
     nav_contact: 'Contact',
     language_toggle_title: 'Change language',
     reading_mode_title: 'Reading Mode (Screen Protector)',
-    
-    // Home Page
-    hero_hello: 'HELLO! I AM',
-    hero_name: 'GONZALO',
-    hero_surname: 'PÉREZ',
-    hero_role: 'UX UI',
-    hero_designer: 'DESIGNER',
-    status_drafting: 'STATUS: DRAFTING',
-    portfolio_metadata: 'PORTFOLIO_ID: GDP_2026\nSTATUS: OPERATIONAL // LOCATION: CORRIENTES, AR\nSPECIALTY: UX/UI // METHOD: AI_NATIVE',
-    intro_desc: 'A technical intersection between analog aesthetics and digital precision. Structure precedes content.',
-    btn_works: 'VIEW PROJECTS →',
-    btn_cv: 'DOWNLOAD CV ↓',
+
+    // Home Page — Hero
+    hero_title_1: 'UX WITH',
+    hero_title_2: 'APPLIED AI',
+
+    // Home Page — About section
+    home_about_s1: 'A',
+    home_about_s2: 'BIT',
+    home_about_s3: 'ABOUT ME',
+    home_about_text: 'Hi, I\'m Gonzalo Pérez — UX/UI Lead. I\'ve worked with Design Systems, taught UX/UI to 70+ students, and now work with an AI-native methodology while keeping human judgment at every decision point. Clarity in the process matters as much as the result.',
+    home_about_link: 'See more →',
+
+    // Home Page — Projects section
+    home_projects_s1: 'PRO',
+    home_projects_s2: 'JECTS',
+    home_projects_s3: '',
+
+    // Home Page — Contact section
+    home_contact_s1: 'CON',
+    home_contact_s2: 'TACT',
+    home_contact_s3: '',
+    home_contact_mode_text: '📝 Text',
+    home_contact_mode_draw: '🎨 Drawing',
+    home_contact_send: 'Send',
+    home_contact_sending: 'Sending...',
+    home_contact_clear: 'Clear',
+    home_contact_success: '✓ Your message was received.',
+    home_contact_success_sub: 'We\'ll be in touch soon.',
+    home_contact_draw_too_big: 'The drawing is too large. Try a simpler drawing.',
+    home_contact_fill_all: 'Please fill in all fields',
+    home_contact_fill_name_email: 'Please fill in name and email',
+    home_contact_error: 'Could not send. Please try again.',
 
     // Works Page
     works_title: 'Projects',
     works_intro: 'My professional journey in chronological order. Each node is a project with its own case study.',
 
+    // Case Study & SubProject UI
+    cs_not_found: 'Case study not found.',
+    cs_back_works: '← Works',
+    cs_active_badge: 'In development',
+    cs_nav_prev: '← Previous',
+    cs_nav_next: 'Next →',
+    cs_subprojects_title: 'Projects',
+    sp_not_found: 'Project not found.',
+    sp_section_description: 'Description',
+    sp_section_motivation: 'Motivation',
+    sp_section_stack: 'Stack',
+    sp_section_workflow: 'Workflow',
+    sp_section_insights: 'Insights',
+
+    // GanttTimeline
+    gantt_today: 'Today',
+
     // About Page
     about_title: 'About Me',
     about_origin_title: 'The Origin',
-    about_origin_p1: 'As a kid I discovered Paint on an old computer, and that’s where it all started. My uncle gave me my first PC with Corel Draw and Illustrator — and since then, digital design was part of my life before I knew it could be a career.',
+    about_origin_p1: 'As a kid I discovered Paint on an old computer, and that\'s where it all started. My uncle gave me my first PC with Corel Draw and Illustrator — and since then, digital design was part of my life before I knew it could be a career.',
     about_path_title: 'The Path',
     about_path_p1: 'I studied Graphic Design in college. After graduating, curiosity led me to specialize in UX/UI — first as a student, driven by the same recommendation from my uncle.',
-    about_path_p2: 'What started as an exploration became a way of thinking. UX/UI isn’t just making pretty screens. It’s understanding why people do what they do, and designing so that "why" works in their favor.',
+    about_path_p2: 'What started as an exploration became a way of thinking. UX/UI isn\'t just making pretty screens. It\'s understanding why people do what they do, and designing so that "why" works in their favor.',
     about_discovery_title: 'The Discovery',
-    about_discovery_p1: 'In 2023, while working full-time at JBKnowledge, I took on a role as a UX/UI instructor at Coderhouse.',
+    about_discovery_p1: 'In 2023, while working full-time at InsurTech Global, I took on a role as a UX/UI instructor at Coderhouse.',
     about_discovery_p2: 'It was the most fulfilling professional moment of my life.',
     about_discovery_p3: 'Not because of the title. But because of what was happening: I researched topics deeply to teach them, designed during the day, taught at night. Three simultaneous roles feeding into each other. I discovered that explaining something well is a different way of understanding it — and that pedagogical clarity improves design.',
     about_discovery_p4: 'I taught 70+ students from completely different backgrounds. No prior design baseline, no prerequisites. The criteria I used: if my 9-year-old brother understands the concept and can explain it back to me, the class was a success.',
@@ -126,9 +200,9 @@ export const translations = {
     about_ai_p4: 'AI without direction is noise. With direction, it is a capacity multiplier.',
     about_ai_p5: 'What differentiates my way of working is not which tools I use. It\'s that I know why I am using them.',
     about_offline_title: 'Outside the Screen',
-    about_offline_p1: 'When I’m not designing, I try to do the opposite.',
+    about_offline_p1: 'When I\'m not designing, I try to do the opposite.',
     about_offline_p2: 'I draw — analog art, no Figma layers or component states. I walk along the riverfront. And I sell my drawings at street fairs, the very same thing that drove me to build FeriaFlow, the app I made to manage my own sales.',
-    about_offline_p3: 'There is something in physical art that recharges what the digital drains. It’s not a contradiction — it’s balance.',
+    about_offline_p3: 'There is something in physical art that recharges what the digital drains. It\'s not a contradiction — it\'s balance.',
     about_contact_title: 'Let\'s Talk',
     about_contact_p1: 'I am available for UX/UI projects where the process matters as much as the result. If you are looking for a designer who researches before doing, who understands business as well as users, and who works with an AI-native methodology without losing their own criteria — write to me.',
 
@@ -139,12 +213,12 @@ export const translations = {
     // Timeline inside WorksPage
     timeline_present: 'AUGUST 2021 - PRESENT',
     timeline_past: 'FEBRUARY 2023 - APRIL 2024',
-    
+
     // Loading Screen
     load_boot: '> portfolio.exe is ready to run.',
     load_cta_enter: 'Press ENTER to initialize portfolio.exe',
-    load_cta_m: 'Press M to start in silent mode.'
-  }
+    load_cta_m: 'Press M to start in silent mode.',
+  },
 };
 
 export type Language = 'es' | 'en';

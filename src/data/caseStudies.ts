@@ -1,58 +1,58 @@
 import type { CaseStudyData } from '../types';
+import type { Language } from '../i18n/translations';
 
 export const CASE_STUDIES: CaseStudyData[] = [
   {
     slug: 'jbknowledge',
-    title: 'JBKnowledge',
-    subtitle: 'Crecimiento profesional en una tech company que desarrolla soluciones para empresas de seguros',
+    title: 'InsurTech Global',
+    subtitle: 'Crecimiento profesional en una compañía B2B desarrollando soluciones de software corporativo',
     role: 'UX/UI Designer → UX/UI Lead',
     period: 'Agosto 2021 – Presente',
     type: 'Enterprise',
     status: 'active',
-    seoTitle: 'JBKnowledge — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'InsurTech Global — Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'Diseño de sistemas, liderazgo de equipo e integración de IA en una tech company con presencia global.',
     sections: [
       {
         id: 'context',
         title: 'El Contexto',
         content: [
-          'JBKnowledge es una tech company con sede en Bryan, Texas, con equipos en Argentina, Sudáfrica, Portugal y Escocia. Desarrolla soluciones de software para empresas de seguros y gestión de riesgos.',
-          'Ingresé en agosto de 2021 como UX/UI Designer. Con el tiempo, el trabajo fue creciendo en alcance y responsabilidad hasta llegar al rol de liderazgo desde 2025.',
-          'A lo largo de ese camino hubo varios proyectos. Acá me enfoco en dos que marcaron mi desarrollo: el trabajo con CCMSI y luego con GCM.',
+          'Me incorporé a una empresa tecnológica internacional que desarrolla software especializado en la gestión de riesgos y seguros. La dinámica de trabajo implica colaborar en un entorno completamente distribuido, coordinando con equipos de desarrollo y producto ubicados en América, África y Europa.',
+          'Ingresé en agosto de 2021 como UX/UI Designer. Con el tiempo, el trabajo fue creciendo en alcance y responsabilidad técnica, llevándome a asumir un rol de liderazgo en diseño a partir de 2025.',
+          'A lo largo de este camino participé en múltiples desarrollos. Acá me enfoco en dos proyectos clave que marcaron mi evolución técnica y de gestión.',
         ],
       },
     ],
     subProjects: [
       {
         slug: 'ccmsi',
-        title: 'CCMSI — Design System',
+        title: 'Proyecto 1 — Expansión de Design System',
         period: 'Agosto 2021 – 2023',
-        description: 'Expansión de un sistema de diseño existente para CCMSI, empresa de seguros cliente de JBKnowledge.',
+        description: 'Expansión de un Design System para el producto principal de un cliente corporativo del sector seguros.',
         status: 'completed',
         sections: [
           {
             id: 'context',
             title: 'El Proyecto',
             content: [
-              'CCMSI es una de las empresas de seguros para las que JBKnowledge desarrolla soluciones. Al incorporarme al proyecto, existía un sistema de diseño incipiente con algunos componentes base, y el desafío era llevarlo a un nivel que pudiera sostener el crecimiento del producto.',
-              'El trabajo no partió de cero. Tomé lo que había, entendí la lógica del equipo, y fui ampliando y documentando el sistema en Adobe XD.',
+              'El desafío consistió en tomar un sistema de diseño incipiente para el producto principal de un cliente corporativo y llevarlo a un nivel de madurez que pudiera sostener el escalado de la plataforma.',
+              'El trabajo no partió de cero. Tomé la base existente, analicé la lógica de los equipos involucrados, y me enfoqué en ampliar y documentar todo el sistema de forma integral.',
             ],
           },
           {
             id: 'communication',
             title: 'Mejorar la Comunicación entre Áreas',
             content: [
-              'Uno de los primeros aprendizajes fue sobre la dinámica de trabajo: no todos los developers participaban de las reuniones de diseño, lo que generaba que ciertos detalles requirieran conversaciones adicionales para resolverse.',
-              'Propuse incluir representantes de cada área en las instancias de revisión: BA, QA, desarrolladores front y back. Esto permitió alinear expectativas de manera más directa y hacer más fluido el proceso para todos.',
+              'Identifiqué un cuello de botella en la dinámica del equipo: la falta de participación de ciertos desarrolladores en las revisiones de diseño generaba fricciones y retrabajos.',
+              'Propuse e implementé un modelo de revisión cruzada incluyendo representantes clave — Business Analysts, QA, desarrolladores Front-end y Back-end — para alinear expectativas tempranamente y hacer más fluido el proceso para todos.',
             ],
           },
           {
             id: 'design-system',
-            title: 'El Design System en Adobe XD',
+            title: 'El Design System como Herramienta de Decisión',
             content: [
-              'Amplié el sistema de diseño que existía en el proyecto, incorporando componentes con variantes, patrones de interacción, reglas de uso y navegación pensada para que cualquier miembro del equipo pudiera apoyarse en él, tanto en el presente como si alguien nuevo se sumaba más adelante.',
-              'El objetivo no era que el equipo consulte menos, sino que tuvieran una herramienta concreta donde apoyarse para tomar decisiones con más contexto. Los devs, BA y futuros diseñadores.',
-              'El equipo adoptó el sistema con buena disposición. Hubo una curva de aprendizaje normal, pero la recepción fue positiva desde el inicio.',
+              'Evolucioné el sistema incorporando componentes con variantes, patrones de interacción y reglas claras de uso. El objetivo fue crear una fuente de verdad accionable para que cualquier miembro del equipo — devs, BAs o nuevos diseñadores — pudiera tomar decisiones autónomas con contexto técnico.',
+              'No se trataba de que el equipo consulte menos. Se trataba de que tuvieran una herramienta concreta donde apoyarse. Diseñé pensando en los que iban a seguir después de mí.',
             ],
             pullQuote: 'Diseñé pensando en los que iban a seguir después de mí.',
           },
@@ -60,52 +60,44 @@ export const CASE_STUDIES: CaseStudyData[] = [
             id: 'results',
             title: 'Resultados',
             content: [
-              'Consultas entre devs y BA: de 2 horas/semana por persona a 1 hora/semana. Ahorro total del equipo: 7 horas semanales. Consistencia visual del producto: sistema unificado. Bugs relacionados a inconsistencias visuales: reducción significativa.',
+              'Reducción de tiempos muertos: consultas entre desarrolladores y Business Analysts de 2 horas a 1 hora semanal por persona.',
+              'Eficiencia de equipo: ahorro total comprobado de 7 horas semanales para el equipo core.',
+              'Estabilidad del producto: consolidación de un sistema unificado con reducción significativa de bugs reportados por inconsistencias visuales en front-end.',
             ],
           },
         ],
       },
       {
         slug: 'gcm',
-        title: 'GCM — Liderazgo e IA',
+        title: 'Proyecto 2 — Liderazgo e IA Generativa',
         period: '2024 – Presente',
-        description: 'Nuevo proyecto, nuevo cliente, nuevo rol. En GCM asumí el liderazgo del equipo de diseño y más tarde integré IA al flujo de trabajo.',
+        description: 'Liderazgo del equipo de diseño en un producto en construcción activa, con integración de IA generativa al flujo de trabajo.',
         status: 'active',
         sections: [
           {
             id: 'context',
-            title: 'Un Nuevo Proyecto, Un Nuevo Desafío',
+            title: 'Un Nuevo Desafío',
             content: [
-              'GCM es otro cliente de JBKnowledge. Ingresé al proyecto en 2024, en un momento en que el producto estaba en construcción activa: había pantallas por diseñar, un sistema de diseño por armar, y una identidad visual de producto que definir.',
-              'A principios de 2025 asumí el liderazgo del equipo de diseño. La particularidad fue que el colega que incorporamos era un diseñador senior, pero nuevo en el proyecto. Eso hizo que el liderazgo se basara en el conocimiento del contexto más que en la jerarquía.',
+              'Asumí el liderazgo del equipo de diseño para un producto que se encontraba en fase de construcción activa. El reto principal fue coordinar el esfuerzo visual, definir la identidad del producto desde cero y crear un sistema de diseño escalable mientras se maquetaban las pantallas principales.',
+              'Al incorporar a un diseñador senior al equipo, el enfoque de liderazgo se basó estrictamente en la transferencia de contexto y la gestión eficiente del conocimiento técnico — no en la jerarquía.',
             ],
           },
           {
             id: 'leadership',
-            title: 'El Rol de Liderazgo',
+            title: 'Implementación de Nuevos Procesos',
             content: [
-              'Liderar en este contexto implicó coordinar el trabajo de diseño, mantener la coherencia del sistema visual, y ser referente para decisiones que necesitaban contexto del proyecto.',
-              'Una de las iniciativas que traje fue la de design reviews: revisiones del trabajo de los desarrolladores antes de pasar a QA, para garantizar la fidelidad al diseño y detectar ajustes temprano. En ese proceso experimenté con Microsoft Loop para estructurar las revisiones, pero la herramienta tenía limitaciones técnicas al compartir con varios usuarios. Lo descartamos y encontramos un flujo más simple.',
+              'Introduje la práctica de Design Reviews previas a la etapa de QA. Esto permitió asegurar la fidelidad de la implementación frente a los prototipos y detectar ajustes en etapas tempranas.',
+              'Experimenté continuamente con diferentes herramientas de documentación asíncrona hasta dar con el flujo más eficiente para el equipo.',
             ],
             pullQuote: 'Suelo hacer muchas pruebas que no siempre terminan en éxito, pero me gusta explorar nuevas opciones.',
           },
           {
             id: 'notebooklm',
-            title: 'NotebookLM: Base de Conocimiento del Proyecto',
+            title: 'Base de Conocimiento y Aceleración con IA',
             content: [
-              'Hacia fines de 2025, junto a mi colega Gonzalo Micheleti, empezamos a explorar cómo la IA podía mejorar el flujo de trabajo del equipo. El primer experimento fue construir una base de conocimiento del proyecto usando NotebookLM.',
-              'Cargamos documentación relevante del proyecto y entrenamos el sistema iterativamente: cuando la IA daba respuestas imprecisas, identificábamos el gap en la documentación y lo corregíamos. El resultado fue un asistente que cualquier miembro del equipo podía consultar para entender el contexto del proyecto.',
-              'El impacto más claro fue en el onboarding: pasar de revisar grabaciones de reuniones durante horas a hacer consultas activas al sistema redujo significativamente el tiempo de adaptación de personas nuevas.',
-              'Un mes después del lanzamiento, el cliente decidió suspender el uso de herramientas de IA por una política interna. El aprendizaje quedó, el sistema se archivó.',
-            ],
-          },
-          {
-            id: 'ia-validation',
-            title: 'IA para Agilizar la Validación',
-            content: [
-              'En paralelo al NotebookLM, incorporé herramientas de IA generativa para acelerar los ciclos de validación. Diseñar y validar un concepto podía tomar varios días; con IA, pasó a ser una iteración de media hora seguida de una sesión de validación directa con el equipo.',
-              'Usé Figma Make para generar wireframes desde prompts, Claude para maquetación rápida de conceptos, y Stitch para mockups de flujos más complejos.',
-              'El ciclo completo de diseño pasó de alrededor de 7 días a 1 día de trabajo.',
+              'Para optimizar el flujo de trabajo, lideré la integración de herramientas de IA. Desarrollamos una base de conocimiento dinámica entrenada con la documentación técnica del proyecto.',
+              'Esto transformó el onboarding de nuevos integrantes: pasaron de consumir horas de grabaciones a realizar consultas activas, reduciendo drásticamente la curva de aprendizaje.',
+              'En paralelo, adopté herramientas generativas para la creación rápida de wireframes y mockups. Todo este proceso fue acompañado de una política estricta de documentación continua de decisiones y contexto.',
             ],
           },
           {
@@ -113,21 +105,24 @@ export const CASE_STUDIES: CaseStudyData[] = [
             title: 'Documentar Todo lo Vivido',
             content: [
               'Uno de los aprendizajes más valiosos de esta etapa fue el de documentar de forma continua. No solo el Design System, sino las decisiones de reuniones, los cambios en el diseño, los motivos de cada ajuste, los datos relevantes y hasta las tareas del día a día.',
-              'Esa documentación se convierte en memoria del proyecto: permite entender por qué cada cosa es como es, mantiene un ojo crítico sobre el diseño, y hace posible que cualquier persona que se sume pueda ponerse al día sin depender de que alguien le explique todo.',
+              'Esa documentación se convierte en memoria del proyecto: permite entender por qué cada cosa es como es y hace posible que cualquier persona que se sume pueda ponerse al día sin depender de que alguien le explique todo.',
             ],
           },
           {
             id: 'results',
             title: 'Resultados',
             content: [
-              'Tiempo de validación de concepto: de varios días a media hora de sesión con el equipo (reducción de 93.75%). Ciclo de diseño completo: de 7 días a 1 día (87.5% de reducción). Onboarding con NotebookLM: de horas de grabaciones a consulta activa. Design reviews pre-QA: implementadas como práctica regular del equipo.',
+              'Velocidad de validación: el tiempo de diseño y validación de conceptos se redujo de varios días a iteraciones de media hora — una reducción del 93.75% en los tiempos de respuesta.',
+              'Eficiencia del ciclo de vida: el ciclo completo de diseño pasó de un promedio de 7 días a solo 1 día de trabajo efectivo — 87.5% de reducción de tiempo.',
+              'Optimización del onboarding: transformación del proceso de capacitación inicial mediante sistemas automatizados de consulta.',
+              'Design reviews pre-QA implementadas como práctica regular del equipo.',
             ],
           },
           {
             id: 'reflection',
             title: 'Si Volviera a Empezar',
             content: [
-              'Arrancaría con NotebookLM desde el primer día del proyecto, no cuando el proyecto ya está maduro. El conocimiento temprano acelera todo lo demás.',
+              'Arrancaría con la base de conocimiento desde el primer día del proyecto, no cuando el proyecto ya está maduro. El conocimiento temprano acelera todo lo demás.',
               'Documentaría las decisiones desde el inicio. Entre más crece el proyecto, más valiosa es esa historia.',
               'Y en lugar de esperar a que el Design System esté completo para integrar IA, las usaría juntas desde el principio: la IA para la ejecución visual, yo enfocado en las decisiones de UX.',
             ],
@@ -242,7 +237,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         id: 'context',
         title: 'Por Qué Enseñar',
         content: [
-          'Cuando tomé el rol en Coderhouse ya llevaba años trabajando en UX/UI en JBKnowledge. No lo hice para validar el perfil. Lo hice porque me interesaba, y lo que encontré fue el momento de mayor plenitud profesional de mi vida.',
+          'Cuando tomé el rol en Coderhouse ya llevaba años trabajando en UX/UI en InsurTech Global. No lo hice para validar el perfil. Lo hice porque me interesaba, y lo que encontré fue el momento de mayor plenitud profesional de mi vida.',
           'Investigaba los temas a fondo para poder enseñarlos, diseñaba durante el día, enseñaba de noche. Tres roles que se retroalimentaban. Descubrí que explicar algo bien es otra forma de entenderlo.',
         ],
       },
@@ -464,3 +459,467 @@ export const CASE_STUDIES: CaseStudyData[] = [
     ],
   },
 ];
+
+// ─── English version ────────────────────────────────────────
+const CASE_STUDIES_EN: CaseStudyData[] = [
+  {
+    slug: 'jbknowledge',
+    title: 'InsurTech Global',
+    subtitle: 'Professional growth at a B2B company building corporate software solutions',
+    role: 'UX/UI Designer → UX/UI Lead',
+    period: 'August 2021 – Present',
+    type: 'Enterprise',
+    status: 'active',
+    seoTitle: 'InsurTech Global — Case Study | Gonzalo Daniel Pérez',
+    seoDescription: 'Systems design, team leadership and AI integration at a globally distributed tech company.',
+    sections: [
+      {
+        id: 'context',
+        title: 'The Context',
+        content: [
+          'I joined an international technology company that develops specialized software for risk management and insurance. The work dynamic involves collaborating in a fully distributed environment, coordinating with development and product teams located across the Americas, Africa, and Europe.',
+          'I joined in August 2021 as a UX/UI Designer. Over time, the work grew in scope and technical responsibility, leading me to take on a design leadership role starting in 2025.',
+          'Along the way I worked on multiple projects. Here I focus on two key ones that shaped my technical and management evolution.',
+        ],
+      },
+    ],
+    subProjects: [
+      {
+        slug: 'ccmsi',
+        title: 'Project 1 — Design System Expansion',
+        period: 'August 2021 – 2023',
+        description: 'Expansion of a Design System for the main product of a corporate client in the insurance sector.',
+        status: 'completed',
+        sections: [
+          {
+            id: 'context',
+            title: 'The Project',
+            content: [
+              'The challenge was to take an early-stage design system for a corporate client\'s main product and bring it to a maturity level that could sustain the platform\'s scaling.',
+              'The work didn\'t start from scratch. I took what existed, understood the team\'s logic, and focused on expanding and documenting the entire system comprehensively.',
+            ],
+          },
+          {
+            id: 'communication',
+            title: 'Improving Cross-Team Communication',
+            content: [
+              'I identified a bottleneck in the team dynamic: the lack of participation from certain developers in design reviews was generating friction and rework.',
+              'I proposed and implemented a cross-review model including key representatives — Business Analysts, QA, Front-end and Back-end developers — to align expectations early and streamline the process for everyone.',
+            ],
+          },
+          {
+            id: 'design-system',
+            title: 'The Design System as a Decision Tool',
+            content: [
+              'I evolved the system by incorporating components with variants, interaction patterns, and clear usage rules. The goal was to create an actionable source of truth so any team member — devs, BAs, or new designers — could make autonomous decisions with technical context.',
+              'It wasn\'t about having the team consult less. It was about giving them a concrete tool to lean on. I designed thinking about those who would come after me.',
+            ],
+            pullQuote: 'I designed thinking about those who would come after me.',
+          },
+          {
+            id: 'results',
+            title: 'Results',
+            content: [
+              'Reduced downtime: developer and Business Analyst consultations dropped from 2 hours/week per person to 1 hour/week.',
+              'Team efficiency: proven total savings of 7 hours per week for the core team.',
+              'Product stability: a unified system with a significant reduction in bugs reported due to front-end visual inconsistencies.',
+            ],
+          },
+        ],
+      },
+      {
+        slug: 'gcm',
+        title: 'Project 2 — Leadership & Generative AI',
+        period: '2024 – Present',
+        description: 'Design team leadership on a product under active construction, with integration of generative AI into the workflow.',
+        status: 'active',
+        sections: [
+          {
+            id: 'context',
+            title: 'A New Challenge',
+            content: [
+              'I took on design team leadership for a product in active construction. The main challenge was coordinating the visual effort, defining the product identity from scratch, and creating a scalable design system while building out the main screens.',
+              'When a senior designer joined the team, the leadership approach was strictly based on context transfer and efficient management of technical knowledge — not hierarchy.',
+            ],
+          },
+          {
+            id: 'leadership',
+            title: 'Implementing New Processes',
+            content: [
+              'I introduced the practice of Design Reviews prior to the QA stage. This ensured implementation fidelity against prototypes and allowed catching adjustments early.',
+              'I continuously experimented with different async documentation tools until finding the most efficient workflow for the team.',
+            ],
+            pullQuote: 'I tend to run many tests that don\'t always succeed, but I like to explore new options.',
+          },
+          {
+            id: 'notebooklm',
+            title: 'Knowledge Base and AI Acceleration',
+            content: [
+              'To optimize the workflow, I led the integration of AI tools. We developed a dynamic knowledge base trained on the project\'s technical documentation.',
+              'This transformed onboarding for new team members: they went from consuming hours of recordings to making active queries, drastically reducing the learning curve.',
+              'In parallel, I adopted generative tools for rapid wireframe and mockup creation. All of this was accompanied by a strict policy of continuous documentation of decisions and context.',
+            ],
+          },
+          {
+            id: 'documentation',
+            title: 'Documenting Everything',
+            content: [
+              'One of the most valuable learnings of this stage was continuous documentation. Not just the Design System, but meeting decisions, design changes, the reasons for each adjustment, relevant data, and even day-to-day tasks.',
+              'That documentation becomes the project\'s memory: it explains why things are the way they are, and makes it possible for anyone who joins to get up to speed without depending on someone to explain everything.',
+            ],
+          },
+          {
+            id: 'results',
+            title: 'Results',
+            content: [
+              'Validation speed: concept design and validation time reduced from several days to half-hour iterations — a 93.75% reduction in response times.',
+              'Lifecycle efficiency: the complete design cycle went from an average of 7 days to just 1 effective working day — 87.5% time reduction.',
+              'Onboarding optimization: initial training transformed through automated query systems.',
+              'Pre-QA design reviews implemented as a regular team practice.',
+            ],
+          },
+          {
+            id: 'reflection',
+            title: 'If I Started Over',
+            content: [
+              'I would start the knowledge base from day one of the project, not when the project is already mature. Early knowledge accelerates everything else.',
+              'I would document decisions from the beginning. The more the project grows, the more valuable that history becomes.',
+              'And instead of waiting for the Design System to be complete before integrating AI, I would use them together from the start: AI for visual execution, me focused on UX decisions.',
+            ],
+            pullQuote: 'It\'s not about going faster. It\'s about making the process better for everyone who lives it.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'ratt',
+    title: 'RATT',
+    subtitle: 'Narrative as a design decision for the RATT website (Red Alto al Tráfico y la Trata)',
+    role: 'UX/UI Lead',
+    period: 'September 2024 – February 2025',
+    credits: [
+      {
+        name: 'Florencia Manzoni',
+        role: 'UX/UI Designer',
+        url: 'https://www.linkedin.com/in/florenciamanzoni/',
+      },
+    ],
+    type: 'Social Impact',
+    status: 'completed',
+    seoTitle: 'RATT — Case Study | Gonzalo Daniel Pérez',
+    seoDescription: 'UX/UI redesign as volunteer work. Emotional narrative as the central design decision for a social cause.',
+    sections: [
+      {
+        id: 'context',
+        title: 'The Starting Point',
+        content: [
+          'RATT\'s previous website had a situation common in social organizations: lots of text, very dense, hard to process. The important information was there, but it wasn\'t landing.',
+          'On a topic like trafficking or human exploitation, information not landing isn\'t just a design problem — it\'s an impact opportunity lost.',
+          'The challenge wasn\'t technical. It was narrative. How do you transform an informational site into an experience that moves people to action?',
+        ],
+      },
+      {
+        id: 'research',
+        title: 'Month 1: Research Before Designing',
+        content: [
+          'I made a decision that defined the project: a full month of research before starting design. Heuristic analysis of the existing site, case studies of similar organizations, understanding the context: who visits the site, what they feel, what leads them to report or donate.',
+          'A topic like trafficking or human exploitation deserves depth. Skipping that stage would have been a mistake.',
+        ],
+      },
+      {
+        id: 'three-paths',
+        title: 'The 3 User Paths',
+        content: [
+          'From the analysis and a joint decision with the RATT team, the site architecture emerged around three weighted actions:',
+          'Report — Primary priority. The core of RATT\'s mission. The user who comes to report must find the path without friction.',
+          'Donate — Second priority. Economic support for the cause.',
+          'Train — Third priority. Expands reach and sometimes generates revenue.',
+          'The three paths have differentiated weight but are complementary: the user navigates toward the action that resonates most with them.',
+        ],
+      },
+      {
+        id: 'narrative',
+        title: 'The Central Decision: The Site as a Story',
+        content: [
+          'Faced with dense text, we made the most important design decision of the project: structure each page as a story.',
+          'Beginning: an emotional hook, something that stops the user. Middle: key information, the problem, the data. End: the call to action, the hope, what they can do.',
+          'The pages together form a complete arc: they\'re not independent sections, they\'re chapters of a larger narrative.',
+          'Instead of positioning the visitor as a witness to a tragedy, the design puts them as the protagonist. Their report, their donation, are concrete acts of change.',
+        ],
+        pullQuote: 'Change is simple; the impact immense. The difference starts with you.',
+      },
+      {
+        id: 'implementation',
+        title: 'From Design to Implementation',
+        content: [
+          'The site was implemented in Wix. From the start we knew the result wouldn\'t be an exact replica of the design, and we accepted that without issue.',
+          'The essentials were achieved: the narrative of each page was preserved, the key phrases made it to the site, the positioning of the user as protagonist was maintained, and the CTAs invite action.',
+        ],
+      },
+      {
+        id: 'strategy',
+        title: 'Emotion + Data',
+        content: [
+          'RATT didn\'t just need to move people emotionally. It needed to convince them. The solution was working on two levels simultaneously: emotional narrative (empowerment phrases, visual identity with urgency but avoiding sensationalism) and concrete data (real numbers, documented achievements, quantifiable impact).',
+          'The sequence: connect emotionally, sustain with data, drive to action.',
+        ],
+      },
+      {
+        id: 'honesty',
+        title: 'Post-Launch',
+        content: [
+          'RATT doesn\'t share analytics. We don\'t have access to metrics on reports, donations, or conversion. What we know: the RATT team liked the result.',
+        ],
+      },
+      {
+        id: 'reflection',
+        title: 'If I Started Over',
+        content: [
+          'I would use AI to accelerate visual execution and dedicate more time to deepening the narrative. I would test more copy variations with similar audiences before defining the key phrases. And from day 1, I would propose a simple measurement plan that RATT could sustain with their own resources.',
+        ],
+        pullQuote: 'Reducing dense text isn\'t losing information. It\'s transforming it into something processable.',
+      },
+    ],
+  },
+  {
+    slug: 'coderhouse',
+    title: 'Coderhouse',
+    subtitle: 'Teaching UX/UI and what it left me as a designer',
+    role: 'UX/UI Design Instructor',
+    period: 'May 2023 – October 2023',
+    type: 'Teaching',
+    status: 'completed',
+    seoTitle: 'Coderhouse — Case Study | Gonzalo Daniel Pérez',
+    seoDescription: 'Teaching experience in UX/UI: 70+ students, 4.92/5 rating, and how teaching improved my design.',
+    sections: [
+      {
+        id: 'context',
+        title: 'Why Teach',
+        content: [
+          'When I took the role at Coderhouse I had already been working in UX/UI at InsurTech Global for years. I didn\'t do it to validate my profile. I did it because I was genuinely interested — and what I found was the most professionally fulfilling moment of my life.',
+          'I researched topics deeply to teach them, designed during the day, taught at night. Three roles feeding into each other. I discovered that explaining something well is another way of understanding it.',
+        ],
+      },
+      {
+        id: 'audience',
+        title: 'The Program and the Audience',
+        content: [
+          'Introductory-level UX/UI Design course, no prior requirements. The interesting part was the diversity: business administration, marketing, technical trades, graphic design, and many who had never designed anything.',
+          'The challenge I set for myself: how could I explain concepts clearly to people with such different backgrounds, without losing depth and without resorting to jargon that didn\'t add value.',
+        ],
+      },
+      {
+        id: 'method',
+        title: 'The Little Brother Method',
+        content: [
+          'If my brother (9-10 years old) understands the concept and can explain it back to me, the class was a success.',
+          'It wasn\'t a metaphor. I would rehearse classes with him before teaching them. If the concept broke down at some point, I\'d go back to the beginning and reformulate.',
+          'The logic is simple: if a concept can\'t be explained in accessible terms, it probably isn\'t fully clear yet. Simplicity doesn\'t oppose rigor — it complements it.',
+        ],
+        pullQuote: 'If the user doesn\'t understand it, it\'s an opportunity to improve the design.',
+      },
+      {
+        id: 'show',
+        title: 'Classes as a Show',
+        content: [
+          'I prepared each class as if it were a presentation. It wasn\'t enough for the content to be correct: it had to be interesting.',
+          'I developed my own method: find a striking element that works as a hook to capture attention right before explaining a complex topic. When people are hooked, they learn more and better.',
+          'The shirts were part of that. I started with normal clothes and gradually incorporated increasingly colorful and varied shirts, different for each class. Students were already waiting to see what I\'d show up in. That moment of surprise was the perfect entry point for the day\'s topic.',
+          'The most memorable example: I dressed as Walter White from Breaking Bad to teach Atomic Design. The class started with the show\'s intro. Students laughed, connected, and learned the concept. A topic that usually generates resistance became something memorable.',
+        ],
+      },
+      {
+        id: 'safety',
+        title: 'Space to Express Yourself',
+        content: [
+          'Learning something new can be intimidating. I worked to make the classroom a space where frustration could be expressed without fear of judgment.',
+          'It wasn\'t just about transmitting knowledge: it was about facilitating the learning process. Having someone feel comfortable enough to ask a question or say they didn\'t understand is a necessary condition for learning to happen.',
+        ],
+      },
+      {
+        id: 'results',
+        title: 'The Impact',
+        content: [
+          '70+ students over 6 months. Average rating of 4.92 out of 5. In-person classes, 2 hours, twice a week.',
+        ],
+      },
+      {
+        id: 'transfer',
+        title: 'What Teaching Taught Me',
+        content: [
+          'I learned to explain technical topics better. That has a direct impact on design work:',
+          'When you need to explain a design decision to someone from a different background, the clarity you train through teaching helps. Documenting so someone else understands also improves the documentation. Understanding what confuses someone is understanding what confuses the end user — it\'s the same skill.',
+          'Simplicity isn\'t degrading the concept. It\'s finding the most refined way to express it.',
+        ],
+      },
+      {
+        id: 'reflection',
+        title: 'Would I Teach Again?',
+        content: [
+          'Yes. Without hesitation. With one condition: that it\'s integrated into working hours, not as an additional night-time burden.',
+          'Pedagogy and design share a principle: if the other person doesn\'t understand it, it\'s an opportunity you can solve.',
+        ],
+        pullQuote: 'The little brother method isn\'t just a technique for preparing classes. It\'s a stance toward work.',
+      },
+    ],
+  },
+  {
+    slug: 'ai-experiments',
+    title: 'AI Experiments',
+    subtitle: 'Three generations of AI-native methodology, from idea to deployed product',
+    role: 'Designer + Builder',
+    period: 'October 2025 – Present',
+    type: 'AI Methodology',
+    status: 'active',
+    seoTitle: 'AI Experiments — Case Study | Gonzalo Daniel Pérez',
+    seoDescription: 'Three generations of AI-native methodology in 5 months. From isolated tools to documented and reproducible workflow.',
+    sections: [
+      {
+        id: 'context',
+        title: 'The Starting Point',
+        content: [
+          'In October 2025 I took Johan Villalba\'s AI for UXers course. That was the trigger. Johan, along with Cristian Morales Achiardi, greatly influenced how I started thinking about AI as something more than just a tool.',
+          'From there I started taking my own projects from idea to deployed product. Not as isolated experiments, but as a process that evolved with each iteration. In just a few months, that process went through three completely different versions.',
+          'What connects all the projects isn\'t the stack or the topic. It\'s the question guiding them: how do I take an idea from zero to a real product using AI in the best possible way?',
+        ],
+      },
+      {
+        id: 'evolution',
+        title: 'The Evolution in 3 Generations',
+        content: [
+          'Generation 1 (November 2025): Linear workflow. ChatGPT for research, Stitch for prototype, Google AI Studio to make it functional, Antigravity and Netlify. Separate tools, no formal documentation.',
+          'Generation 2 (December 2025 - January 2026): Deeper research. MCP integration: NotebookLM inside Antigravity. Consistent stack: React + Vite + TS + Supabase. Greater process documentation.',
+          'Generation 3 (February - March 2026): Paradigm shift. NotebookLM + Perplexity for research, Claude Code from terminal generating PRD + Design System + Content System, visual references described by LLM, ASCII mockups before code, local iterative implementation and deploy.',
+        ],
+      },
+      {
+        id: 'discovery',
+        title: 'The Discovery That Changed Everything',
+        content: [
+          'Local documentation and working from the terminal. I had a lot of fear of the terminal, but that\'s where I saw a huge shift in performance and results.',
+          'Without visual interfaces to distract: total focus on structure. Complete control over documents. Fast iteration without jumping between platforms. Natural integration with the local repository.',
+        ],
+        pullQuote: 'I was afraid of the terminal. That\'s where I saw a huge shift in performance.',
+      },
+      {
+        id: 'differentiator',
+        title: 'The Real Differentiator',
+        content: [
+          'Taking an idea to deploy is today a capability more and more people have. In a short time it won\'t be novel.',
+          'The differentiating factor lies in research and understanding of users, the product, and the business. What makes this methodology different isn\'t the stack or the tools. It\'s that every project starts with deep research, structured documentation, and understanding three dimensions simultaneously.',
+          'AI accelerates execution. Human judgment decides what to delegate, what not to, and how to evaluate results.',
+        ],
+      },
+      {
+        id: 'reflection',
+        title: 'What I Want to Demonstrate',
+        content: [
+          'Fast evolution and continuous learning. It\'s not how many projects I shipped. It\'s how my process changed in five months. From isolated tools to reproducible methodology. From fear of the terminal to native CLI work.',
+          'Experimental methodology with structure, not chaos. Judgment to decide what to automate and what not to. Comprehensive understanding: users, product, and business.',
+        ],
+        pullQuote: 'The cutting edge isn\'t the latest tool. It\'s knowing why you\'re using it.',
+      },
+    ],
+    subProjects: [
+      {
+        slug: 'feriaflow',
+        title: 'FeriaFlow',
+        generation: 'Generation 1',
+        period: 'November 2025',
+        description: 'Interface for market vendors: load products while selling, with automatic sales report generation per fair.',
+        motivation: 'A real need from a personal venture. Selling at a fair means keeping manual records of what\'s sold, at what price, and how many units. A process with huge potential for improvement.',
+        stack: ['React', 'Vite', 'TypeScript', 'Antigravity', 'Netlify'],
+        workflow: [
+          'ChatGPT — Initial research',
+          'Stitch — Initial superprompt, first prototype',
+          'Google AI Studio — From prototype to functional',
+          'Antigravity — Database and backend',
+          'Netlify — Deploy',
+        ],
+        insights: [
+          'Linear workflow, tool after tool in sequence',
+          'No formal documentation: no PRD, no defined Design System',
+          'Initial research, enough to start and validate',
+          'The product reached production and is in real use',
+        ],
+        status: 'active',
+      },
+      {
+        slug: 'dodocalendar',
+        title: 'DodoCalendar',
+        generation: 'Generation 2',
+        period: 'December 2025 – January 2026',
+        description: 'App for planning product manufacturing dates and fair dates.',
+        motivation: 'A need identified after FeriaFlow: coordinating when to manufacture to have enough stock at each fair.',
+        stack: ['React', 'Vite', 'TypeScript', 'Supabase', 'Netlify'],
+        workflow: [
+          'Deeper research',
+          'NotebookLM MCP integrated inside Antigravity (key step)',
+          'Stitch — Prototyping',
+          'Antigravity / Google AI Studio — Functional development',
+          'Supabase — Backend',
+          'Netlify — Deploy',
+        ],
+        insights: [
+          'Integrating NotebookLM as MCP was the evolutionary step of this generation',
+          'More structured research than Gen 1',
+          'The stack consolidates: React + Vite + TS',
+        ],
+        status: 'completed',
+      },
+      {
+        slug: 'portfolio',
+        title: 'This Portfolio',
+        generation: 'Generation 3',
+        period: 'February – March 2026',
+        description: 'Professional portfolio built with the complete AI-native methodology, from research to deploy.',
+        motivation: 'Apply the evolved methodology to a project that demonstrates the process itself.',
+        stack: ['React 19', 'Vite', 'TypeScript', 'React Router', 'Netlify'],
+        workflow: [
+          'NotebookLM + Perplexity — Deep research, local documentation',
+          'Claude Code from terminal — PRD + Design System + Content System + Plan',
+          'Visual references + LLM description in markdown',
+          'ASCII mockups — Structure before the visual',
+          'Local implementation with React + Vite + TS',
+          'Local iterations before deploy',
+          'Deploy on Netlify',
+        ],
+        insights: [
+          'Local documentation and working from terminal changed everything',
+          'PRD + Design System + Content System from CLI: structure first',
+          'ASCII mockups before opening the code editor',
+          'The process is as important as the product',
+        ],
+        status: 'active',
+      },
+      {
+        slug: 'finanzas',
+        title: 'Personal Finance App',
+        generation: 'Generation 3',
+        period: 'March 2026',
+        description: 'Personal expense and budget tracking using the same Gen 3 methodology.',
+        motivation: 'A personal need to organize finances, and at the same time validate that the methodology is reproducible in different domains.',
+        stack: ['React', 'Vite', 'TypeScript', 'Supabase', 'Netlify'],
+        workflow: [
+          'NotebookLM + Perplexity — Research',
+          'Claude Code — PRD + DS + CS + Plan',
+          'Visual references + LLM description',
+          'ASCII mockups',
+          'Local implementation',
+          'Deploy',
+        ],
+        insights: [
+          'Same Gen 3 methodology in a different domain',
+          'Validation that the workflow is reproducible',
+          'Actively under construction',
+        ],
+        status: 'active',
+      },
+    ],
+  },
+];
+
+export function getCaseStudies(lang: Language): CaseStudyData[] {
+  return lang === 'en' ? CASE_STUDIES_EN : CASE_STUDIES;
+}

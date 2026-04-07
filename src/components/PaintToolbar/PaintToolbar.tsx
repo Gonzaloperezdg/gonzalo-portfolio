@@ -3,24 +3,31 @@ import { usePaint } from '../../context/PaintContext';
 import { BRUSH_SIZES, SIZE_TOOLS, type RectFill } from '../../context/paintConstants';
 import {
   MousePointer2, Pencil, Paintbrush, PaintBucket, Eraser,
-  Minus, Square, Pipette, SprayCan, Type, Trash2, Zap
+  Minus, Square, Pipette, SprayCan, Type, Trash2, Zap,
+  ChevronUp, ChevronDown
 } from 'lucide-react';
 import styles from './PaintToolbar.module.css';
 
 const ICON_SIZE = 18;
 
-const TOOLS = [
+/* Tools split into primary (always visible on mobile) and secondary (expandable) */
+const PRIMARY_TOOLS = [
   { id: 'select',    Icon: MousePointer2, label: 'Navegar' },
   { id: 'pencil',    Icon: Pencil,        label: 'Lápiz' },
   { id: 'brush',     Icon: Paintbrush,    label: 'Pincel' },
   { id: 'fill',      Icon: PaintBucket,   label: 'Relleno' },
   { id: 'eraser',    Icon: Eraser,        label: 'Goma' },
+] as const;
+
+const SECONDARY_TOOLS = [
   { id: 'line',      Icon: Minus,         label: 'Línea' },
   { id: 'rectangle', Icon: Square,        label: 'Rectángulo' },
   { id: 'eyedrop',   Icon: Pipette,       label: 'Cuentagotas' },
   { id: 'spray',     Icon: SprayCan,      label: 'Aerosol' },
   { id: 'text',      Icon: Type,          label: 'Texto' },
 ] as const;
+
+const ALL_TOOLS = [...PRIMARY_TOOLS, ...SECONDARY_TOOLS];
 
 const PALETTE = [
   '#000000','#ffffff','#c0390b','#e8651a',
@@ -42,7 +49,9 @@ export function PaintToolbar() {
   const [showCustomizer, setShowCustomizer] = useState(false);
   const [pickingFor, setPickingFor] = useState<'primary' | 'secondary'>('primary');
   const [isVibrating, setIsVibrating] = useState(false);
-  
+  const [expanded, setExpanded] = useState(false);
+  const [showMobilePalette, setShowMobilePalette] = useState(false);
+
   // Hue para el customizer (0-360)
   const [hue, setHue] = useState(0);
 
@@ -76,7 +85,6 @@ export function PaintToolbar() {
   const handleHueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newHue = parseInt(e.target.value);
     setHue(newHue);
-    // Cambiar color base (muy simplificado, idealmente usar HSL o canvas)
     if (pickingFor === 'primary') handleColorChange(hslToHex(newHue, 100, 50));
     else setSecondaryColor(hslToHex(newHue, 100, 50));
   };
@@ -84,6 +92,23 @@ export function PaintToolbar() {
   useEffect(() => {
     setHexInput(drawColor.replace('#', ''));
   }, [drawColor]);
+
+  // Show mobile palette when pencil or brush is selected
+  const isColorTool = activeTool === 'pencil' || activeTool === 'brush';
+
+  // Toggle palette on tool click for mobile
+  const handleToolClick = (id: string) => {
+    if (id === activeTool && (id === 'pencil' || id === 'brush')) {
+      setShowMobilePalette(prev => !prev);
+    } else {
+      setActiveTool(id);
+      if (id === 'pencil' || id === 'brush') {
+        setShowMobilePalette(true);
+      } else {
+        setShowMobilePalette(false);
+      }
+    }
+  };
 
   const [showTooltip, setShowTooltip] = useState(true);
   useEffect(() => {
@@ -100,7 +125,7 @@ export function PaintToolbar() {
   return (
     <aside className={styles.toolbar} aria-label="Herramientas de dibujo">
       {/* Zap Button (Motor de vida) */}
-      <button 
+      <button
         className={`${styles.zapBtn} ${isVibrating ? styles.zapBtnActive : ''}`}
         onClick={() => setIsVibrating(!isVibrating)}
         title={isVibrating ? "Detener Motor" : "Cargar Vida"}
@@ -114,18 +139,18 @@ export function PaintToolbar() {
       {showCustomizer && (
         <div className={styles.customizer} onMouseLeave={() => setShowCustomizer(false)}>
           <span className={styles.customizerLabel}>Personalizar Color ({pickingFor === 'primary' ? '1' : '2'})</span>
-          
-          <div 
-            className={styles.spectrumArea} 
+
+          <div
+            className={styles.spectrumArea}
             style={{ backgroundColor: `hsl(${hue}, 100%, 50%)` }}
             title="Área de espectro"
           />
-          
-          <input 
-            type="range" 
-            min="0" 
-            max="360" 
-            value={hue} 
+
+          <input
+            type="range"
+            min="0"
+            max="360"
+            value={hue}
             onChange={handleHueChange}
             className={styles.hueSlider}
           />
@@ -149,8 +174,42 @@ export function PaintToolbar() {
         <div className={styles.tooltipArrow} />
       </div>
 
+      {/* ── MOBILE: Palette circles above toolbar ── */}
+      {showMobilePalette && isColorTool && (
+        <div className={styles.mobilePalette}>
+          {PALETTE.map(color => (
+            <button
+              key={color}
+              className={`${styles.mobilePaletteBtn} ${drawColor === color ? styles.mobilePaletteBtnActive : ''}`}
+              style={{ background: color }}
+              onClick={() => handleColorChange(color)}
+              aria-label={`Color ${color}`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* ── MOBILE: Expanded secondary tools panel ── */}
+      {expanded && (
+        <div className={styles.mobileExpanded}>
+          {SECONDARY_TOOLS.map(({ id, Icon, label }) => (
+            <button
+              key={id}
+              className={`${styles.toolBtn} ${activeTool === id ? styles.active : ''}`}
+              onClick={() => handleToolClick(id)}
+              title={label}
+              aria-label={label}
+              aria-pressed={activeTool === id}
+            >
+              <Icon size={ICON_SIZE} />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* ── DESKTOP: All tools in grid ── */}
       <div className={styles.toolGrid}>
-        {TOOLS.map(({ id, Icon, label }) => (
+        {ALL_TOOLS.map(({ id, Icon, label }) => (
           <button
             key={id}
             className={`${styles.toolBtn} ${activeTool === id ? styles.active : ''}`}
@@ -162,6 +221,42 @@ export function PaintToolbar() {
             <Icon size={ICON_SIZE} />
           </button>
         ))}
+      </div>
+
+      {/* ── MOBILE: Primary tools row ── */}
+      <div className={styles.mobileToolRow}>
+        {PRIMARY_TOOLS.map(({ id, Icon, label }) => (
+          <button
+            key={id}
+            className={`${styles.toolBtn} ${activeTool === id ? styles.active : ''}`}
+            onClick={() => handleToolClick(id)}
+            title={label}
+            aria-label={label}
+            aria-pressed={activeTool === id}
+          >
+            <Icon size={ICON_SIZE} />
+          </button>
+        ))}
+
+        {/* Expand/collapse button */}
+        <button
+          className={`${styles.toolBtn} ${expanded ? styles.active : ''}`}
+          onClick={() => setExpanded(!expanded)}
+          title={expanded ? 'Menos herramientas' : 'Más herramientas'}
+          aria-label={expanded ? 'Menos herramientas' : 'Más herramientas'}
+        >
+          {expanded ? <ChevronDown size={ICON_SIZE} /> : <ChevronUp size={ICON_SIZE} />}
+        </button>
+
+        {/* Trash */}
+        <button
+          className={styles.clearBtnMobile}
+          onClick={triggerClear}
+          title="Limpiar canvas"
+          aria-label="Limpiar canvas"
+        >
+          <Trash2 size={ICON_SIZE} />
+        </button>
       </div>
 
       {showSizes && (

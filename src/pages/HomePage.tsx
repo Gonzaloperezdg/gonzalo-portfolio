@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { CASE_STUDIES } from '../data/caseStudies';
+import { getCaseStudies } from '../data/caseStudies';
+import { useTheme } from '../context/ThemeContext';
 import { Button } from '../components/ui/Button/Button';
 import { Input } from '../components/ui/Input/Input';
 import styles from './HomePage.module.css';
@@ -14,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 const FORMSPREE_URL = 'https://formspree.io/f/meeppazv';
 
 export function HomePage() {
+  const { t, language } = useTheme();
+  const CASE_STUDIES = getCaseStudies(language);
   const [contactMode, setContactMode] = useState<'text' | 'draw'>('text');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSucceeded, setIsSucceeded] = useState(false);
@@ -157,7 +160,7 @@ export function HomePage() {
 
         // Validar tamaño (max 5MB)
         if (blob.size > 5 * 1024 * 1024) {
-          alert('El dibujo es muy grande. Intenta con un dibujo mas simple.');
+          alert(t('home_contact_draw_too_big'));
           setIsSubmitting(false);
           return;
         }
@@ -181,7 +184,7 @@ export function HomePage() {
         const emailInput = contactFormRef.current?.querySelector<HTMLInputElement>('input[name="email"]');
 
         if (!nameInput?.value || !emailInput?.value) {
-          alert('Completa nombre y email');
+          alert(t('home_contact_fill_name_email'));
           setIsSubmitting(false);
           return;
         }
@@ -199,7 +202,7 @@ export function HomePage() {
         const messageInput = contactFormRef.current?.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
 
         if (!nameInput?.value || !emailInput?.value || !messageInput?.value) {
-          alert('Completa todos los campos');
+          alert(t('home_contact_fill_all'));
           setIsSubmitting(false);
           return;
         }
@@ -215,7 +218,7 @@ export function HomePage() {
       contactFormRef.current?.reset();
     } catch (error) {
       console.error('Error:', error);
-      alert('No se pudo enviar. Intenta de nuevo.');
+      alert(t('home_contact_error'));
     } finally {
       setIsSubmitting(false);
     }
@@ -254,10 +257,10 @@ export function HomePage() {
           <h1
             className={styles.heroTitle}
             data-fade
-            aria-label="UX con AI aplicada"
+            aria-label={`${t('hero_title_1')} ${t('hero_title_2')}`}
           >
-            <span>UX CON AI</span>
-            <span>APLICADA</span>
+            <span>{t('hero_title_1')}</span>
+            <span>{t('hero_title_2')}</span>
           </h1>
         </section>
 
@@ -272,25 +275,18 @@ export function HomePage() {
                 <div className={styles.aboutImagePlaceholder}>
                   <img src={gonzaloImg} alt="Gonzalo Daniel Pérez" className={styles.aboutImage} />
                 </div>
-                <p className={styles.aboutText}>
-                  Hola, soy Gonzalo Pérez — UX/UI Lead. Trabajé con Design Systems, enseñé UX/UI a 70+ estudiantes,
-                  y ahora trabajo con metodología AI-native manteniendo el criterio humano en cada decisión.
-                  La claridad en el proceso importa tanto como el resultado.
-                </p>
+                <p className={styles.aboutText}>{t('home_about_text')}</p>
                 <Link to="/about" className={styles.sectionLink}>
-                  Ver más →
+                  {t('home_about_link')}
                 </Link>
               </div>
 
               {/* Derecha: título */}
               <div className={styles.aboutTitleWrap}>
-                <h2
-                  className={styles.aboutTitle}
-                  aria-label="Un poco de mi"
-                >
-                  <span>UN</span>
-                  <span>POCO</span>
-                  <span>DE MI</span>
+                <h2 className={styles.aboutTitle} aria-label={t('home_about_s3')}>
+                  <span>{t('home_about_s1')}</span>
+                  <span>{t('home_about_s2')}</span>
+                  {t('home_about_s3') && <span>{t('home_about_s3')}</span>}
                 </h2>
               </div>
 
@@ -306,9 +302,9 @@ export function HomePage() {
             {/* Título PRO/YEC/TOS */}
             <div className={styles.featuredTitleWrap} data-reveal>
               <h2 className={styles.featuredTitle}>
-                <span>PRO</span>
-                <span>YEC</span>
-                <span>TOS</span>
+                <span>{t('home_projects_s1')}</span>
+                <span>{t('home_projects_s2')}</span>
+                {t('home_projects_s3') && <span>{t('home_projects_s3')}</span>}
               </h2>
             </div>
 
@@ -339,9 +335,9 @@ export function HomePage() {
               {isSucceeded ? (
                 <div className={styles.contactSuccess}>
                   <p className={styles.contactSuccessText}>
-                    ✓ Tu mensaje llegó correctamente.<br />
+                    {t('home_contact_success')}<br />
                     <span className={styles.contactSuccessSecondary}>
-                      Nos pondremos en contacto pronto.
+                      {t('home_contact_success_sub')}
                     </span>
                   </p>
                 </div>
@@ -354,14 +350,14 @@ export function HomePage() {
                       className={`${styles.contactModeBtn} ${contactMode === 'text' ? styles.contactModeBtnActive : ''}`}
                       onClick={() => setContactMode('text')}
                     >
-                      📝 Texto
+                      {t('home_contact_mode_text')}
                     </button>
                     <button
                       type="button"
                       className={`${styles.contactModeBtn} ${contactMode === 'draw' ? styles.contactModeBtnActive : ''}`}
                       onClick={() => setContactMode('draw')}
                     >
-                      🎨 Dibujo
+                      {t('home_contact_mode_draw')}
                     </button>
                   </div>
 
@@ -420,13 +416,13 @@ export function HomePage() {
                         type="button"
                         onClick={clearContactCanvas}
                       >
-                        Limpiar
+                        {t('home_contact_clear')}
                       </Button>
                     </>
                   )}
 
                   <Button type="submit" disabled={isSubmitting} fullWidth>
-                    {isSubmitting ? 'Enviando...' : 'Enviar'}
+                    {isSubmitting ? t('home_contact_sending') : t('home_contact_send')}
                   </Button>
                 </form>
               )}
@@ -448,12 +444,11 @@ export function HomePage() {
               </div>
             </div>
 
-            {/* Derecha: título CON TAC TO */}
             <div className={styles.contactTitleWrap}>
               <h2 className={styles.contactTitle}>
-                <span>CON</span>
-                <span>TAC</span>
-                <span>TO</span>
+                <span>{t('home_contact_s1')}</span>
+                <span>{t('home_contact_s2')}</span>
+                {t('home_contact_s3') && <span>{t('home_contact_s3')}</span>}
               </h2>
             </div>
 

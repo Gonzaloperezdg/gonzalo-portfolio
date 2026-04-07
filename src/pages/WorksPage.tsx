@@ -10,7 +10,7 @@ export function WorksPage() {
     <>
       <Helmet>
         <title>{`${t('works_title')} — Gonzalo Daniel Pérez`}</title>
-        <meta name="description" content="Proyectos: JBKnowledge, Coderhouse, RATT ONG, AI Experiments." />
+        <meta name="description" content="Proyectos: InsurTech Global, Coderhouse, RATT ONG, AI Experiments." />
       </Helmet>
 
       <div className={styles.page}>
