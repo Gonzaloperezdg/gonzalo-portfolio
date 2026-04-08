@@ -9,7 +9,7 @@ export function WorksPage() {
   return (
     <>
       <Helmet>
-        <title>{`${t('works_title')} — Gonzalo Daniel Pérez`}</title>
+        <title>{`${t('works_title')} | Gonzalo Daniel Pérez`}</title>
         <meta name="description" content="Proyectos: InsurTech Global, Coderhouse, RATT ONG, AI Experiments." />
       </Helmet>
 

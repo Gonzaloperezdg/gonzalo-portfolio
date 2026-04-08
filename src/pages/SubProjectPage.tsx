@@ -34,7 +34,7 @@ export function SubProjectPage() {
   return (
     <>
       <Helmet>
-        <title>{project.title} — {parent.title} | Gonzalo Daniel Pérez</title>
+        <title>{project.title}: {parent.title} | Gonzalo Daniel Pérez</title>
         <meta name="description" content={project.description} />
       </Helmet>
 

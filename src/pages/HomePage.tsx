@@ -251,7 +251,7 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Gonzalo Daniel Pérez — UX/UI Designer</title>
+        <title>Gonzalo Daniel Pérez, UX/UI Designer</title>
         <meta name="description" content="Portfolio de UX/UI Design. Metodología AI-native. Corrientes, Argentina." />
       </Helmet>
 

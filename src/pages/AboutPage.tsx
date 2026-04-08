@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useTheme } from '../context/ThemeContext';
+import { Button } from '../components/ui/Button/Button';
 import gonzaloImg from '../assets/un_poco_de_mi.jpg';
 import styles from './AboutPage.module.css';
 
@@ -13,7 +14,7 @@ export function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>{`${t('about_title')} — Gonzalo Daniel Pérez`}</title>
+        <title>{`${t('about_title')} | Gonzalo Daniel Pérez`}</title>
         <meta name="description" content="UX/UI Designer. De Paint de niño a metodología AI-native hoy." />
       </Helmet>
 
@@ -22,7 +23,7 @@ export function AboutPage() {
           <img src={gonzaloImg} alt="Gonzalo Daniel Pérez" className={styles.profileImg} />
           <div className={styles.profileMeta}>
             <h1 className={styles.pageTitle}>{t('about_title')}</h1>
-            <p className={styles.profileRole}>UX/UI Designer — Corrientes, Argentina</p>
+            <p className={styles.profileRole}>{t('about_profile_role')}</p>
           </div>
         </div>
         <section className={styles.section} data-reveal="section">
@@ -81,6 +82,9 @@ export function AboutPage() {
         <section className={styles.section} data-reveal="section">
           <h2 className={styles.heading} data-reveal="heading">{t('about_contact_title')}</h2>
           <p>{t('about_contact_p1')}</p>
+          <Button as="link" to="/#contacto" variant="secondary">
+            {t('about_contact_btn')}
+          </Button>
         </section>
       </article>
     </>
