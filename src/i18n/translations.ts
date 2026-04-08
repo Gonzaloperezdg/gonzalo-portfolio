@@ -125,21 +125,21 @@ export const translations = {
     hero_title_2: 'APPLIED AI',
 
     // Home Page — About section
-    home_about_s1: 'A',
-    home_about_s2: 'BIT',
-    home_about_s3: 'ABOUT ME',
+    home_about_s1: 'A BIT',
+    home_about_s2: 'ABOUT',
+    home_about_s3: 'ME',
     home_about_text: 'Hi, I\'m Gonzalo Pérez, UX/UI Lead with over 4 years of experience. I\'ve worked with Design Systems, taught UX/UI to over 70 students, and now work with an AI-First methodology while keeping human judgment at every decision point. The constant improvement of processes matters as much as the result.',
     home_about_link: 'See more →',
 
     // Home Page — Projects section
-    home_projects_s1: 'PRO',
-    home_projects_s2: 'JECTS',
-    home_projects_s3: '',
+    home_projects_s1: 'MY',
+    home_projects_s2: 'PRO',
+    home_projects_s3: 'JECTS',
 
     // Home Page — Contact section
-    home_contact_s1: 'CON',
-    home_contact_s2: 'TACT',
-    home_contact_s3: '',
+    home_contact_s1: 'MY',
+    home_contact_s2: 'CON',
+    home_contact_s3: 'TACT',
     home_contact_mode_text: '📝 Text',
     home_contact_mode_draw: '🎨 Drawing',
     home_contact_send: 'Send',
