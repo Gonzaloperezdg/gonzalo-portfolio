@@ -63,7 +63,7 @@ export function CaseStudyPage() {
                   ) : (
                     credit.name
                   )}
-                  <span className={styles.creditRole}> — {credit.role}</span>
+                  <span className={styles.creditRole}>, {credit.role}</span>
                 </span>
               ))}
             </div>

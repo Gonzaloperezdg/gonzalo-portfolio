@@ -10,7 +10,7 @@ export function Footer() {
         <span className={styles.separator}>·</span>
         <a href="https://github.com/Gonzaloperezdg" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
-      <p className={styles.copy}>Gonzalo Daniel Pérez — Corrientes, Argentina</p>
+      <p className={styles.copy}>Gonzalo Daniel Pérez, Corrientes, Argentina</p>
     </footer>
   );
 }

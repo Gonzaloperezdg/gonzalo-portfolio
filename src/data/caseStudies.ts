@@ -10,7 +10,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     period: 'Agosto 2021 – Presente',
     type: 'Enterprise',
     status: 'active',
-    seoTitle: 'InsurTech Global — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'InsurTech Global: Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'Diseño de sistemas, liderazgo de equipo e integración de IA en una tech company con presencia global.',
     sections: [
       {
@@ -26,7 +26,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     subProjects: [
       {
         slug: 'ccmsi',
-        title: 'Proyecto 1 — Expansión de Design System',
+        title: 'Proyecto 1: Expansión de Design System',
         period: 'Agosto 2021 – 2023',
         description: 'Expansión de un Design System para el producto principal de un cliente corporativo del sector seguros.',
         status: 'completed',
@@ -44,14 +44,14 @@ export const CASE_STUDIES: CaseStudyData[] = [
             title: 'Mejorar la Comunicación entre Áreas',
             content: [
               'Identifiqué un cuello de botella en la dinámica del equipo: la falta de participación de ciertos desarrolladores en las revisiones de diseño generaba fricciones y retrabajos.',
-              'Propuse e implementé un modelo de revisión cruzada incluyendo representantes clave — Business Analysts, QA, desarrolladores Front-end y Back-end — para alinear expectativas tempranamente y hacer más fluido el proceso para todos.',
+              'Propuse e implementé un modelo de revisión cruzada incluyendo representantes clave (Business Analysts, QA, desarrolladores Front-end y Back-end) para alinear expectativas tempranamente y hacer más fluido el proceso para todos.',
             ],
           },
           {
             id: 'design-system',
             title: 'El Design System como Herramienta de Decisión',
             content: [
-              'Evolucioné el sistema incorporando componentes con variantes, patrones de interacción y reglas claras de uso. El objetivo fue crear una fuente de verdad accionable para que cualquier miembro del equipo — devs, BAs o nuevos diseñadores — pudiera tomar decisiones autónomas con contexto técnico.',
+              'Evolucioné el sistema incorporando componentes con variantes, patrones de interacción y reglas claras de uso. El objetivo fue crear una fuente de verdad accionable para que cualquier miembro del equipo (devs, BAs o nuevos diseñadores) pudiera tomar decisiones autónomas con contexto técnico.',
               'No se trataba de que el equipo consulte menos. Se trataba de que tuvieran una herramienta concreta donde apoyarse. Diseñé pensando en los que iban a seguir después de mí.',
             ],
             pullQuote: 'Diseñé pensando en los que iban a seguir después de mí.',
@@ -69,7 +69,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
       },
       {
         slug: 'gcm',
-        title: 'Proyecto 2 — Liderazgo e IA Generativa',
+        title: 'Proyecto 2: Liderazgo e IA Generativa',
         period: '2024 – Presente',
         description: 'Liderazgo del equipo de diseño en un producto en construcción activa, con integración de IA generativa al flujo de trabajo.',
         status: 'active',
@@ -79,7 +79,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
             title: 'Un Nuevo Desafío',
             content: [
               'Asumí el liderazgo del equipo de diseño para un producto que se encontraba en fase de construcción activa. El reto principal fue coordinar el esfuerzo visual, definir la identidad del producto desde cero y crear un sistema de diseño escalable mientras se maquetaban las pantallas principales.',
-              'Al incorporar a un diseñador senior al equipo, el enfoque de liderazgo se basó estrictamente en la transferencia de contexto y la gestión eficiente del conocimiento técnico — no en la jerarquía.',
+              'Al incorporar a un diseñador senior al equipo, el enfoque de liderazgo se basó estrictamente en la transferencia de contexto y la gestión eficiente del conocimiento técnico, no en la jerarquía.',
             ],
           },
           {
@@ -112,8 +112,8 @@ export const CASE_STUDIES: CaseStudyData[] = [
             id: 'results',
             title: 'Resultados',
             content: [
-              'Velocidad de validación: el tiempo de diseño y validación de conceptos se redujo de varios días a iteraciones de media hora — una reducción del 93.75% en los tiempos de respuesta.',
-              'Eficiencia del ciclo de vida: el ciclo completo de diseño pasó de un promedio de 7 días a solo 1 día de trabajo efectivo — 87.5% de reducción de tiempo.',
+              'Velocidad de validación: el tiempo de diseño y validación de conceptos se redujo de varios días a iteraciones de media hora, una reducción del 93.75% en los tiempos de respuesta.',
+              'Eficiencia del ciclo de vida: el ciclo completo de diseño pasó de un promedio de 7 días a solo 1 día de trabajo efectivo, con un 87.5% de reducción de tiempo.',
               'Optimización del onboarding: transformación del proceso de capacitación inicial mediante sistemas automatizados de consulta.',
               'Design reviews pre-QA implementadas como práctica regular del equipo.',
             ],
@@ -147,7 +147,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     ],
     type: 'Social Impact',
     status: 'completed',
-    seoTitle: 'RATT — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'RATT: Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'Rediseño UX/UI como voluntariado. Narrativa emocional como decisión central de diseño para una causa social.',
     sections: [
       {
@@ -172,9 +172,9 @@ export const CASE_STUDIES: CaseStudyData[] = [
         title: 'Los 3 Caminos del Usuario',
         content: [
           'Del análisis y de una decisión conjunta con el equipo de RATT surgió la arquitectura del sitio alrededor de tres acciones con peso diferenciado:',
-          'Denunciar — Prioridad principal. El núcleo de la misión de RATT. El usuario que llega a denunciar tiene que encontrar el camino sin fricciones.',
-          'Donar — Segunda prioridad. Sostén económico de la causa.',
-          'Capacitar — Tercera prioridad. Amplía el alcance y a veces genera ingresos.',
+          'Denunciar: Prioridad principal. El núcleo de la misión de RATT. El usuario que llega a denunciar tiene que encontrar el camino sin fricciones.',
+          'Donar: Segunda prioridad. Sostén económico de la causa.',
+          'Capacitar: Tercera prioridad. Amplía el alcance y a veces genera ingresos.',
           'Los tres caminos tienen peso diferenciado pero son complementarios: el usuario navega hacia la acción que más resuena con él.',
         ],
       },
@@ -230,7 +230,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     period: 'Mayo 2023 – Octubre 2023',
     type: 'Teaching',
     status: 'completed',
-    seoTitle: 'Coderhouse — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'Coderhouse: Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'Experiencia docente en UX/UI: 70+ estudiantes, rating 4.92/5, y cómo enseñar mejoró mi diseño.',
     sections: [
       {
@@ -312,7 +312,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     period: 'Octubre 2025 – Presente',
     type: 'AI Methodology',
     status: 'active',
-    seoTitle: 'AI Experiments — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'AI Experiments: Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'Tres generaciones de metodología AI-native en 5 meses. De herramientas aisladas a workflow documentado y reproducible.',
     sections: [
       {
@@ -371,11 +371,11 @@ export const CASE_STUDIES: CaseStudyData[] = [
         motivation: 'Necesidad real del emprendimiento personal. Vender en una feria implica llevar registro manual de lo que se vende, a qué precio y cuántas unidades. Un proceso que tenía mucho potencial de mejora.',
         stack: ['React', 'Vite', 'TypeScript', 'Antigravity', 'Netlify'],
         workflow: [
-          'ChatGPT — Research inicial',
-          'Stitch — Superprompt inicial, primer prototipo',
-          'Google AI Studio — De prototipo a funcional',
-          'Antigravity — Base de datos y backend',
-          'Netlify — Deploy',
+          'ChatGPT: Research inicial',
+          'Stitch: Superprompt inicial, primer prototipo',
+          'Google AI Studio: De prototipo a funcional',
+          'Antigravity: Base de datos y backend',
+          'Netlify: Deploy',
         ],
         insights: [
           'Workflow lineal, herramienta tras herramienta en secuencia',
@@ -396,10 +396,10 @@ export const CASE_STUDIES: CaseStudyData[] = [
         workflow: [
           'Research más profundo',
           'MCP de NotebookLM integrado dentro de Antigravity (paso clave)',
-          'Stitch — Prototipado',
-          'Antigravity / Google AI Studio — Desarrollo funcional',
-          'Supabase — Backend',
-          'Netlify — Deploy',
+          'Stitch: Prototipado',
+          'Antigravity / Google AI Studio: Desarrollo funcional',
+          'Supabase: Backend',
+          'Netlify: Deploy',
         ],
         insights: [
           'Integrar NotebookLM como MCP fue el paso evolutivo de esta generación',
@@ -417,10 +417,10 @@ export const CASE_STUDIES: CaseStudyData[] = [
         motivation: 'Aplicar la metodología evolucionada a un proyecto que demuestra el proceso mismo.',
         stack: ['React 19', 'Vite', 'TypeScript', 'React Router', 'Netlify'],
         workflow: [
-          'NotebookLM + Perplexity — Research profundo, documentación local',
-          'Claude Code desde terminal — PRD + Design System + Content System + Plan',
+          'NotebookLM + Perplexity: Research profundo, documentación local',
+          'Claude Code desde terminal: PRD + Design System + Content System + Plan',
           'Referencias visuales + descripción LLM en markdown',
-          'ASCII mockups — Estructura antes del visual',
+          'ASCII mockups: Estructura antes del visual',
           'Implementación local con React + Vite + TS',
           'Iteraciones locales antes del deploy',
           'Deploy en Netlify',
@@ -442,8 +442,8 @@ export const CASE_STUDIES: CaseStudyData[] = [
         motivation: 'Necesidad personal de organizar las finanzas, y a la vez validar que la metodología es reproducible en dominios distintos.',
         stack: ['React', 'Vite', 'TypeScript', 'Supabase', 'Netlify'],
         workflow: [
-          'NotebookLM + Perplexity — Research',
-          'Claude Code — PRD + DS + CS + Plan',
+          'NotebookLM + Perplexity: Research',
+          'Claude Code: PRD + DS + CS + Plan',
           'Referencias visuales + descripción LLM',
           'ASCII mockups',
           'Implementación local',
@@ -470,7 +470,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
     period: 'August 2021 – Present',
     type: 'Enterprise',
     status: 'active',
-    seoTitle: 'InsurTech Global — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'InsurTech Global: Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'Systems design, team leadership and AI integration at a globally distributed tech company.',
     sections: [
       {
@@ -486,7 +486,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
     subProjects: [
       {
         slug: 'ccmsi',
-        title: 'Project 1 — Design System Expansion',
+        title: 'Project 1: Design System Expansion',
         period: 'August 2021 – 2023',
         description: 'Expansion of a Design System for the main product of a corporate client in the insurance sector.',
         status: 'completed',
@@ -504,14 +504,14 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
             title: 'Improving Cross-Team Communication',
             content: [
               'I identified a bottleneck in the team dynamic: the lack of participation from certain developers in design reviews was generating friction and rework.',
-              'I proposed and implemented a cross-review model including key representatives — Business Analysts, QA, Front-end and Back-end developers — to align expectations early and streamline the process for everyone.',
+              'I proposed and implemented a cross-review model including key representatives (Business Analysts, QA, Front-end and Back-end developers) to align expectations early and streamline the process for everyone.',
             ],
           },
           {
             id: 'design-system',
             title: 'The Design System as a Decision Tool',
             content: [
-              'I evolved the system by incorporating components with variants, interaction patterns, and clear usage rules. The goal was to create an actionable source of truth so any team member — devs, BAs, or new designers — could make autonomous decisions with technical context.',
+              'I evolved the system by incorporating components with variants, interaction patterns, and clear usage rules. The goal was to create an actionable source of truth so any team member (devs, BAs, or new designers) could make autonomous decisions with technical context.',
               'It wasn\'t about having the team consult less. It was about giving them a concrete tool to lean on. I designed thinking about those who would come after me.',
             ],
             pullQuote: 'I designed thinking about those who would come after me.',
@@ -529,7 +529,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
       },
       {
         slug: 'gcm',
-        title: 'Project 2 — Leadership & Generative AI',
+        title: 'Project 2: Leadership & Generative AI',
         period: '2024 – Present',
         description: 'Design team leadership on a product under active construction, with integration of generative AI into the workflow.',
         status: 'active',
@@ -539,7 +539,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
             title: 'A New Challenge',
             content: [
               'I took on design team leadership for a product in active construction. The main challenge was coordinating the visual effort, defining the product identity from scratch, and creating a scalable design system while building out the main screens.',
-              'When a senior designer joined the team, the leadership approach was strictly based on context transfer and efficient management of technical knowledge — not hierarchy.',
+              'When a senior designer joined the team, the leadership approach was strictly based on context transfer and efficient management of technical knowledge, not hierarchy.',
             ],
           },
           {
@@ -572,8 +572,8 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
             id: 'results',
             title: 'Results',
             content: [
-              'Validation speed: concept design and validation time reduced from several days to half-hour iterations — a 93.75% reduction in response times.',
-              'Lifecycle efficiency: the complete design cycle went from an average of 7 days to just 1 effective working day — 87.5% time reduction.',
+              'Validation speed: concept design and validation time reduced from several days to half-hour iterations, a 93.75% reduction in response times.',
+              'Lifecycle efficiency: the complete design cycle went from an average of 7 days to just 1 effective working day, an 87.5% time reduction.',
               'Onboarding optimization: initial training transformed through automated query systems.',
               'Pre-QA design reviews implemented as a regular team practice.',
             ],
@@ -607,7 +607,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
     ],
     type: 'Social Impact',
     status: 'completed',
-    seoTitle: 'RATT — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'RATT: Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'UX/UI redesign as volunteer work. Emotional narrative as the central design decision for a social cause.',
     sections: [
       {
@@ -615,7 +615,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         title: 'The Starting Point',
         content: [
           'RATT\'s previous website had a situation common in social organizations: lots of text, very dense, hard to process. The important information was there, but it wasn\'t landing.',
-          'On a topic like trafficking or human exploitation, information not landing isn\'t just a design problem — it\'s an impact opportunity lost.',
+          'On a topic like trafficking or human exploitation, information not landing isn\'t just a design problem; it\'s an impact opportunity lost.',
           'The challenge wasn\'t technical. It was narrative. How do you transform an informational site into an experience that moves people to action?',
         ],
       },
@@ -632,9 +632,9 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         title: 'The 3 User Paths',
         content: [
           'From the analysis and a joint decision with the RATT team, the site architecture emerged around three weighted actions:',
-          'Report — Primary priority. The core of RATT\'s mission. The user who comes to report must find the path without friction.',
-          'Donate — Second priority. Economic support for the cause.',
-          'Train — Third priority. Expands reach and sometimes generates revenue.',
+          'Report: Primary priority. The core of RATT\'s mission. The user who comes to report must find the path without friction.',
+          'Donate: Second priority. Economic support for the cause.',
+          'Train: Third priority. Expands reach and sometimes generates revenue.',
           'The three paths have differentiated weight but are complementary: the user navigates toward the action that resonates most with them.',
         ],
       },
@@ -690,14 +690,14 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
     period: 'May 2023 – October 2023',
     type: 'Teaching',
     status: 'completed',
-    seoTitle: 'Coderhouse — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'Coderhouse: Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'Teaching experience in UX/UI: 70+ students, 4.92/5 rating, and how teaching improved my design.',
     sections: [
       {
         id: 'context',
         title: 'Why Teach',
         content: [
-          'When I took the role at Coderhouse I had already been working in UX/UI at InsurTech Global for years. I didn\'t do it to validate my profile. I did it because I was genuinely interested — and what I found was the most professionally fulfilling moment of my life.',
+          'When I took the role at Coderhouse I had already been working in UX/UI at InsurTech Global for years. I didn\'t do it to validate my profile. I did it because I was genuinely interested, and what I found was the most professionally fulfilling moment of my life.',
           'I researched topics deeply to teach them, designed during the day, taught at night. Three roles feeding into each other. I discovered that explaining something well is another way of understanding it.',
         ],
       },
@@ -715,7 +715,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         content: [
           'If my brother (9-10 years old) understands the concept and can explain it back to me, the class was a success.',
           'It wasn\'t a metaphor. I would rehearse classes with him before teaching them. If the concept broke down at some point, I\'d go back to the beginning and reformulate.',
-          'The logic is simple: if a concept can\'t be explained in accessible terms, it probably isn\'t fully clear yet. Simplicity doesn\'t oppose rigor — it complements it.',
+          'The logic is simple: if a concept can\'t be explained in accessible terms, it probably isn\'t fully clear yet. Simplicity doesn\'t oppose rigor; it complements it.',
         ],
         pullQuote: 'If the user doesn\'t understand it, it\'s an opportunity to improve the design.',
       },
@@ -749,7 +749,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         title: 'What Teaching Taught Me',
         content: [
           'I learned to explain technical topics better. That has a direct impact on design work:',
-          'When you need to explain a design decision to someone from a different background, the clarity you train through teaching helps. Documenting so someone else understands also improves the documentation. Understanding what confuses someone is understanding what confuses the end user — it\'s the same skill.',
+          'When you need to explain a design decision to someone from a different background, the clarity you train through teaching helps. Documenting so someone else understands also improves the documentation. Understanding what confuses someone is understanding what confuses the end user; it\'s the same skill.',
           'Simplicity isn\'t degrading the concept. It\'s finding the most refined way to express it.',
         ],
       },
@@ -772,7 +772,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
     period: 'October 2025 – Present',
     type: 'AI Methodology',
     status: 'active',
-    seoTitle: 'AI Experiments — Case Study | Gonzalo Daniel Pérez',
+    seoTitle: 'AI Experiments: Case Study | Gonzalo Daniel Pérez',
     seoDescription: 'Three generations of AI-native methodology in 5 months. From isolated tools to documented and reproducible workflow.',
     sections: [
       {
@@ -831,11 +831,11 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         motivation: 'A real need from a personal venture. Selling at a fair means keeping manual records of what\'s sold, at what price, and how many units. A process with huge potential for improvement.',
         stack: ['React', 'Vite', 'TypeScript', 'Antigravity', 'Netlify'],
         workflow: [
-          'ChatGPT — Initial research',
-          'Stitch — Initial superprompt, first prototype',
-          'Google AI Studio — From prototype to functional',
-          'Antigravity — Database and backend',
-          'Netlify — Deploy',
+          'ChatGPT: Initial research',
+          'Stitch: Initial superprompt, first prototype',
+          'Google AI Studio: From prototype to functional',
+          'Antigravity: Database and backend',
+          'Netlify: Deploy',
         ],
         insights: [
           'Linear workflow, tool after tool in sequence',
@@ -856,10 +856,10 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         workflow: [
           'Deeper research',
           'NotebookLM MCP integrated inside Antigravity (key step)',
-          'Stitch — Prototyping',
-          'Antigravity / Google AI Studio — Functional development',
-          'Supabase — Backend',
-          'Netlify — Deploy',
+          'Stitch: Prototyping',
+          'Antigravity / Google AI Studio: Functional development',
+          'Supabase: Backend',
+          'Netlify: Deploy',
         ],
         insights: [
           'Integrating NotebookLM as MCP was the evolutionary step of this generation',
@@ -877,10 +877,10 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         motivation: 'Apply the evolved methodology to a project that demonstrates the process itself.',
         stack: ['React 19', 'Vite', 'TypeScript', 'React Router', 'Netlify'],
         workflow: [
-          'NotebookLM + Perplexity — Deep research, local documentation',
-          'Claude Code from terminal — PRD + Design System + Content System + Plan',
+          'NotebookLM + Perplexity: Deep research, local documentation',
+          'Claude Code from terminal: PRD + Design System + Content System + Plan',
           'Visual references + LLM description in markdown',
-          'ASCII mockups — Structure before the visual',
+          'ASCII mockups: Structure before the visual',
           'Local implementation with React + Vite + TS',
           'Local iterations before deploy',
           'Deploy on Netlify',
@@ -902,8 +902,8 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         motivation: 'A personal need to organize finances, and at the same time validate that the methodology is reproducible in different domains.',
         stack: ['React', 'Vite', 'TypeScript', 'Supabase', 'Netlify'],
         workflow: [
-          'NotebookLM + Perplexity — Research',
-          'Claude Code — PRD + DS + CS + Plan',
+          'NotebookLM + Perplexity: Research',
+          'Claude Code: PRD + DS + CS + Plan',
           'Visual references + LLM description',
           'ASCII mockups',
           'Local implementation',
