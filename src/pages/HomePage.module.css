@@ -493,7 +493,7 @@
 
   .aboutTitle {
     flex-direction: row;
-    gap: 0;
+    gap: 0.25em;
     font-size: clamp(36px, 11vw, 64px);
   }
 
@@ -562,5 +562,14 @@
   .contactLinkValue {
     font-size: var(--text-ui);
     word-break: break-all;
+  }
+}
+
+/* EN mobile: word-split titles need visible gaps between words.
+   ES syllable-split titles (PRO/YEC/TOS, CON/TAC/TO) must stay at gap:0. */
+@media (max-width: 640px) {
+  :global([data-lang="en"]) .featuredTitle,
+  :global([data-lang="en"]) .contactTitle {
+    gap: 0.25em;
   }
 }
