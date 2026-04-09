@@ -144,6 +144,12 @@
   flex-direction: column;
 }
 
+.featuredTitle span:empty,
+.contactTitle span:empty,
+.aboutTitle span:empty {
+  display: none;
+}
+
 .featuredList {
   flex: 1;
   display: flex;
@@ -241,6 +247,7 @@
 
 .contactModeBtn {
   flex: 1;
+  min-height: 44px;
   padding: 10px 16px;
   font-family: var(--font-body);
   font-size: var(--text-caption);
@@ -251,6 +258,10 @@
   color: var(--color-outline);
   cursor: pointer;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .contactModeBtn:hover {
@@ -570,6 +581,11 @@
 @media (max-width: 640px) {
   :global([data-lang="en"]) .featuredTitle,
   :global([data-lang="en"]) .contactTitle {
-    gap: 0.25em;
+    gap: 0;
+  }
+  
+  :global([data-lang="en"]) .featuredTitle span:nth-child(1),
+  :global([data-lang="en"]) .contactTitle span:nth-child(1) {
+    margin-right: 0.25em;
   }
 }

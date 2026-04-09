@@ -52,7 +52,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
             title: 'El Design System como Herramienta de Decisión',
             content: [
               'Evolucioné el sistema incorporando componentes con variantes, patrones de interacción y reglas claras de uso. El objetivo fue crear una fuente de verdad accionable para que cualquier miembro del equipo (devs, BAs o nuevos diseñadores) pudiera tomar decisiones autónomas con contexto técnico.',
-              'No se trataba de que el equipo consulte menos. Se trataba de que tuvieran una herramienta concreta donde apoyarse. Diseñé pensando en los que iban a seguir después de mí.',
+              'No se trataba de que el equipo consulte menos. Se trataba de que tuvieran una herramienta concreta donde apoyarse.',
             ],
             pullQuote: 'Diseñé pensando en los que iban a seguir después de mí.',
           },
@@ -129,6 +129,88 @@ export const CASE_STUDIES: CaseStudyData[] = [
             pullQuote: 'No se trata de ir más rápido. Se trata de que el proceso sea mejor para todos los que lo viven.',
           },
         ],
+      },
+    ],
+  },
+  {
+    slug: 'coderhouse',
+    title: 'Coderhouse',
+    subtitle: 'Enseñar UX/UI y lo que eso me dejó como diseñador',
+    role: 'UX/UI Design Instructor',
+    period: 'Mayo 2023 – Octubre 2023',
+    type: 'Teaching',
+    status: 'completed',
+    seoTitle: 'Coderhouse: Case Study | Gonzalo Daniel Pérez',
+    seoDescription: 'Experiencia docente en UX/UI: 70+ estudiantes, rating 4.92/5, y cómo enseñar mejoró mi diseño.',
+    sections: [
+      {
+        id: 'context',
+        title: 'Por Qué Enseñar',
+        content: [
+          'Cuando tomé el rol en Coderhouse ya llevaba años trabajando en UX/UI en InsurTech Global. No lo hice para validar el perfil. Lo hice porque me interesaba, y si bien me ponía muy nervioso esta nueva oportunidad, lo que encontré fue el momento de mayor plenitud profesional de mi vida.',
+          'Durante el día diseñaba para mi trabajo full-time, mientras que por las noches enseñaba a mis estudiantes. Dos roles simultáneos que se retroalimentaban. Descubrí que explicar algo bien es otra forma de entenderlo.',
+        ],
+      },
+      {
+        id: 'audience',
+        title: 'El Programa y el Público',
+        content: [
+          'Curso de UX/UI Design nivel introductorio, sin requerimientos previos. Lo interesante era la diversidad: administración, marketing, oficios técnicos, diseño gráfico, y muchos que recién empezaban a acercarse al diseño.',
+          'El desafío que me planteé fue cómo podía yo explicar bien los conceptos sin perder profundidad y sin recurrir a tecnicismos que no aportaran.',
+        ],
+      },
+      {
+        id: 'method',
+        title: 'El Método Hermanito',
+        content: [
+          'Si mi hermano (9-10 años) entiende el concepto y me lo puede explicar de vuelta, la clase fue un éxito.',
+          'No era una metáfora. Ensayaba las clases con él antes de darlas. Si en algún punto el concepto se quebraba, volvía al principio y lo reformulaba.',
+          'La lógica es simple: si un concepto no se puede explicar en términos accesibles, probablemente no está del todo claro todavía. La simplicidad no opone al rigor, lo complementa.',
+        ],
+        pullQuote: 'Si el usuario no lo entiende, es una oportunidad para mejorar el diseño.',
+      },
+      {
+        id: 'show',
+        title: 'Las Clases Como Show',
+        content: [
+          'Preparaba cada clase como si fuera una presentación. No alcanzaba con que el contenido fuera correcto: tenía que ser interesante.',
+          'Fui desarrollando un método propio: buscar un elemento llamativo que funcione de gancho para capturar la atención justo antes de explicar un tema complejo. Cuando la gente está enganchada, aprende más y mejor.',
+          'Las camisas fueron parte de eso. Empecé con ropa normal y fui incorporando camisas cada vez más llamativas y variadas, distintas en cada clase. Los estudiantes ya esperaban ver con qué llegaba. Ese momento de sorpresa era la entrada perfecta para el tema del día.',
+          'El ejemplo más recordado: me disfracé de Walter White de Breaking Bad para enseñar Atomic Design. La clase arrancó con la intro de la serie. Los estudiantes se rieron, se conectaron, y aprendieron el concepto. Un tema que suele generar resistencia se convirtió en algo memorable.',
+        ],
+      },
+      {
+        id: 'safety',
+        title: 'Espacio para Expresarse',
+        content: [
+          'Aprender algo nuevo puede ser intimidante. Trabajé para que el espacio de clase fuera uno donde la frustración se pudiera expresar sin miedo al juicio.',
+          'No era solo transmitir conocimiento: era facilitar el proceso de aprendizaje. Que alguien se sienta cómodo para preguntar o decir que no entendió es condición necesaria para que el aprendizaje pase.',
+        ],
+      },
+      {
+        id: 'results',
+        title: 'El Impacto',
+        content: [
+          '70+ estudiantes en 6 meses. Rating promedio de 4.92 sobre 5. Clases presenciales, 2 horas, dos veces por semana.',
+        ],
+      },
+      {
+        id: 'transfer',
+        title: 'Lo que Enseñar Me Enseñó',
+        content: [
+          'Aprendí a explicar mejor temas técnicos. Eso tiene un impacto directo en el trabajo de diseño:',
+          'Cuando tenés que explicar una decisión de diseño a alguien que viene de otro contexto, la claridad que entrenás enseñando te ayuda mucho. Además esta experiencia también mejoró mi habilidad para la documentación. Entender qué confunde a alguien es entender qué confunde al usuario final: es la misma habilidad.',
+          'La simplicidad no es degradar el concepto. Es encontrar la forma más refinada de expresarlo.',
+        ],
+      },
+      {
+        id: 'reflection',
+        title: '¿Volvería a Enseñar?',
+        content: [
+          'Sí. Sin dudarlo. Con una condición: que esté integrado en el horario laboral, no como carga adicional de noche.',
+          'La pedagogía y el diseño comparten un principio, siempre enfocarse en el mensaje para la otra persona.',
+        ],
+        pullQuote: 'El método hermanito no es solo una técnica para preparar clases. Es una postura frente al trabajo.',
       },
     ],
   },
@@ -219,88 +301,6 @@ export const CASE_STUDIES: CaseStudyData[] = [
           'Usaría IA para acelerar la ejecución visual y dedicar más tiempo a profundizar en la narrativa. Probaría más variaciones de copy con audiencias similares antes de definir las frases clave. Y desde el día 1 propondría un plan de medición simple que RATT pudiera sostener con sus propios recursos.',
         ],
         pullQuote: 'Reducir texto denso no es perder información. Es transformarla en algo procesable.',
-      },
-    ],
-  },
-  {
-    slug: 'coderhouse',
-    title: 'Coderhouse',
-    subtitle: 'Enseñar UX/UI y lo que eso me dejó como diseñador',
-    role: 'UX/UI Design Instructor',
-    period: 'Mayo 2023 – Octubre 2023',
-    type: 'Teaching',
-    status: 'completed',
-    seoTitle: 'Coderhouse: Case Study | Gonzalo Daniel Pérez',
-    seoDescription: 'Experiencia docente en UX/UI: 70+ estudiantes, rating 4.92/5, y cómo enseñar mejoró mi diseño.',
-    sections: [
-      {
-        id: 'context',
-        title: 'Por Qué Enseñar',
-        content: [
-          'Cuando tomé el rol en Coderhouse ya llevaba años trabajando en UX/UI en InsurTech Global. No lo hice para validar el perfil. Lo hice porque me interesaba, y lo que encontré fue el momento de mayor plenitud profesional de mi vida.',
-          'Investigaba los temas a fondo para poder enseñarlos, diseñaba durante el día, enseñaba de noche. Tres roles que se retroalimentaban. Descubrí que explicar algo bien es otra forma de entenderlo.',
-        ],
-      },
-      {
-        id: 'audience',
-        title: 'El Programa y el Público',
-        content: [
-          'Curso de UX/UI Design nivel introductorio, sin requerimientos previos. Lo interesante era la diversidad: administración, marketing, oficios técnicos, diseño gráfico, y muchos que nunca habían diseñado nada.',
-          'El desafío que me planteé fue cómo podía yo explicar bien los conceptos a personas con backgrounds tan distintos, sin perder profundidad y sin recurrir a tecnicismos que no aportaran.',
-        ],
-      },
-      {
-        id: 'method',
-        title: 'El Método del Hermanito',
-        content: [
-          'Si mi hermano (9-10 años) entiende el concepto y me lo puede explicar de vuelta, la clase fue un éxito.',
-          'No era una metáfora. Ensayaba las clases con él antes de darlas. Si en algún punto el concepto se quebraba, volvía al principio y lo reformulaba.',
-          'La lógica es simple: si un concepto no se puede explicar en términos accesibles, probablemente no está del todo claro todavía. La simplicidad no opone al rigor, lo complementa.',
-        ],
-        pullQuote: 'Si el usuario no lo entiende, es una oportunidad para mejorar el diseño.',
-      },
-      {
-        id: 'show',
-        title: 'Las Clases Como Show',
-        content: [
-          'Preparaba cada clase como si fuera una presentación. No alcanzaba con que el contenido fuera correcto: tenía que ser interesante.',
-          'Fui desarrollando un método propio: buscar un elemento llamativo que funcione de gancho para capturar la atención justo antes de explicar un tema complejo. Cuando la gente está enganchada, aprende más y mejor.',
-          'Las camisas fueron parte de eso. Empecé con ropa normal y fui incorporando camisas cada vez más llamativas y variadas, distintas en cada clase. Los estudiantes ya esperaban ver con qué llegaba. Ese momento de sorpresa era la entrada perfecta para el tema del día.',
-          'El ejemplo más recordado: me disfracé de Walter White de Breaking Bad para enseñar Atomic Design. La clase arrancó con la intro de la serie. Los estudiantes se rieron, se conectaron, y aprendieron el concepto. Un tema que suele generar resistencia se convirtió en algo memorable.',
-        ],
-      },
-      {
-        id: 'safety',
-        title: 'Espacio para Expresarse',
-        content: [
-          'Aprender algo nuevo puede ser intimidante. Trabajé para que el espacio de clase fuera uno donde la frustración se pudiera expresar sin miedo al juicio.',
-          'No era solo transmitir conocimiento: era facilitar el proceso de aprendizaje. Que alguien se sienta cómodo para preguntar o decir que no entendió es condición necesaria para que el aprendizaje pase.',
-        ],
-      },
-      {
-        id: 'results',
-        title: 'El Impacto',
-        content: [
-          '70+ estudiantes en 6 meses. Rating promedio de 4.92 sobre 5. Clases presenciales, 2 horas, dos veces por semana.',
-        ],
-      },
-      {
-        id: 'transfer',
-        title: 'Lo que Enseñar Me Enseñó',
-        content: [
-          'Aprendí a explicar mejor temas técnicos. Eso tiene un impacto directo en el trabajo de diseño:',
-          'Cuando tenés que explicar una decisión de diseño a alguien que viene de otro contexto, la claridad que entrenás enseñando te ayuda. Documentar para que alguien más lo entienda también mejora la documentación. Entender qué confunde a alguien es entender qué confunde al usuario final: es la misma habilidad.',
-          'La simplicidad no es degradar el concepto. Es encontrar la forma más refinada de expresarlo.',
-        ],
-      },
-      {
-        id: 'reflection',
-        title: '¿Volvería a Enseñar?',
-        content: [
-          'Sí. Sin dudarlo. Con una condición: que esté integrado en el horario laboral, no como carga adicional de noche.',
-          'La pedagogía y el diseño comparten un principio: si el otro no lo entiende, es una oportunidad que uno puede resolver.',
-        ],
-        pullQuote: 'El método del hermanito no es solo una técnica para preparar clases. Es una postura frente al trabajo.',
       },
     ],
   },
@@ -512,7 +512,7 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
             title: 'The Design System as a Decision Tool',
             content: [
               'I evolved the system by incorporating components with variants, interaction patterns, and clear usage rules. The goal was to create an actionable source of truth so any team member (devs, BAs, or new designers) could make autonomous decisions with technical context.',
-              'It wasn\'t about having the team consult less. It was about giving them a concrete tool to lean on. I designed thinking about those who would come after me.',
+              'It wasn\'t about having the team consult less. It was about giving them a concrete tool to lean on.',
             ],
             pullQuote: 'I designed thinking about those who would come after me.',
           },
@@ -589,6 +589,88 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
             pullQuote: 'It\'s not about going faster. It\'s about making the process better for everyone who lives it.',
           },
         ],
+      },
+    ],
+  },
+  {
+    slug: 'coderhouse',
+    title: 'Coderhouse',
+    subtitle: 'Teaching UX/UI and what it left me as a designer',
+    role: 'UX/UI Design Instructor',
+    period: 'May 2023 – October 2023',
+    type: 'Teaching',
+    status: 'completed',
+    seoTitle: 'Coderhouse: Case Study | Gonzalo Daniel Pérez',
+    seoDescription: 'Teaching experience in UX/UI: 70+ students, 4.92/5 rating, and how teaching improved my design.',
+    sections: [
+      {
+        id: 'context',
+        title: 'Why Teach',
+        content: [
+          'When I took the role at Coderhouse I had already been working in UX/UI at InsurTech Global for years. I didn\'t do it to validate my profile. I did it because I was genuinely interested, and even though this new opportunity made me very nervous, what I found was the most professionally fulfilling moment of my life.',
+          'During the day I designed for my full-time job, while at night I taught my students. Two simultaneous roles feeding into each other. I discovered that explaining something well is another way of understanding it.',
+        ],
+      },
+      {
+        id: 'audience',
+        title: 'The Program and the Audience',
+        content: [
+          'Introductory-level UX/UI Design course, no prior requirements. The interesting part was the diversity: business administration, marketing, technical trades, graphic design, and many who were just beginning to approach design.',
+          'The challenge I set for myself: how could I explain concepts clearly without losing depth and without resorting to jargon that didn\'t add value.',
+        ],
+      },
+      {
+        id: 'method',
+        title: 'The Little Brother Method',
+        content: [
+          'If my brother (9-10 years old) understands the concept and can explain it back to me, the class was a success.',
+          'It wasn\'t a metaphor. I would rehearse classes with him before teaching them. If the concept broke down at some point, I\'d go back to the beginning and reformulate.',
+          'The logic is simple: if a concept can\'t be explained in accessible terms, it probably isn\'t fully clear yet. Simplicity doesn\'t oppose rigor; it complements it.',
+        ],
+        pullQuote: 'If the user doesn\'t understand it, it\'s an opportunity to improve the design.',
+      },
+      {
+        id: 'show',
+        title: 'Classes as a Show',
+        content: [
+          'I prepared each class as if it were a presentation. It wasn\'t enough for the content to be correct: it had to be interesting.',
+          'I developed my own method: find a striking element that works as a hook to capture attention right before explaining a complex topic. When people are hooked, they learn more and better.',
+          'The shirts were part of that. I started with normal clothes and gradually incorporated increasingly colorful and varied shirts, different for each class. Students were already waiting to see what I\'d show up in. That moment of surprise was the perfect entry point for the day\'s topic.',
+          'The most memorable example: I dressed as Walter White from Breaking Bad to teach Atomic Design. The class started with the show\'s intro. Students laughed, connected, and learned the concept. A topic that usually generates resistance became something memorable.',
+        ],
+      },
+      {
+        id: 'safety',
+        title: 'Space to Express Yourself',
+        content: [
+          'Learning something new can be intimidating. I worked to make the classroom a space where frustration could be expressed without fear of judgment.',
+          'It wasn\'t just about transmitting knowledge: it was about facilitating the learning process. Having someone feel comfortable enough to ask a question or say they didn\'t understand is a necessary condition for learning to happen.',
+        ],
+      },
+      {
+        id: 'results',
+        title: 'The Impact',
+        content: [
+          '70+ students over 6 months. Average rating of 4.92 out of 5. In-person classes, 2 hours, twice a week.',
+        ],
+      },
+      {
+        id: 'transfer',
+        title: 'What Teaching Taught Me',
+        content: [
+          'I learned to explain technical topics better. That has a direct impact on design work:',
+          'When you need to explain a design decision to someone from a different background, the clarity you train through teaching helps a lot. This experience also improved my documentation skills. Understanding what confuses someone is understanding what confuses the end user; it\'s the same skill.',
+          'Simplicity isn\'t degrading the concept. It\'s finding the most refined way to express it.',
+        ],
+      },
+      {
+        id: 'reflection',
+        title: 'Would I Teach Again?',
+        content: [
+          'Yes. Without hesitation. With one condition: that it\'s integrated into working hours, not as an additional night-time burden.',
+          'Pedagogy and design share a principle: always focus on the message for the other person.',
+        ],
+        pullQuote: 'The little brother method isn\'t just a technique for preparing classes. It\'s a stance toward work.',
       },
     ],
   },
@@ -679,88 +761,6 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
           'I would use AI to accelerate visual execution and dedicate more time to deepening the narrative. I would test more copy variations with similar audiences before defining the key phrases. And from day 1, I would propose a simple measurement plan that RATT could sustain with their own resources.',
         ],
         pullQuote: 'Reducing dense text isn\'t losing information. It\'s transforming it into something processable.',
-      },
-    ],
-  },
-  {
-    slug: 'coderhouse',
-    title: 'Coderhouse',
-    subtitle: 'Teaching UX/UI and what it left me as a designer',
-    role: 'UX/UI Design Instructor',
-    period: 'May 2023 – October 2023',
-    type: 'Teaching',
-    status: 'completed',
-    seoTitle: 'Coderhouse: Case Study | Gonzalo Daniel Pérez',
-    seoDescription: 'Teaching experience in UX/UI: 70+ students, 4.92/5 rating, and how teaching improved my design.',
-    sections: [
-      {
-        id: 'context',
-        title: 'Why Teach',
-        content: [
-          'When I took the role at Coderhouse I had already been working in UX/UI at InsurTech Global for years. I didn\'t do it to validate my profile. I did it because I was genuinely interested, and what I found was the most professionally fulfilling moment of my life.',
-          'I researched topics deeply to teach them, designed during the day, taught at night. Three roles feeding into each other. I discovered that explaining something well is another way of understanding it.',
-        ],
-      },
-      {
-        id: 'audience',
-        title: 'The Program and the Audience',
-        content: [
-          'Introductory-level UX/UI Design course, no prior requirements. The interesting part was the diversity: business administration, marketing, technical trades, graphic design, and many who had never designed anything.',
-          'The challenge I set for myself: how could I explain concepts clearly to people with such different backgrounds, without losing depth and without resorting to jargon that didn\'t add value.',
-        ],
-      },
-      {
-        id: 'method',
-        title: 'The Little Brother Method',
-        content: [
-          'If my brother (9-10 years old) understands the concept and can explain it back to me, the class was a success.',
-          'It wasn\'t a metaphor. I would rehearse classes with him before teaching them. If the concept broke down at some point, I\'d go back to the beginning and reformulate.',
-          'The logic is simple: if a concept can\'t be explained in accessible terms, it probably isn\'t fully clear yet. Simplicity doesn\'t oppose rigor; it complements it.',
-        ],
-        pullQuote: 'If the user doesn\'t understand it, it\'s an opportunity to improve the design.',
-      },
-      {
-        id: 'show',
-        title: 'Classes as a Show',
-        content: [
-          'I prepared each class as if it were a presentation. It wasn\'t enough for the content to be correct: it had to be interesting.',
-          'I developed my own method: find a striking element that works as a hook to capture attention right before explaining a complex topic. When people are hooked, they learn more and better.',
-          'The shirts were part of that. I started with normal clothes and gradually incorporated increasingly colorful and varied shirts, different for each class. Students were already waiting to see what I\'d show up in. That moment of surprise was the perfect entry point for the day\'s topic.',
-          'The most memorable example: I dressed as Walter White from Breaking Bad to teach Atomic Design. The class started with the show\'s intro. Students laughed, connected, and learned the concept. A topic that usually generates resistance became something memorable.',
-        ],
-      },
-      {
-        id: 'safety',
-        title: 'Space to Express Yourself',
-        content: [
-          'Learning something new can be intimidating. I worked to make the classroom a space where frustration could be expressed without fear of judgment.',
-          'It wasn\'t just about transmitting knowledge: it was about facilitating the learning process. Having someone feel comfortable enough to ask a question or say they didn\'t understand is a necessary condition for learning to happen.',
-        ],
-      },
-      {
-        id: 'results',
-        title: 'The Impact',
-        content: [
-          '70+ students over 6 months. Average rating of 4.92 out of 5. In-person classes, 2 hours, twice a week.',
-        ],
-      },
-      {
-        id: 'transfer',
-        title: 'What Teaching Taught Me',
-        content: [
-          'I learned to explain technical topics better. That has a direct impact on design work:',
-          'When you need to explain a design decision to someone from a different background, the clarity you train through teaching helps. Documenting so someone else understands also improves the documentation. Understanding what confuses someone is understanding what confuses the end user; it\'s the same skill.',
-          'Simplicity isn\'t degrading the concept. It\'s finding the most refined way to express it.',
-        ],
-      },
-      {
-        id: 'reflection',
-        title: 'Would I Teach Again?',
-        content: [
-          'Yes. Without hesitation. With one condition: that it\'s integrated into working hours, not as an additional night-time burden.',
-          'Pedagogy and design share a principle: if the other person doesn\'t understand it, it\'s an opportunity you can solve.',
-        ],
-        pullQuote: 'The little brother method isn\'t just a technique for preparing classes. It\'s a stance toward work.',
       },
     ],
   },

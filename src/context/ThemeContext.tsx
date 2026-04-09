@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { type Theme, type ThemeContextType, type Language, type TranslationKey, translations } from './themeConstants';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -24,13 +24,17 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     document.documentElement.setAttribute('data-lang', language);
   }, [language]);
 
-  const toggleTheme = () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  const toggleLanguage = () => setLanguage((prev) => (prev === 'es' ? 'en' : 'es'));
+  const toggleTheme = useCallback(() => setTheme((prev) => (prev === 'light' ? 'dark' : 'light')), []);
+  const toggleLanguage = useCallback(() => setLanguage((prev) => (prev === 'es' ? 'en' : 'es')), []);
 
-  const t = (key: TranslationKey) => translations[language][key] || key;
+  const t = useCallback((key: TranslationKey) => translations[language][key] ?? key, [language]);
+
+  const value = useMemo(() => ({
+    theme, toggleTheme, language, toggleLanguage, t,
+  }), [theme, toggleTheme, language, toggleLanguage, t]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, language, toggleLanguage, t }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );

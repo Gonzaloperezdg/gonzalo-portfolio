@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useMemo, type ReactNode } from 'react';
 import { type Tool, type RectFill, type PixelMode } from './paintConstants';
 
 // ─── Context ──────────────────────────────────────────────────
@@ -38,16 +38,18 @@ export function PaintProvider({ children }: { children: ReactNode }) {
     setClearTrigger(n => n + 1);
   }, []);
 
+  const value = useMemo(() => ({
+    activeTool, setActiveTool,
+    drawColor, setDrawColor,
+    secondaryColor, setSecondaryColor,
+    brushSizeIndex, setBrushSizeIndex,
+    rectFill, setRectFill,
+    pixelMode, setPixelMode,
+    clearTrigger, triggerClear,
+  }), [activeTool, setActiveTool, drawColor, secondaryColor, brushSizeIndex, rectFill, pixelMode, clearTrigger, triggerClear]);
+
   return (
-    <PaintContext.Provider value={{
-      activeTool, setActiveTool,
-      drawColor, setDrawColor,
-      secondaryColor, setSecondaryColor,
-      brushSizeIndex, setBrushSizeIndex,
-      rectFill, setRectFill,
-      pixelMode, setPixelMode,
-      clearTrigger, triggerClear,
-    }}>
+    <PaintContext.Provider value={value}>
       {children}
     </PaintContext.Provider>
   );
