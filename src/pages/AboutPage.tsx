@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useTheme } from '../context/ThemeContext';
 import { Button } from '../components/ui/Button/Button';
@@ -9,7 +10,21 @@ import styles from './AboutPage.module.css';
 export function AboutPage() {
   const { t } = useTheme();
   const containerRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
   useScrollReveal(containerRef);
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
 
   return (
     <>
@@ -69,7 +84,6 @@ export function AboutPage() {
           <p>{t('about_ai_p2')}</p>
           <p>{t('about_ai_p3')}</p>
           <p className={styles.highlight}>{t('about_ai_p4')}</p>
-          <p>{t('about_ai_p5')}</p>
         </section>
 
         <section className={styles.section} data-reveal="section">
@@ -82,7 +96,7 @@ export function AboutPage() {
         <section className={styles.section} data-reveal="section">
           <h2 className={styles.heading} data-reveal="heading">{t('about_contact_title')}</h2>
           <p>{t('about_contact_p1')}</p>
-          <Button as="link" to="/#contacto" variant="secondary">
+          <Button variant="secondary" onClick={handleContactClick}>
             {t('about_contact_btn')}
           </Button>
         </section>

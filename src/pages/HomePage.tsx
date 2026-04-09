@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Type, Pencil } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { getCaseStudies } from '../data/caseStudies';
@@ -15,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const FORMSPREE_URL = 'https://formspree.io/f/meeppazv';
 
 export function HomePage() {
-  const { t, language } = useTheme();
+  const { t, language, theme } = useTheme();
   const CASE_STUDIES = getCaseStudies(language);
   const [contactMode, setContactMode] = useState<'text' | 'draw'>('text');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,7 +38,7 @@ export function HomePage() {
       surface: getComputedStyle(root).getPropertyValue('--color-surface').trim() || '#FFFFFF',
       onSurface: getComputedStyle(root).getPropertyValue('--color-on-surface').trim() || '#1A1A1A',
     };
-  }, [language]);
+  }, [language, theme]);
 
   // Inicializar canvas de contacto cuando cambia de modo
   useEffect(() => {
@@ -355,6 +356,7 @@ export function HomePage() {
                       className={`${styles.contactModeBtn} ${contactMode === 'text' ? styles.contactModeBtnActive : ''}`}
                       onClick={() => setContactMode('text')}
                     >
+                      <Type size={16} />
                       {t('home_contact_mode_text')}
                     </button>
                     <button
@@ -362,6 +364,7 @@ export function HomePage() {
                       className={`${styles.contactModeBtn} ${contactMode === 'draw' ? styles.contactModeBtnActive : ''}`}
                       onClick={() => setContactMode('draw')}
                     >
+                      <Pencil size={16} />
                       {t('home_contact_mode_draw')}
                     </button>
                   </div>

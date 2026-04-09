@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   Header — Terminal brutalista
+   Header
    ═══════════════════════════════════════════════════════════ */
 
 .header {
@@ -89,7 +89,7 @@
   color: var(--color-on-surface);
 }
 
-/* Action buttons */
+/* ── Action buttons & selectors ─────────────────────────── */
 .actionGroup {
   display: flex;
   align-items: center;
@@ -97,9 +97,13 @@
   gap: 6px;
 }
 
+.selectorWrap {
+  position: relative;
+}
+
 .actionBtn {
   font-family: var(--font-headline);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   padding: 6px 12px;
@@ -107,8 +111,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   border-radius: var(--radius-md);
-  background: transparent;
+  background: var(--color-surface-low);
   color: var(--color-secondary);
   border: 1px solid var(--color-outline-variant);
   transition: background 0.15s, border-color 0.15s;
@@ -119,9 +124,80 @@
   border-color: var(--color-outline);
 }
 
-.actionBtn:active, .actionBtn.active {
+.actionBtnOpen {
   background: var(--color-surface-high);
   border-color: var(--color-outline);
+}
+
+/* Desktop: show label, hide mobile label */
+.actionLabel {
+  display: inline;
+}
+
+.actionLabelMobile {
+  display: none;
+}
+
+/* Theme button: hide duplicate icon in desktop (already shown via first child) */
+.actionLabelMobile svg {
+  display: none;
+}
+
+/* ── Dropdown ───────────────────────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 140px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-outline-variant);
+  overflow: hidden;
+  z-index: 10;
+  animation: dropdownFadeIn 0.15s ease;
+}
+
+:global([data-theme="light"]) .dropdown {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+:global([data-theme="dark"]) .dropdown {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-headline);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  text-align: left;
+}
+
+.dropdownItem:hover {
+  background: var(--color-surface-low);
+  color: var(--color-on-surface);
+}
+
+.dropdownItemActive {
+  color: var(--color-brand);
+  font-weight: 700;
 }
 
 /* Hamburger — hidden on desktop */
@@ -234,6 +310,21 @@
     min-height: 44px;
     min-width: 44px;
     padding: 0 10px;
+  }
+
+  /* Mobile: hide text label, show short label */
+  .actionLabel {
+    display: none;
+  }
+
+  .actionLabelMobile {
+    display: inline;
+    font-size: 13px;
+  }
+
+  /* Hide dropdowns on mobile — direct toggle instead */
+  .dropdown {
+    display: none;
   }
 
   /* Overlay to close menu */
