@@ -4,7 +4,7 @@ import { GraduationCap, HeartHandshake, Shield, Sparkles } from 'lucide-react';
    mismo de la barra del proyecto en el Gantt, así el ícono identifica al proyecto
    de forma consistente en toda la navegación (Home, Works, etc.). */
 const ICONS = {
-  insurtech-global: { Icon: Shield, color: '#1A47E8' },
+  'insurtech-global': { Icon: Shield, color: '#1A47E8' },
   coderhouse: { Icon: GraduationCap, color: '#7BA7BC' },
   ratt: { Icon: HeartHandshake, color: '#A89BC2' },
   'ai-experiments': { Icon: Sparkles, color: '#0D7377' },

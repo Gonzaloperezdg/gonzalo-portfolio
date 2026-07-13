@@ -72,16 +72,16 @@ export function SubProjectPage() {
 
                 {project.slug === 'proyecto-2' && section.id === 'leadership' && (
                   <ProcessDiagram
-                    ariaLabel={t('diagram_proyecto-2_aria')}
-                    caption={t('diagram_proyecto-2_caption')}
+                    ariaLabel={t('diagram_process_aria')}
+                    caption={t('diagram_process_caption')}
                     highlightIndex={1}
-                    highlightBadge={t('diagram_proyecto-2_badge')}
+                    highlightBadge={t('diagram_process_badge')}
                     steps={[
-                      t('diagram_proyecto-2_step_design'),
-                      t('diagram_proyecto-2_step_review'),
-                      t('diagram_proyecto-2_step_adjust'),
-                      t('diagram_proyecto-2_step_qa'),
-                      t('diagram_proyecto-2_step_deploy'),
+                      t('diagram_process_step_design'),
+                      t('diagram_process_step_review'),
+                      t('diagram_process_step_adjust'),
+                      t('diagram_process_step_qa'),
+                      t('diagram_process_step_deploy'),
                     ]}
                   />
                 )}
