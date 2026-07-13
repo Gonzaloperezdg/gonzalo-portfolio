@@ -79,7 +79,6 @@
   flex-direction: column;
   background: rgba(6, 6, 6, 0.94);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 .bar {

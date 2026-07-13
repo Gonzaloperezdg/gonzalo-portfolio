@@ -34,8 +34,11 @@
   pointer-events: none;
   opacity: 0;
   background: var(--header-glass-bg);
+  /* Sin -webkit-backdrop-filter escrito a mano: esbuild deduplica las dos
+     declaraciones y se queda con la última, así que el prefijo manual borra la
+     propiedad estándar del build y Firefox se queda sin blur. El prefijo lo
+     agrega solo el minificador. */
   backdrop-filter: blur(8px) saturate(125%);
-  -webkit-backdrop-filter: blur(8px) saturate(125%);
   mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
   transition: opacity var(--duration-normal) ease;
@@ -200,13 +203,11 @@
 :global([data-theme="light"]) .dropdown {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 :global([data-theme="dark"]) .dropdown {
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 @keyframes dropdownFadeIn {
