@@ -19,13 +19,18 @@
 /* El vidrio va en un pseudo-elemento, no en el header: la máscara que difumina
    el borde inferior afecta a todo lo que pinta el elemento, y si estuviera en el
    header también se desvanecerían los botones. Acá abajo solo vive el fondo.
-   Se extiende 14px por debajo del header para tener margen donde desvanecerse. */
+   Se extiende 14px por debajo del header para tener margen donde desvanecerse.
+
+   No lleva z-index negativo: con z-index: -1 el pseudo queda por detrás del
+   backdrop root y Chromium le entrega un backdrop vacío, así que el
+   backdrop-filter no difumina nada. En su lugar se apila en 0 y el contenido
+   del header se eleva a 1. */
 .header::before {
   content: '';
   position: absolute;
   inset: 0;
   bottom: -14px;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   opacity: 0;
   background: var(--header-glass-bg);
@@ -34,6 +39,11 @@
   mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
   transition: opacity var(--duration-normal) ease;
+}
+
+.header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .scrolled::before {
