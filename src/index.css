@@ -46,6 +46,10 @@
   --color-accent-badge-text:    #FFFFFF;
   --color-focus-ring:           #1A47E8;
 
+  /* Header glass — barra que aparece al scrollear, para que el texto de la
+     página no se choque con la nav. Semitransparente + backdrop-filter, sin borde. */
+  --header-glass-bg:            rgba(255, 255, 255, 0.72);
+
   /* Win98 chrome — usado por PaintToolbar, Timeline, bevel utilities */
   --color-bevel-white:          #FFFFFF;
   --color-bevel-mid-light:      #E0E0E0;
@@ -170,6 +174,8 @@
   --color-accent-badge-text:    #FFFFFF;
 
   --color-focus-ring:           #4F72F0;
+
+  --header-glass-bg:            rgba(10, 10, 10, 0.68);
 
   /* Win98 chrome — dark overrides */
   --color-bevel-white:          #1E1E1E;

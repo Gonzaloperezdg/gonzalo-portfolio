@@ -13,6 +13,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const langRef = useRef<HTMLDivElement>(null);
   const themeRef = useRef<HTMLDivElement>(null);
@@ -25,6 +26,15 @@ export function Header() {
     };
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  /* La barra glass solo aparece cuando hay contenido pasando por detrás: arriba
+     de todo el header queda transparente. */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const handleContactClick = (e: React.MouseEvent) => {
@@ -73,7 +83,7 @@ export function Header() {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       {/* Hamburger button - mobile only */}
       <button
         className={styles.hamburger}

@@ -4,6 +4,12 @@ import { Helmet } from 'react-helmet-async';
 import { getCaseStudies } from '../data/caseStudies';
 import { useTheme } from '../context/ThemeContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { Figure } from '../components/Figure/Figure';
+import { Gallery } from '../components/Gallery/Gallery';
+import { GenerationsDiagram } from '../components/GenerationsDiagram/GenerationsDiagram';
+import { ImpactPanel } from '../components/ImpactPanel/ImpactPanel';
+import { HERO_INSURTECH, CODERHOUSE_CLASE, RATT_ANTES, RATT_DESPUES } from '../data/media';
+import { getCoderhouseImpact } from '../data/coderhouseImpact';
 import styles from './CaseStudyPage.module.css';
 
 export function CaseStudyPage() {
@@ -42,6 +48,10 @@ export function CaseStudyPage() {
 
       <article ref={containerRef} className={styles.page}>
         <Link to="/works" className={styles.backLink}>{t('cs_back_works')}</Link>
+
+        {study.slug === 'insurtech-global' && (
+          <Figure src={HERO_INSURTECH} alt={t('media_insurtech_alt')} bare priority />
+        )}
 
         <header className={styles.header}>
           <span className={styles.badge} data-reveal="meta">{study.type}</span>
@@ -83,6 +93,77 @@ export function CaseStudyPage() {
               <blockquote className={styles.pullQuote} data-reveal="quote">
                 {section.pullQuote}
               </blockquote>
+            )}
+
+            {study.slug === 'coderhouse' && section.id === 'show' && (
+              <Figure
+                src={CODERHOUSE_CLASE}
+                alt={t('media_coderhouse_alt')}
+                caption={t('media_coderhouse_caption')}
+                maxWidth="440px"
+              />
+            )}
+
+            {study.slug === 'coderhouse' && section.id === 'results' && (
+              <ImpactPanel data={getCoderhouseImpact(language)} />
+            )}
+
+            {study.slug === 'ratt' && section.id === 'narrative' && (
+              <Gallery
+                caption={t('media_ratt_hint')}
+                labels={{
+                  open: t('media_lightbox_open'),
+                  close: t('media_lightbox_close'),
+                  prev: t('media_lightbox_prev'),
+                  next: t('media_lightbox_next'),
+                }}
+                groups={[
+                  {
+                    label: t('media_ratt_before'),
+                    images: RATT_ANTES.map((pair, i) => ({
+                      ...pair,
+                      alt: `${t('media_ratt_before_alt')} ${i + 1}`,
+                    })),
+                  },
+                  {
+                    label: t('media_ratt_after'),
+                    images: RATT_DESPUES.map((pair, i) => ({
+                      ...pair,
+                      alt: `${t('media_ratt_after_alt')} ${i + 1}`,
+                    })),
+                  },
+                ]}
+              />
+            )}
+
+            {study.slug === 'ai-experiments' && section.id === 'evolution' && (
+              <GenerationsDiagram
+                ariaLabel={t('diagram_gen_aria')}
+                caption={t('diagram_gen_caption')}
+                generations={[
+                  {
+                    label: t('diagram_gen1_label'),
+                    period: t('diagram_gen1_period'),
+                    title: t('diagram_gen1_title'),
+                    tools: ['ChatGPT', 'Stitch', 'Google AI Studio', 'Antigravity', 'Netlify'],
+                    color: '#1A47E8',
+                  },
+                  {
+                    label: t('diagram_gen2_label'),
+                    period: t('diagram_gen2_period'),
+                    title: t('diagram_gen2_title'),
+                    tools: ['NotebookLM + MCP', 'Antigravity', 'React + Vite + TS', 'Supabase'],
+                    color: '#0D7377',
+                  },
+                  {
+                    label: t('diagram_gen3_label'),
+                    period: t('diagram_gen3_period'),
+                    title: t('diagram_gen3_title'),
+                    tools: ['Claude Code', 'NotebookLM + Perplexity', 'ASCII mockups', 'PRD + Design System'],
+                    color: '#A89BC2',
+                  },
+                ]}
+              />
             )}
           </section>
         ))}

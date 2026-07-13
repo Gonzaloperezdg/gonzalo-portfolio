@@ -130,6 +130,9 @@
 }
 
 .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 3px 8px;
   font-family: var(--font-mono);
   font-size: var(--text-xs);

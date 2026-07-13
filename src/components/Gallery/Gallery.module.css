@@ -1,0 +1,202 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: var(--space-8) 0;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.groupLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-1) solid var(--color-outline-variant);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.thumbButton {
+  position: relative;
+  display: block;
+  padding: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--color-surface-low);
+  border: var(--border-1) solid var(--color-outline-variant);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-fast) ease, transform var(--duration-fast) ease;
+}
+
+.thumbButton:hover,
+.thumbButton:focus-visible {
+  border-color: var(--color-brand);
+  transform: translateY(-2px);
+}
+
+.thumbButton:focus-visible {
+  outline: var(--border-2) solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.hint {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  color: var(--color-on-surface-variant);
+}
+
+/* ─── Lightbox ─────────────────────────────────────────── */
+
+/* Va montado en <body> vía portal, por encima del header (100) y de la barra
+   de dibujo (200). Por debajo del loading screen (999). */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+  background: rgba(6, 6, 6, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4);
+}
+
+.counter {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #cccccc;
+}
+
+/* Única zona que scrollea: las capturas de página completa de RATT llegan a
+   3000px de alto y los controles tienen que quedarse quietos. */
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 72px var(--space-8);
+}
+
+.lightboxImg {
+  display: block;
+  width: min(900px, 100%);
+  height: auto;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+}
+
+.close,
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: var(--border-1) solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--duration-fast) ease;
+}
+
+.close {
+  width: 40px;
+  height: 40px;
+  font-size: var(--text-ui);
+  flex-shrink: 0;
+}
+
+.nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 72px;
+  font-size: var(--text-lg);
+  line-height: 1;
+}
+
+.navPrev {
+  left: var(--space-4);
+}
+
+.navNext {
+  right: var(--space-4);
+}
+
+.close:hover,
+.nav:hover {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+.close:focus-visible,
+.nav:focus-visible {
+  outline: var(--border-2) solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .scroll {
+    padding: 0 var(--space-3) 88px;
+  }
+
+  /* En mobile no hay lugar a los costados: los controles van abajo, fijos. */
+  .nav {
+    top: auto;
+    bottom: var(--space-4);
+    transform: none;
+    width: 42%;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumbButton {
+    transition: none;
+  }
+
+  .thumbButton:hover,
+  .thumbButton:focus-visible {
+    transform: none;
+  }
+}

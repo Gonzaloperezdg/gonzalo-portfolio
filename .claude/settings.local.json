@@ -10,7 +10,8 @@
       "Bash(start:*)",
       "Bash(npx vite:*)",
       "Bash(grep:*)",
-      "Read(//f/AIUXUI/PortfolioProject2/gonzalo-portfolio/**)"
+      "Read(//f/AIUXUI/PortfolioProject2/gonzalo-portfolio/**)",
+      "Bash(node -e ':*)"
     ]
   }
 }

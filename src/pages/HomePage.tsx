@@ -8,6 +8,7 @@ import { getCaseStudies } from '../data/caseStudies';
 import { useTheme } from '../context/ThemeContext';
 import { Button } from '../components/ui/Button/Button';
 import { Input } from '../components/ui/Input/Input';
+import { CaseStudyIcon } from '../components/CaseStudyIcon/CaseStudyIcon';
 import styles from './HomePage.module.css';
 import gonzaloImg from '../assets/un_poco_de_mi.jpg';
 
@@ -318,9 +319,12 @@ export function HomePage() {
             <div className={styles.featuredList}>
               {CASE_STUDIES.map(cs => (
                 <Link key={cs.slug} to={`/works/${cs.slug}`} className={styles.featuredItem} data-reveal>
-                  <span className={styles.featuredItemType}>{cs.type}</span>
-                  <span className={styles.featuredItemTitle}>{cs.title}</span>
-                  <span className={styles.featuredItemPeriod}>{cs.period}</span>
+                  <CaseStudyIcon slug={cs.slug} size={28} className={styles.featuredItemIcon} />
+                  <span className={styles.featuredItemText}>
+                    <span className={styles.featuredItemType}>{cs.type}</span>
+                    <span className={styles.featuredItemTitle}>{cs.title}</span>
+                    <span className={styles.featuredItemPeriod}>{cs.period}</span>
+                  </span>
                 </Link>
               ))}
               <Link to="/works" className={styles.sectionLink} data-reveal>

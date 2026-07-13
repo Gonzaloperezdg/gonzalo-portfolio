@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useTheme } from '../context/ThemeContext';
 import { Button } from '../components/ui/Button/Button';
+import { Briefcase, Users, UsersRound } from 'lucide-react';
 import gonzaloImg from '../assets/un_poco_de_mi.jpg';
 import styles from './AboutPage.module.css';
 
@@ -65,14 +66,23 @@ export function AboutPage() {
           <h2 className={styles.heading} data-reveal="heading">{t('about_driving_title')}</h2>
           <p>{t('about_driving_p1')}</p>
           <ul className={styles.list}>
-            <li>
-              <strong>{t('about_empathy_user')}</strong> {t('about_empathy_user_desc')}
+            <li className={styles.listItem}>
+              <Users className={styles.listIcon} size={20} aria-hidden="true" />
+              <span>
+                <strong>{t('about_empathy_user')}</strong> {t('about_empathy_user_desc')}
+              </span>
             </li>
-            <li>
-              <strong>{t('about_empathy_team')}</strong> {t('about_empathy_team_desc')}
+            <li className={styles.listItem}>
+              <UsersRound className={styles.listIcon} size={20} aria-hidden="true" />
+              <span>
+                <strong>{t('about_empathy_team')}</strong> {t('about_empathy_team_desc')}
+              </span>
             </li>
-            <li>
-              <strong>{t('about_empathy_client')}</strong> {t('about_empathy_client_desc')}
+            <li className={styles.listItem}>
+              <Briefcase className={styles.listIcon} size={20} aria-hidden="true" />
+              <span>
+                <strong>{t('about_empathy_client')}</strong> {t('about_empathy_client_desc')}
+              </span>
             </li>
           </ul>
           <p>{t('about_driving_p2')}</p>

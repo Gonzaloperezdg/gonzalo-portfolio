@@ -3,6 +3,8 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getCaseStudies } from '../data/caseStudies';
 import { useTheme } from '../context/ThemeContext';
+import { ProcessDiagram } from '../components/ProcessDiagram/ProcessDiagram';
+import { TechIcon } from '../components/TechIcon/TechIcon';
 import styles from './SubProjectPage.module.css';
 
 export function SubProjectPage() {
@@ -67,6 +69,22 @@ export function SubProjectPage() {
                     {section.pullQuote}
                   </blockquote>
                 )}
+
+                {project.slug === 'proyecto-2' && section.id === 'leadership' && (
+                  <ProcessDiagram
+                    ariaLabel={t('diagram_proyecto-2_aria')}
+                    caption={t('diagram_proyecto-2_caption')}
+                    highlightIndex={1}
+                    highlightBadge={t('diagram_proyecto-2_badge')}
+                    steps={[
+                      t('diagram_proyecto-2_step_design'),
+                      t('diagram_proyecto-2_step_review'),
+                      t('diagram_proyecto-2_step_adjust'),
+                      t('diagram_proyecto-2_step_qa'),
+                      t('diagram_proyecto-2_step_deploy'),
+                    ]}
+                  />
+                )}
               </section>
             ))}
           </>
@@ -89,7 +107,10 @@ export function SubProjectPage() {
                 <h2 className={styles.sectionTitle}>{t('sp_section_stack')}</h2>
                 <div className={styles.tags}>
                   {project.stack.map((tech) => (
-                    <span key={tech} className={styles.tag}>{tech}</span>
+                    <span key={tech} className={styles.tag}>
+                      <TechIcon tech={tech} />
+                      {tech}
+                    </span>
                   ))}
                 </div>
               </section>

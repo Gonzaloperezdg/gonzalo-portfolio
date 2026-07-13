@@ -8,11 +8,42 @@
   justify-content: space-between;
   padding: 0 48px;
   height: 60px;
-  background: transparent;
-  border-bottom: none;
   position: sticky;
   top: 0;
   z-index: var(--z-header);
+
+  background: transparent;
+  border-bottom: none;
+}
+
+/* El vidrio va en un pseudo-elemento, no en el header: la máscara que difumina
+   el borde inferior afecta a todo lo que pinta el elemento, y si estuviera en el
+   header también se desvanecerían los botones. Acá abajo solo vive el fondo.
+   Se extiende 14px por debajo del header para tener margen donde desvanecerse. */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  bottom: -14px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--header-glass-bg);
+  backdrop-filter: blur(8px) saturate(125%);
+  -webkit-backdrop-filter: blur(8px) saturate(125%);
+  mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  transition: opacity var(--duration-normal) ease;
+}
+
+.scrolled::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header::before {
+    transition: none;
+  }
 }
 
 .logo {

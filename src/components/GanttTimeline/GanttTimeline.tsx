@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
+import { CaseStudyIcon } from '../CaseStudyIcon/CaseStudyIcon';
 import styles from './GanttTimeline.module.css';
 
 interface GanttItem {
@@ -219,8 +220,11 @@ export function GanttTimeline() {
             <div key={item.slug} className={`${styles.row} ${item.isPrimary ? styles.rowPrimary : ''}`}>
               {/* Etiqueta izquierda */}
               <div className={styles.rowMeta}>
-                <span className={`${styles.rowTitle} ${item.isPrimary ? styles.primary : ''}`}>
-                  {item.title}
+                <span className={styles.rowTitleRow}>
+                  <CaseStudyIcon slug={item.slug} className={styles.rowIcon} />
+                  <span className={`${styles.rowTitle} ${item.isPrimary ? styles.primary : ''}`}>
+                    {item.title}
+                  </span>
                 </span>
                 <span className={styles.rowSubtitle}>{item.subtitle}</span>
               </div>

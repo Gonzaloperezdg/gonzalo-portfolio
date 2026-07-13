@@ -191,7 +191,8 @@ export const CASE_STUDIES: CaseStudyData[] = [
         id: 'results',
         title: 'El Impacto',
         content: [
-          '70+ estudiantes en 6 meses. Rating promedio de 4.92 sobre 5. Clases presenciales, 2 horas, dos veces por semana.',
+          'Clases de dos horas, dos veces por semana, durante seis meses.',
+          'Lo que más me interesa de las evaluaciones no es el promedio, sino qué destacaron: lo más mencionado fue la claridad al explicar y la verificación de que el tema se hubiera entendido. Es exactamente lo que el método hermanito buscaba producir.',
         ],
       },
       {
@@ -651,7 +652,8 @@ const CASE_STUDIES_EN: CaseStudyData[] = [
         id: 'results',
         title: 'The Impact',
         content: [
-          '70+ students over 6 months. Average rating of 4.92 out of 5. In-person classes, 2 hours, twice a week.',
+          'Two-hour classes, twice a week, for six months.',
+          'What interests me most about the evaluations is not the average, but what students singled out: the most mentioned strengths were clarity when explaining and checking that the topic had actually landed. That is exactly what the little-brother method was built to produce.',
         ],
       },
       {
