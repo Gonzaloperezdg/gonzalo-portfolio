@@ -61,8 +61,12 @@ export const translations = {
     sp_section_stack: 'Stack',
     sp_section_workflow: 'Workflow',
     sp_section_insights: 'Insights',
+    sp_section_gallery: 'Capturas',
+    sp_visit: 'Ver el proyecto',
 
     // Media — imágenes y galerías
+    media_subproject_hint: 'Click en cualquier captura para verla completa.',
+    media_subproject_alt: 'Captura de',
     media_insurtech_alt: 'Dashboard del producto InsurTech: pantallas del sistema de gestión de riesgos en composición isométrica.',
     media_coderhouse_alt: 'Clase de Coderhouse: Gonzalo enseñando disfrazado frente a la slide de Atomic Design.',
     media_coderhouse_caption: 'El disfraz era parte del método: si la clase se recuerda, el concepto también.',
@@ -212,8 +216,12 @@ export const translations = {
     sp_section_stack: 'Stack',
     sp_section_workflow: 'Workflow',
     sp_section_insights: 'Insights',
+    sp_section_gallery: 'Screenshots',
+    sp_visit: 'Visit the project',
 
     // Media — images and galleries
+    media_subproject_hint: 'Click any screenshot to see it in full.',
+    media_subproject_alt: 'Screenshot of',
     media_insurtech_alt: 'InsurTech product dashboard: risk management screens in an isometric composition.',
     media_coderhouse_alt: 'Coderhouse class: Gonzalo teaching in costume in front of the Atomic Design slide.',
     media_coderhouse_caption: 'The costume was part of the method: if the class is memorable, so is the concept.',

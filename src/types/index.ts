@@ -47,6 +47,8 @@ export interface SubProject {
   insights?: string[];
   status: 'completed' | 'active';
   sections?: CaseStudySection[];
+  /* URL pública del proyecto, si está deployado. */
+  url?: string;
 }
 
 export interface CaseStudyData extends CaseStudyMeta {

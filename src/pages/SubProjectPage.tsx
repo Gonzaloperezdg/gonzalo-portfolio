@@ -5,6 +5,8 @@ import { getCaseStudies } from '../data/caseStudies';
 import { useTheme } from '../context/ThemeContext';
 import { ProcessDiagram } from '../components/ProcessDiagram/ProcessDiagram';
 import { TechIcon } from '../components/TechIcon/TechIcon';
+import { Gallery } from '../components/Gallery/Gallery';
+import { SUBPROJECT_GALLERIES } from '../data/media';
 import styles from './SubProjectPage.module.css';
 
 export function SubProjectPage() {
@@ -27,6 +29,8 @@ export function SubProjectPage() {
       </div>
     );
   }
+
+  const gallery = SUBPROJECT_GALLERIES[project.slug];
 
   const allSubs = parent.subProjects ?? [];
   const currentIdx = allSubs.findIndex((sp) => sp.slug === projectSlug);
@@ -53,6 +57,16 @@ export function SubProjectPage() {
           <p className={styles.period}>{project.period}</p>
           {project.status === 'active' && (
             <span className={styles.activeBadge}>{t('cs_active_badge')}</span>
+          )}
+          {project.url && (
+            <a
+              className={styles.visitLink}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('sp_visit')} ↗
+            </a>
           )}
         </header>
 
@@ -94,6 +108,30 @@ export function SubProjectPage() {
               <h2 className={styles.sectionTitle}>{t('sp_section_description')}</h2>
               <p className={styles.text}>{project.description}</p>
             </section>
+
+            {gallery && gallery.length > 0 && (
+              <section className={styles.section}>
+                <h2 className={styles.sectionTitle}>{t('sp_section_gallery')}</h2>
+                <Gallery
+                  caption={t('media_subproject_hint')}
+                  labels={{
+                    open: t('media_lightbox_open'),
+                    close: t('media_lightbox_close'),
+                    prev: t('media_lightbox_prev'),
+                    next: t('media_lightbox_next'),
+                  }}
+                  groups={[
+                    {
+                      label: project.title,
+                      images: gallery.map((pair, i) => ({
+                        ...pair,
+                        alt: `${t('media_subproject_alt')} ${project.title} ${i + 1}`,
+                      })),
+                    },
+                  ]}
+                />
+              </section>
+            )}
 
             {project.motivation && (
               <section className={styles.section}>
